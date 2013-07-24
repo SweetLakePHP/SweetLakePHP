@@ -1,0 +1,39 @@
+.news .row-fluid {
+    position:relative;
+}
+
+.news .thumbnail {
+    margin-bottom: 15px;
+}
+
+.news .image {
+    border: 1px solid #DDDDDD;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+    display: block;
+    line-height: 1;
+}
+
+.news .title {
+    color: #0088CC;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 27px;
+    margin: 0;
+    text-decoration: none;
+    text-rendering: optimizelegibility;
+}
+
+.news .content {
+    margin-top: 5px;
+    overflow: hidden;
+    max-height: 105px;
+}
+
+.news .readmore {
+    position: absolute;
+    right:    0;
+    bottom:   0;
+    margin-bottom: 5px;
+    margin-right: 7px;
+}

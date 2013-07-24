@@ -1,0 +1,18 @@
+{% extends 'SWPFrontendBundle::layout.html.twig' %}
+
+{% block title %}
+    Contact
+{% endblock %}
+
+{% block content %}
+    <h1>Contact us</h1>
+
+    {% form_theme contactForm 'SWPFrontendBundle:Form:bootstrap.html.twig' %}
+    {{ form_start(contactForm, {'method': 'POST', 'action': path('contact'), 'class': 'from-horizontal'}) }}
+    {{ form_errors(contactForm) }}
+
+    {{ form_rest(contactForm) }}
+
+    <input class="btn btn-large btn-primary" type="submit" />
+    {{ form_end(contactForm) }}
+{% endblock %}

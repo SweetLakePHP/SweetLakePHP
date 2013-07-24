@@ -1,0 +1,3 @@
+swp_frontend:
+    resource: "@SWPFrontendBundle/Controller"
+    type:     annotation

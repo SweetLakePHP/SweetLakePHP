@@ -1,0 +1,21 @@
+{% block field_row %}
+    {% spaceless %}
+
+        {% if form.vars.label and (form.vars.name | lower != form.vars.label | lower) %}
+            {% set name = form.vars.label %}
+        {% else %}
+            {% set name = form.vars.id | replace({'_':'.'}) %}
+        {% endif %}
+
+        <div class="control-group{% if errors|length > 0 %} error{% endif %}">
+            <label class="{% if form.vars.required %}required {% endif %}control-label" for="{{ form.vars.id }}">
+                {{ form.vars.id | replace({'_': '.'}) | trans }}
+            </label>
+
+            <div class="controls">
+                {{ form_widget(form, { 'label_attr': {'placeholder': name | trans } }) }}
+                {{ form_errors(form) }}
+            </div>
+        </div>
+    {% endspaceless %}
+{% endblock field_row %}

@@ -1,0 +1,3 @@
+swp_frontend_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: SWPFrontendBundle:Default:index }

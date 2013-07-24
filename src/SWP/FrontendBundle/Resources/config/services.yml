@@ -1,0 +1,7 @@
+parameters:
+#    swp_frontend.example.class: SWP\FrontendBundle\Example
+
+services:
+#    swp_frontend.example:
+#        class: %swp_frontend.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

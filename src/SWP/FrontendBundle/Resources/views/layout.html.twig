@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>SweetLakePHP - {% block title %}{% endblock %}</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- CSS -->
+        {% stylesheets
+            'bundles/swpfrontend/css/bootstrap.min.css'
+            'bundles/swpfrontend/css/bootstrap-responsive.min.css'
+            'bundles/swpfrontend/css/datepicker.css'
+            'bundles/swpfrontend/css/layout.css'
+            'bundles/swpfrontend/css/style.css'
+        filter='cssrewrite' %}
+            <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
+        {% endstylesheets %}
+
+        {% block stylesheets %}{% endblock %}
+
+        <!-- Javascript -->
+        {% javascripts
+            '@SWPFrontendBundle/Resources/public/js/jquery-1.10.2.js'
+            '@SWPFrontendBundle/Resources/public/js/bootstrap.min.js'
+            '@SWPFrontendBundle/Resources/public/js/bootstrap-datepicker.js'
+            '@SWPFrontendBundle/Resources/public/js/application.js'
+        %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
+        {% block javascripts %}{% endblock %}
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="brand" href="{{ path('index') }}">SweetLakePHP</a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li><a href="{{ path('index') }}">Home</a></li>
+                            <li><a href="{{ path('about') }}">About</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div><!--/.nav-collapse -->
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="span8">
+                    {% block content %}{% endblock %}
+                </div>
+
+                <div class="span3 well">
+                    Sidebar
+                </span>
+            </div>
+        </div>
+    </body>
+</html>
+
+
