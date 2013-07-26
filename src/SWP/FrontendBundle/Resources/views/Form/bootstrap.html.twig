@@ -1,4 +1,4 @@
-{% block field_row %}
+{% block form_row %}
     {% spaceless %}
 
         {% if form.vars.label and (form.vars.name | lower != form.vars.label | lower) %}
@@ -18,4 +18,4 @@
             </div>
         </div>
     {% endspaceless %}
-{% endblock field_row %}
+{% endblock form_row %}
