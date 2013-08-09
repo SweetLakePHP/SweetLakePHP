@@ -37,3 +37,13 @@
     margin-bottom: 5px;
     margin-right: 7px;
 }
+
+#contact #contact_content {
+    resize: vertical;
+    min-height: 125px;
+}
+
+.captcha_image {
+    margin-right: 10px;
+    cursor: pointer;
+}

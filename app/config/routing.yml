@@ -1,3 +1,6 @@
 swp_frontend:
     resource: "@SWPFrontendBundle/Controller"
     type:     annotation
+
+gregwar_captcha_routing:
+    resource: "@GregwarCaptchaBundle/Resources/config/routing/routing.yml"

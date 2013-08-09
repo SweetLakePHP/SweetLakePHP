@@ -24,6 +24,13 @@ class Configuration implements ConfigurationInterface
         // configure your bundle. See the documentation linked above for
         // more information on that topic.
 
+        $rootNode
+            ->children()
+                ->scalarNode('contact_email')->end()
+                ->scalarNode('contact_receivers')->end()
+            ->end()
+        ;
+
         return $treeBuilder;
     }
 }

@@ -9,6 +9,10 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
+use Symfony\Component\Config\FileLocator;
+
 use SWP\FrontendBundle\Form\Type\ContactType;
 
 class IndexController extends Controller
@@ -36,10 +40,38 @@ class IndexController extends Controller
      * @Template()
      * @Method({"GET","POST"})
      */
-    public function contactAction()
+    public function contactAction(Request $request)
     {
         $contactForm = $this->createForm(new ContactType());
 
+        if ($request->getMethod() === "POST") {
+            $contactForm->bind($request);
+
+            if ($contactForm->isValid()) {
+                $contactEmailsString = $this->container->getParameter('contact_receivers');
+                $contactEmails       = explode(', ', $contactEmailsString);
+
+                $email   = $this->container->getParameter('contact_email');
+                $contact = $request->request->get('contact');
+
+
+                $message = \Swift_Message::newInstance()
+                    ->setSubject($contact['subject'])
+                    ->setFrom($email)
+                    ->setReplyTo($contact['email'])
+                    ->setBody($contact['content'])
+                ;
+
+                foreach ($contactEmails as $key => $email) {
+                    $message->addTo($email);
+                }
+
+                $this->get('mailer')->send($message);
+
+                $this->get('session')->getFlashBag()->add('success', 'contact.sent.success');
+                return $this->redirect($this->generateUrl('contact'));
+            }
+        }
 
         return array(
             'contactForm' => $contactForm->createView()

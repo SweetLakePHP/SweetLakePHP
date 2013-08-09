@@ -1,0 +1,11 @@
+contact:
+    name:                               Name
+    email:                              E-mail
+    subject:                            Subject
+    content:                            Content
+    captcha:
+        title:                           Captcha
+        refresh:                        Renew captcha by clicking on the image
+    send:                               Send
+    sent:
+        success:                        The contact form has been successfully sent

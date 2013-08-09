@@ -1,6 +1,5 @@
 {% block form_row %}
     {% spaceless %}
-
         {% if form.vars.label and (form.vars.name | lower != form.vars.label | lower) %}
             {% set name = form.vars.label %}
         {% else %}
@@ -9,13 +8,42 @@
 
         <div class="control-group{% if errors|length > 0 %} error{% endif %}">
             <label class="{% if form.vars.required %}required {% endif %}control-label" for="{{ form.vars.id }}">
-                {{ form.vars.id | replace({'_': '.'}) | trans }}
+                {{ name | trans }}
             </label>
 
             <div class="controls">
                 {{ form_widget(form, { 'label_attr': {'placeholder': name | trans } }) }}
                 {{ form_errors(form) }}
+
+                {% if form.vars.attr.help is defined %}
+                    <span class="help-block">
+                        {{ form.vars.attr.help | trans }}
+                    </span>
+                {% endif %}
             </div>
         </div>
     {% endspaceless %}
 {% endblock form_row %}
+
+{% block captcha_widget %}
+    {% if is_human %}
+        -
+    {% else %}
+        {% spaceless %}
+            {% if reload %}
+                <script type="text/javascript">
+                    $(document).ready(function(){
+                        $(".captcha_image").on('click', function(){
+                            var img = document.getElementById('{{ image_id }}');
+                            img.src = '{{ captcha_code }}?n=' + (new Date()).getTime();
+                        });
+                    });
+                </script>
+            {% endif %}
+
+            <img class="captcha_image" id="{{ image_id }}" src="{{ captcha_code }}" alt="" title="captcha" width="{{ captcha_width }}" height="{{ captcha_height }}" {% if reload %}href="javascript:reload_{{ image_id }}();"{% endif %}/>
+
+            {{ form_widget(form, {'attr': {'placeholder': '*****'}}) }}
+        {% endspaceless %}
+    {% endif %}
+{% endblock %}

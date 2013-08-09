@@ -14,4 +14,7 @@ parameters:
     locale:            en
     secret:            ThisTokenIsNotSoSecretChangeIt
 
+    contact_email:     email@domain.com
+    contact_receivers: "email1@domain.com, email2@domain.com"
+
     #delivery_address:  email@domain.com
