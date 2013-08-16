@@ -3,8 +3,107 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "92bdb5096ec9cd6378a58aa0ed06435d",
+    "hash": "163b01e9309539c604e0af231536e8ff",
     "packages": [
+        {
+            "name": "dms/meetup-api-bundle",
+            "version": "v1.0.0",
+            "target-dir": "DMS/Bundle/MeetupApiBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rdohms/DMSMeetupApiBundle.git",
+                "reference": "v1.0.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rdohms/DMSMeetupApiBundle/zipball/v1.0.0",
+                "reference": "v1.0.0",
+                "shasum": ""
+            },
+            "require": {
+                "dms/meetup-api-client": ">=1.0,<2.0",
+                "php": ">=5.3.2"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "DMS\\Bundle\\MeetupApiBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rafael Dohms",
+                    "homepage": "http://doh.ms"
+                }
+            ],
+            "description": "DMS Meetup API Bundle, enables Meetup API clients in services",
+            "homepage": "https://github.com/rdohms/DMSMeetupApiBundle",
+            "keywords": [
+                "api",
+                "bundle",
+                "dms",
+                "meetup",
+                "meetup.com",
+                "symfony"
+            ],
+            "time": "2013-04-12 13:11:38"
+        },
+        {
+            "name": "dms/meetup-api-client",
+            "version": "v1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rdohms/meetup-api-client.git",
+                "reference": "v1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rdohms/meetup-api-client/zipball/v1.1",
+                "reference": "v1.1",
+                "shasum": ""
+            },
+            "require": {
+                "guzzle/guzzle": ">=3.1,<4.0"
+            },
+            "require-dev": {
+                "symfony/console": ">=2.2,<3.0",
+                "symfony/css-selector": ">=2.2,<3.0",
+                "symfony/dom-crawler": ">=2.2,<3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "DMS": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rafael Dohms",
+                    "homepage": "http://doh.ms"
+                }
+            ],
+            "description": "Meetup.com API client written on top of Guzzle. This supports all API operations.",
+            "keywords": [
+                "Guzzle",
+                "api",
+                "dms",
+                "meetup.com"
+            ],
+            "time": "2013-04-11 18:14:12"
+        },
         {
             "name": "doctrine/common",
             "version": "2.3.0",
@@ -378,6 +477,98 @@
                 "visual"
             ],
             "time": "2013-08-08 12:38:09"
+        },
+        {
+            "name": "guzzle/guzzle",
+            "version": "v3.7.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/guzzle.git",
+                "reference": "v3.7.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/v3.7.2",
+                "reference": "v3.7.2",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.3.2",
+                "symfony/event-dispatcher": ">=2.1"
+            },
+            "replace": {
+                "guzzle/batch": "self.version",
+                "guzzle/cache": "self.version",
+                "guzzle/common": "self.version",
+                "guzzle/http": "self.version",
+                "guzzle/inflection": "self.version",
+                "guzzle/iterator": "self.version",
+                "guzzle/log": "self.version",
+                "guzzle/parser": "self.version",
+                "guzzle/plugin": "self.version",
+                "guzzle/plugin-async": "self.version",
+                "guzzle/plugin-backoff": "self.version",
+                "guzzle/plugin-cache": "self.version",
+                "guzzle/plugin-cookie": "self.version",
+                "guzzle/plugin-curlauth": "self.version",
+                "guzzle/plugin-error-response": "self.version",
+                "guzzle/plugin-history": "self.version",
+                "guzzle/plugin-log": "self.version",
+                "guzzle/plugin-md5": "self.version",
+                "guzzle/plugin-mock": "self.version",
+                "guzzle/plugin-oauth": "self.version",
+                "guzzle/service": "self.version",
+                "guzzle/stream": "self.version"
+            },
+            "require-dev": {
+                "doctrine/cache": "*",
+                "monolog/monolog": "1.*",
+                "phpunit/phpunit": "3.7.*",
+                "psr/log": "1.0.*",
+                "symfony/class-loader": "*",
+                "zendframework/zend-cache": "2.0.*",
+                "zendframework/zend-log": "2.0.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Guzzle\\Tests": "tests/",
+                    "Guzzle": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                },
+                {
+                    "name": "Guzzle Community",
+                    "homepage": "https://github.com/guzzle/guzzle/contributors"
+                }
+            ],
+            "description": "Guzzle is a PHP HTTP client library and framework for building RESTful web service clients",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "client",
+                "curl",
+                "framework",
+                "http",
+                "http client",
+                "rest",
+                "web service"
+            ],
+            "time": "2013-08-02 18:31:05"
         },
         {
             "name": "incenteev/composer-parameter-handler",

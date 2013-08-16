@@ -15,6 +15,9 @@ use Symfony\Component\Config\FileLocator;
 
 use SWP\FrontendBundle\Form\Type\ContactType;
 
+use DMS\Service\Meetup\MeetupKeyAuthClient;
+use DMS\Service\Meetup\MeetupOAuthClient;
+
 class IndexController extends Controller
 {
     /**
@@ -23,7 +26,12 @@ class IndexController extends Controller
      */
     public function indexAction()
     {
-        return array();
+        $meetupService = $this->get('swp_frontend.meetupService');
+        $events        = $meetupService->getNewEvents();
+
+        return array(
+            'events' => $events
+        );
     }
 
     /**

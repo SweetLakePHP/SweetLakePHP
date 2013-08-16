@@ -1,7 +1,8 @@
 parameters:
-#    swp_frontend.example.class: SWP\FrontendBundle\Example
+    swp_frontend.meetupService.class: SWP\FrontendBundle\Service\MeetupService
 
 services:
-#    swp_frontend.example:
-#        class: %swp_frontend.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    swp_frontend.meetupService:
+        class: %swp_frontend.meetupService.class%
+        arguments:
+            meetupClientFactory: "@dms_meetup_api.client_factory"

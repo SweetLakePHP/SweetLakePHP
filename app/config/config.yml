@@ -60,3 +60,7 @@ swp_frontend:
     contact_receivers: %contact_receivers%
 
 gregwar_captcha: ~
+
+dms_meetup_api:
+    client:
+        key: %meetup_api_key%

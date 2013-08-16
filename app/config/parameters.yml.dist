@@ -17,4 +17,6 @@ parameters:
     contact_email:     email@domain.com
     contact_receivers: "email1@domain.com, email2@domain.com"
 
+    meetup_api_key:    key
+
     #delivery_address:  email@domain.com

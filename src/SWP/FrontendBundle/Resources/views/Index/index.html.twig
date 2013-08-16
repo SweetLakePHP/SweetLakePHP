@@ -7,75 +7,34 @@
 {% block content %}
     <h1>Welkom on SweetLake PHP!</h1>
 
+    <style type="text/css">
+        .thumbnail .content {
+            max-height: 100px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
+
     <div class="news">
+        {% for event in events %}
+            <div class="thumbnail">
+                <div class="row-fluid">
 
-        <div class="thumbnail">
-            <div class="row-fluid">
+                    <div class="span4">
+                        <div class="image">
+                            <img src="http://www.ist-daidalos.org/daten/events/07-10-19_Event_Madrid/Event_Telefonica_2007_010.jpg">
+                        </div>
+                    </div>
 
-                <div class="span4">
-                    <div class="image">
-                        <img src="http://wbpreview.com/previews/WB00C40H4/images/2011-kawasaki-z1000sx-brakes.jpg">
+                    <div class="span8">
+                        <a class="title" href="#">{{ event.name }} ({{ event.datetime.format('d-m-Y') }})</a>
+                        <div class="content">
+                            {{ event.description | striptags | raw | nl2br }}
+                        </div>
+                        <a class="btn btn-info readmore" href="#">{% trans %}event.readmore{% endtrans %}</a>
                     </div>
                 </div>
-
-                <div class="span8">
-                    <a class="title" href="#">New SweetLakePHP Wesbite</a>
-                    <p class="content">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-                    <a class="btn btn-info readmore" href="#">Read More</a>
-                </div>
             </div>
-        </div>
-
-        <div class="thumbnail">
-            <div class="row-fluid">
-
-                <div class="span4">
-                    <div class="image">
-                        <img src="http://wbpreview.com/previews/WB00C40H4/images/2011-kawasaki-z1000sx-brakes.jpg">
-                    </div>
-                </div>
-
-                <div class="span8">
-                    <a class="title" href="#">New SweetLakePHP Wesbite</a>
-                    <p class="content">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-                    <a class="btn btn-info readmore" href="#">Read More</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="thumbnail">
-            <div class="row-fluid">
-
-                <div class="span4">
-                    <div class="image">
-                        <img src="http://wbpreview.com/previews/WB00C40H4/images/2011-kawasaki-z1000sx-brakes.jpg">
-                    </div>
-                </div>
-
-                <div class="span8">
-                    <a class="title" href="#">New SweetLakePHP Wesbite</a>
-                    <p class="content">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-                    <a class="btn btn-info readmore" href="#">Read More</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="thumbnail">
-            <div class="row-fluid">
-
-                <div class="span4">
-                    <div class="image">
-                        <img src="http://wbpreview.com/previews/WB00C40H4/images/2011-kawasaki-z1000sx-brakes.jpg">
-                    </div>
-                </div>
-
-                <div class="span8">
-                    <a class="title" href="#">New SweetLakePHP Wesbite</a>
-                    <p class="content">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-                    <a class="btn btn-info readmore" href="#">Read More</a>
-                </div>
-            </div>
-        </div>
-
+        {% endfor %}
     </div>
 {% endblock %}
