@@ -1,4 +1,6 @@
 contact:
+    singular:                           Contact
+    plural:                             Contacts
     name:                               Name
     email:                              E-mail
     subject:                            Subject
@@ -9,3 +11,8 @@ contact:
     send:                               Send
     sent:
         success:                        The contact form has been successfully sent
+
+event:
+    singular:                           Event
+    plural:                             Events
+    read_more:                          Read more

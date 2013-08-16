@@ -7,14 +7,6 @@
 {% block content %}
     <h1>Welkom on SweetLake PHP!</h1>
 
-    <style type="text/css">
-        .thumbnail .content {
-            max-height: 100px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-    </style>
-
     <div class="news">
         {% for event in events %}
             <div class="thumbnail">
@@ -31,7 +23,7 @@
                         <div class="content">
                             {{ event.description | striptags | raw | nl2br }}
                         </div>
-                        <a class="btn btn-info readmore" href="#">{% trans %}event.readmore{% endtrans %}</a>
+                        <a class="btn btn-info readmore" href="#">{% trans %}event.read_more{% endtrans %}</a>
                     </div>
                 </div>
             </div>

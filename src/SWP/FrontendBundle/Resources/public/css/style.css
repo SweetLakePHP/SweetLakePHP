@@ -47,3 +47,9 @@
     margin-right: 10px;
     cursor: pointer;
 }
+
+.news .thumbnail .content {
+    max-height: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
