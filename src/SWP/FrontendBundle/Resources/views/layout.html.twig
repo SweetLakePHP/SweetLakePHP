@@ -44,9 +44,15 @@
                     <a class="brand" href="{{ path('index') }}">SweetLakePHP</a>
                     <div class="nav-collapse collapse">
                         <ul class="nav">
-                            <li><a href="{{ path('index') }}">Home</a></li>
-                            <li><a href="{{ path('about') }}">About</a></li>
-                            <li><a href="{{ path('contact') }}">Contact</a></li>
+                            <li{% if menuIsActive('index') %} class="active"{% endif %}>
+                                <a href="{{ path('index') }}">Home</a>
+                            </li>
+                            <li{% if menuIsActive('about') %} class="active"{% endif %}>
+                                <a href="{{ path('about') }}">About</a>
+                            </li>
+                            <li{% if menuIsActive('contact') %} class="active"{% endif %}>
+                                <a href="{{ path('contact') }}">Contact</a>
+                            </li>
                         </ul>
                     </div><!--/.nav-collapse -->
                 </div>

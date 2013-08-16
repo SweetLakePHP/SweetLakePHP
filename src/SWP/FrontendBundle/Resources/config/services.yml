@@ -6,3 +6,15 @@ services:
         class: %swp_frontend.meetupService.class%
         arguments:
             meetupClientFactory: "@dms_meetup_api.client_factory"
+    swp_frontend.requestService:
+        class: SWP\FrontendBundle\Service\RequestService
+        arguments:
+            container: "@service_container"
+
+    # Twig Extensions
+    swp_frontend.menu.twig.extension:
+        class: SWP\FrontendBundle\Extension\MenuExtension
+        arguments:
+            requestService: "@swp_frontend.requestService"
+        tags:
+            -  { name: twig.extension }
