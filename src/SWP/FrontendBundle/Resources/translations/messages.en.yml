@@ -16,3 +16,4 @@ event:
     singular:                           Event
     plural:                             Events
     read_more:                          Read more
+    upcoming:                           Upcoming events

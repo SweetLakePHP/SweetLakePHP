@@ -18,3 +18,9 @@ services:
             requestService: "@swp_frontend.requestService"
         tags:
             -  { name: twig.extension }
+    swp_frontend.sidebar.twig.extension:
+        class: SWP\FrontendBundle\Extension\SidebarExtension
+        arguments:
+            meetupService: "@swp_frontend.meetupService"
+        tags:
+            -  { name: twig.extension }

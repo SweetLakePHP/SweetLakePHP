@@ -74,8 +74,16 @@
                     {% block content %}{% endblock %}
                 </div>
 
-                <div class="span3 well">
-                    Sidebar
+                <div class="span3 well sidebar">
+                    <h3>{% trans %}event.upcoming{% endtrans %}</h3>
+                    <ul class="upcoming-list">
+                        {% for event in getUpcomingEvents() %}
+                            <li onClick="location.href='{{ path('event.show', {'id': event.id}) }}'">
+                                <a href="{{ path('event.show', {'id': event.id}) }}">{{ event.name }}</a>
+                                <span class="datetime">{{ event.datetime.format('d-m-Y H:s') }}</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
                 </span>
             </div>
         </div>

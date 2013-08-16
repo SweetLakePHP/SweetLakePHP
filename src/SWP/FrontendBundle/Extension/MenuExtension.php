@@ -1,4 +1,5 @@
 <?php
+
 namespace SWP\FrontendBundle\Extension;
 
 class MenuExtension extends \Twig_Extension
@@ -24,7 +25,7 @@ class MenuExtension extends \Twig_Extension
         return $listBundle;
     }
 
-    public function isActive( $item )
+    public function isActive($item)
     {
         $request = $this->request;
         $route   = $request->getRequest()->attributes->get('_route');

@@ -53,3 +53,29 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.sidebar .upcoming-list {
+    list-style-type: none;
+    margin: 0px -20px 0px -20px;
+}
+
+.sidebar .upcoming-list li {
+    border-bottom: 1px solid #CCCCCC;
+    padding: 5px 20px 5px 20px;
+    cursor: pointer;
+    font-size: 90%;
+}
+
+.sidebar .upcoming-list li:hover {
+    background-color: #CCCCCC;
+}
+
+.sidebar .upcoming-list .datetime {
+    font-size: 80%;
+    float: right;
+}
+
+.sidebar h3 {
+    text-align: center;
+    margin-bottom: 0px;
+}

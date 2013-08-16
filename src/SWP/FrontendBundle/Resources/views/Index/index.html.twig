@@ -23,7 +23,7 @@
                         <div class="content">
                             {{ event.description | striptags | raw | nl2br }}
                         </div>
-                        <a class="btn btn-info readmore" href="#">{% trans %}event.read_more{% endtrans %}</a>
+                        <a class="btn btn-info readmore" href="{{ path('event.show', {'id': event.id}) }}">{% trans %}event.read_more{% endtrans %}</a>
                     </div>
                 </div>
             </div>

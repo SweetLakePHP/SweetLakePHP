@@ -9,25 +9,18 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
-use Symfony\Component\Config\FileLocator;
-
 use SWP\FrontendBundle\Form\Type\ContactType;
-
-use DMS\Service\Meetup\MeetupKeyAuthClient;
-use DMS\Service\Meetup\MeetupOAuthClient;
 
 class IndexController extends Controller
 {
     /**
-     * @Route( "/", name="index" )
+     * @Route("/", name="index")
      * @Template()
      */
     public function indexAction()
     {
         $meetupService = $this->get('swp_frontend.meetupService');
-        $events        = $meetupService->getNewEvents();
+        $events        = $meetupService->getUpcomingEvents();
 
         return array(
             'events' => $events
@@ -35,7 +28,7 @@ class IndexController extends Controller
     }
 
     /**
-     * @Route( "/about", name="about" )
+     * @Route("/about", name="about")
      * @Template()
      */
     public function aboutAction()
@@ -44,7 +37,7 @@ class IndexController extends Controller
     }
 
     /**
-     * @Route( "/contact", name="contact" )
+     * @Route("/contact", name="contact")
      * @Template()
      * @Method({"GET","POST"})
      */
