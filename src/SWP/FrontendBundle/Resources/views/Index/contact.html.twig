@@ -5,23 +5,28 @@
 {% endblock %}
 
 {% block content %}
-    <div id="contact">
-        <h1>Contact us</h1>
-
-        <br>
-        <p>If you have some questions/comments or suggets you can fill the next contact form</p>
-        <br>
-
-        {% form_theme contactForm 'SWPFrontendBundle:Form:bootstrap.html.twig' %}
-        {{ form_start(contactForm, {'method': 'POST', 'action': path('contact'), 'attr': { 'class': 'form-horizontal'}}) }}
-        {{ form_errors(contactForm) }}
-
-        {{ form_rest(contactForm) }}
-
-        <div class="form-actions">
-            <input class="btn btn-primary" type="submit" value="{% trans %}contact.send{% endtrans %}" />
+    <div id="wrapper">
+        <div id="page-title">
+            <div id="page-title-inner">
+                <h2>Contact us</h2>
+            </div>
         </div>
 
-        {{ form_end(contactForm) }}
+        <div id="contact">
+            <p>If you have some questions/comments or suggets you can fill the next contact form</p>
+            <br>
+
+            {% form_theme contactForm 'SWPFrontendBundle:Form:bootstrap.html.twig' %}
+            {{ form_start(contactForm, {'method': 'POST', 'action': path('contact'), 'attr': { 'class': 'form-horizontal no-bottom'}}) }}
+            {{ form_errors(contactForm) }}
+
+            {{ form_rest(contactForm) }}
+
+            <div class="form-actions">
+                <input class="btn btn-primary" type="submit" value="{% trans %}contact.send{% endtrans %}" />
+            </div>
+
+            {{ form_end(contactForm) }}
+        </div>
     </div>
 {% endblock %}

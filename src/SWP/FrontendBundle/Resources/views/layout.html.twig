@@ -1,29 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <!-- start: Meta -->
+        <meta charset="utf-8" />
         <title>SweetLakePHP - {% block title %}{% endblock %}</title>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Gravis Bootstrap Theme" />
+        <meta name="keywords" content="Template, Theme, web, html5, css3, Bootstrap" />
+        <meta name="author" content="Łukasz Holeczek from creativeLabs" />
+        <!-- end: Meta -->
 
-        <!-- CSS -->
-        {% stylesheets
-            'bundles/swpfrontend/css/bootstrap.min.css'
-            'bundles/swpfrontend/css/bootstrap-responsive.min.css'
-            'bundles/swpfrontend/css/font-awesome.min.css'
-            'bundles/swpfrontend/css/font-awesome-ie7.min.css'
-            'bundles/swpfrontend/css/datepicker.css'
-            'bundles/swpfrontend/css/layout.css'
-            'bundles/swpfrontend/css/style.css'
-        filter='cssrewrite' %}
-            <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
-        {% endstylesheets %}
+        <!-- start: Mobile Specific -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <!-- end: Mobile Specific -->
 
-        {% block stylesheets %}{% endblock %}
+        <!-- start: Facebook Open Graph -->
+        <meta property="og:title" content="" />
+        <meta property="og:description" content="" />
+        <meta property="og:type" content="" />
+        <meta property="og:url" content="" />
+        <meta property="og:image" content="" />
+        <!-- end: Facebook Open Graph -->
 
         <!-- Javascript -->
         {% javascripts
-            '@SWPFrontendBundle/Resources/public/js/jquery-1.10.2.js'
-            '@SWPFrontendBundle/Resources/public/js/bootstrap.min.js'
+            '@SWPFrontendBundle/Resources/public/js/jquery-1.8.2.js'
+            '@SWPFrontendBundle/Resources/public/js/isotope.js'
+            '@SWPFrontendBundle/Resources/public/js/jquery.imagesloaded.js'
+            '@SWPFrontendBundle/Resources/public/js/bootstrap.js'
+            '@SWPFrontendBundle/Resources/public/js/flexslider.js'
+            '@SWPFrontendBundle/Resources/public/js/carousel.js'
+            '@SWPFrontendBundle/Resources/public/js/jquery.cslider.js'
+            '@SWPFrontendBundle/Resources/public/js/slider.js'
+            '@SWPFrontendBundle/Resources/public/js/fancybox.js'
+            '@SWPFrontendBundle/Resources/public/js/jquery.placeholder.min.js'
+            '@SWPFrontendBundle/Resources/public/js/excanvas.js'
+            '@SWPFrontendBundle/Resources/public/js/jquery.flot.min.js'
+            '@SWPFrontendBundle/Resources/public/js/jquery.flot.pie.min.js'
+            '@SWPFrontendBundle/Resources/public/js/jquery.flot.stack.js'
+            '@SWPFrontendBundle/Resources/public/js/jquery.flot.resize.min.js'
+            '@SWPFrontendBundle/Resources/public/js/custom.js'
             '@SWPFrontendBundle/Resources/public/js/bootstrap-datepicker.js'
             '@SWPFrontendBundle/Resources/public/js/application.js'
         %}
@@ -31,65 +46,138 @@
         {% endjavascripts %}
 
         {% block javascripts %}{% endblock %}
+
+        <!-- start: CSS -->
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700">
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Serif">
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Boogaloo">
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Economica:700,400italic">
+
+        {% stylesheets
+            'bundles/swpfrontend/css/bootstrap.css'
+            'bundles/swpfrontend/css/bootstrap-responsive.css'
+            'bundles/swpfrontend/css/style.css'
+            'bundles/swpfrontend/css/parallax-slider.css'
+            'bundles/swpfrontend/css/font-awesome.css'
+            'bundles/swpfrontend/css/font-awesome-ie7.css'
+            'bundles/swpfrontend/css/datepicker.css'
+            'bundles/swpfrontend/css/layout.css'
+            'bundles/swpfrontend/css/sweetlakephp.css'
+        filter='cssrewrite' %}
+            <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
+        {% endstylesheets %}
+
+        {% block stylesheets %}{% endblock %}
+
+        <!--[if lt IE 9 ]>
+          <link href="css/styleIE.css" rel="stylesheet">
+        <![endif]-->
+
+        <!--[if IE 9 ]>
+          <link href="css/styleIE9.css" rel="stylesheet">
+        <![endif]-->
+
+        <!-- end: CSS -->
+
+        <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
     </head>
-
     <body>
+        <header>
+            <div class="container">
+                <div class="row">
+                    <div class="logo span6">
+                        <a class="brand" href="{{ url('index') }}"><img src="{{ asset('bundles/swpfrontend/img/logo.png') }}" alt="logo"></a>
+                    </div>
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="brand" href="{{ path('index') }}">SweetLakePHP</a>
-                    <div class="nav-collapse collapse">
-                        <ul class="nav">
-                            <li{% if menuIsActive('index') %} class="active"{% endif %}>
-                                <a href="{{ path('index') }}">Home</a>
-                            </li>
-                            <li{% if menuIsActive('about') %} class="active"{% endif %}>
-                                <a href="{{ path('about') }}">About</a>
-                            </li>
-                            <li{% if menuIsActive('contact') %} class="active"{% endif %}>
-                                <a href="{{ path('contact') }}">Contact</a>
-                            </li>
+                    <div class="social-links span6 hidden-phone">
+                        <ul class="social-links">
+                            <li><a href="https://twitter.com/SweetlakePHP" target="_blank"><i class="fa-icon-twitter"></i></a></li>
+                            <li><a href="{{ path('contact') }}"><i class="fa-icon-envelope-alt"></i></a></li>
                         </ul>
-                    </div><!--/.nav-collapse -->
+                    </div>
+                </div>
+
+                <div class="row-fluid">
+                    <div class="navigation">
+                        <div class="navbar navbar-inverse span9">
+                            <div class="navbar-inner">
+                                <a class="btn btn-navbar btnOverlay" data-toggle="collapse" data-target=".nav-collapse">
+                                    menu
+                                </a>
+                                <div class="nav-collapse collapse">
+                                    <ul class="nav">
+                                         <li{% if menuIsActive('index') %} class="active"{% endif %}>
+                                            <a href="{{ path('index') }}">Home</a>
+                                        </li>
+                                        <li{% if menuIsActive('about') %} class="active"{% endif %}>
+                                            <a href="{{ path('about') }}">About</a>
+                                        </li>
+                                        <li{% if menuIsActive('contact') %} class="active"{% endif %}>
+                                            <a href="{{ path('contact') }}">Contact</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="search span3 hidden-tablet hidden-phone">
+                            <input type="text" name="search">
+                        </div>
+                    </div>
                 </div>
             </div>
+        </header>
+
+        <div class="container">
+            {% for key, messages in app.session.getFlashbag.all %}
+                <div class="span7 center-span alert alert-{{ key }}">
+                    <button class="close" data-dismiss="alert" type="button">×</button>
+                    {% for message in messages %}
+                        <div>{{ message | trans }}</div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+
+            {% block content %}{% endblock %}
         </div>
 
         <div class="container">
-            <div class="row">
-                <div class="span8">
-                    {% for key, messages in app.session.getFlashbag.all %}
-                        <div class="span7 center-span alert alert-{{ key }}">
-                            <button class="close" data-dismiss="alert" type="button">×</button>
-                            {% for message in messages %}
-                                <div>{{ message | trans }}</div>
-                            {% endfor %}
+            <div id="footer">
+                <div class="row-fluid">
+                    <div class="span3">
+                        <h3>SweetlakePHP</h3>
+
+                        <p><i class="fa-icon-map-marker"></i> Zoetermeer/Den Haag</p>
+                        <p><i class="fa-icon-phone"></i> Phone: +31 (0)85 8773879</p>
+                        <p><i class="fa-icon-envelope"></i> Email: info@sweetlakephp.nl</p>
+                        <p><i class="fa-icon-globe"></i> Web: sweetlakephp.nl</p>
+                    </div>
+
+                    <div class="span3">
+                        <h3>Latest Tweets</h3>
+
+                        <ul id="twitter"></ul>
+
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="span3">
+
+                    </div>
+
+                    <div class="span3">
+                        <h3>Follow Us</h3>
+
+                        <div id="social-r" class="tooltips">
+                            <a href="https://twitter.com/SweetlakePHP" target="_blank" rel="tooltip" title="Twitter" class="twitter">Twitter</a>
                         </div>
-                    {% endfor %}
 
-                    {% block content %}{% endblock %}
+                    </div>
                 </div>
-
-                <div class="span3 well sidebar">
-                    <h3>{% trans %}event.upcoming{% endtrans %}</h3>
-                    <ul class="upcoming-list">
-                        {% for event in getUpcomingEvents() %}
-                            <li onClick="location.href='{{ path('event.show', {'id': event.id}) }}'">
-                                <a href="{{ path('event.show', {'id': event.id}) }}">{{ event.name }}</a>
-                                <span class="datetime">{{ event.datetime.format('d-m-Y H:s') }}</span>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </span>
             </div>
         </div>
     </body>
 </html>
-
-

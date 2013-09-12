@@ -17,26 +17,34 @@
 {% endblock %}
 
 {% block content %}
-    <div class="meetup-show">
-        <a href="{{ path('index') }}" class="btn">
-            <i class="icon icon-long-arrow-left"></i>
-            {% trans %}event.back{% endtrans %}
-        </a>
-        <h1>{{ event.name }}</h1>
+    <div id="wrapper">
+        <div id="page-title">
+            <div id="page-title-inner">
+                <h2>{{ event.name }}</h2>
+            </div>
+        </div>
 
-        <table class="info">
-            <tr>
-                <td>When:</td>
-                <td>{{ event.datetime.format('d-m-Y H:s') }}</td>
-            </tr>
-            <tr>
-                <td>Where:</td>
-                <td>{{ event.venue.name }}, {{ event.venue.address_1 }} {{ event.venue.city }}</td>
-            </tr>
-        </table>
+        <div class="meetup-show">
+            <a href="{{ path('index') }}" class="btn">
+                <i class="icon fa-icon-arrow-left"></i>
+                {% trans %}event.back{% endtrans %}
+            </a>
+            <br><br>
 
-        <p>{{ event.description | raw }}</p>
+            <table class="info">
+                <tr>
+                    <td>When:</td>
+                    <td>{{ event.datetime.format('d-m-Y H:s') }}</td>
+                </tr>
+                <tr>
+                    <td>Where:</td>
+                    <td>{{ event.venue.name }}, {{ event.venue.address_1 }} {{ event.venue.city }}</td>
+                </tr>
+            </table>
 
-        <div id="disqus_thread"></div>
+            <p>{{ event.description | raw }}</p>
+
+            <div id="disqus_thread"></div>
+        </div>
     </div>
 {% endblock %}

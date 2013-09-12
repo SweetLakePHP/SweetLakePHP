@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new SWP\FrontendBundle\SWPFrontendBundle(),
             new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),
             new DMS\Bundle\MeetupApiBundle\DMSMeetupApiBundle(),
+            new FOS\TwitterBundle\FOSTwitterBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

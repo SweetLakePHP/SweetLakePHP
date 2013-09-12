@@ -5,28 +5,34 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Welkom on SweetLake PHP!</h1>
+    <div id="wrapper">
+        <div id="page-title">
+            <div id="page-title-inner">
+                <h2>Welkom on SweetLake PHP!</h2>
+            </div>
+        </div>
 
-    <div class="news">
-        {% for event in events %}
-            <div class="thumbnail">
-                <div class="row-fluid">
+        <div class="news">
+            {% for event in events %}
+                <div class="thumbnail">
+                    <div class="row-fluid">
 
-                    <div class="span4">
-                        <div class="image">
-                            <img src="http://www.ist-daidalos.org/daten/events/07-10-19_Event_Madrid/Event_Telefonica_2007_010.jpg">
+                        <div class="span3">
+                            <div class="image">
+                                <img src="http://www.ist-daidalos.org/daten/events/07-10-19_Event_Madrid/Event_Telefonica_2007_010.jpg">
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="span8">
-                        <a class="title" href="#">{{ event.name }} ({{ event.datetime.format('d-m-Y') }})</a>
-                        <div class="content">
-                            {{ event.description | striptags | raw | nl2br }}
+                        <div class="span9">
+                            <a class="title" href="#">{{ event.name }} ({{ event.datetime.format('d-m-Y') }})</a>
+                            <div class="content">
+                                {{ event.description | striptags | raw | nl2br }}
+                            </div>
+                            <a class="btn btn-info readmore" href="{{ path('event.show', {'id': event.id}) }}">{% trans %}event.read_more{% endtrans %}</a>
                         </div>
-                        <a class="btn btn-info readmore" href="{{ path('event.show', {'id': event.id}) }}">{% trans %}event.read_more{% endtrans %}</a>
                     </div>
                 </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}

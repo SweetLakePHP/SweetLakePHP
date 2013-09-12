@@ -1,0 +1,104 @@
+.news .row-fluid {
+    position:relative;
+}
+
+.news .thumbnail {
+    margin-bottom: 15px;
+}
+
+.news .image {
+    border: 1px solid #DDDDDD;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+    display: block;
+    line-height: 1;
+}
+
+.news .title {
+    color: #0088CC;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 27px;
+    margin: 0;
+    text-decoration: none;
+    text-rendering: optimizelegibility;
+}
+
+.news .content {
+    margin-top: 5px;
+    overflow: hidden;
+    max-height: 105px;
+}
+
+.news .readmore {
+    position: absolute;
+    right:    0;
+    bottom:   0;
+    margin-bottom: 5px;
+    margin-right: 7px;
+}
+
+#contact #contact_content {
+    resize: vertical;
+    min-height: 125px;
+}
+
+.captcha_image {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.news .thumbnail .content {
+    max-height: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sidebar .upcoming-list {
+    list-style-type: none;
+    margin: 0px -20px 0px -20px;
+}
+
+.sidebar .upcoming-list li {
+    border-bottom: 1px solid #CCCCCC;
+    padding: 5px 20px 5px 20px;
+    cursor: pointer;
+    font-size: 90%;
+}
+
+.sidebar .upcoming-list li:hover {
+    background-color: #CCCCCC;
+}
+
+.sidebar .upcoming-list .datetime {
+    font-size: 80%;
+    float: right;
+}
+
+.sidebar h3 {
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+.meetup-show .info {
+    margin-bottom: 25px;
+}
+
+.meetup-show .info td:first-child {
+    text-align: right;
+    padding-right: 10px;
+    font-weight: bold;
+}
+
+form.no-bottom .form-actions {
+    margin-left: -20px;
+    margin-bottom: -40px;
+    margin-right: -20px;
+    padding-top: 35px;
+    padding-bottom: 35px;
+}
+
+.logo img {
+    margin-top: -11px;
+    width: 125px;
+}

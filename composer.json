@@ -19,7 +19,9 @@
         "sensio/framework-extra-bundle": "2.3.*",
         "sensio/generator-bundle": "2.3.*",
         "gregwar/captcha-bundle": "dev-master",
-        "dms/meetup-api-bundle": "1.*"
+        "dms/meetup-api-bundle": "1.*",
+        "friendsofsymfony/twitter-bundle": "dev-master",
+        "kertz/twitteroauth": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [

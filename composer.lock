@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "163b01e9309539c604e0af231536e8ff",
+    "hash": "52a5ef7cf2249251aac4794d71887898",
     "packages": [
         {
             "name": "dms/meetup-api-bundle",
@@ -377,6 +377,50 @@
             "time": "2013-05-11 07:51:12"
         },
         {
+            "name": "friendsofsymfony/twitter-bundle",
+            "version": "dev-master",
+            "target-dir": "FOS/TwitterBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FriendsOfSymfony/FOSTwitterBundle.git",
+                "reference": "6c04fdef19bd06007cddfe730447dbfcfd93dd57"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSTwitterBundle/zipball/6c04fdef19bd06007cddfe730447dbfcfd93dd57",
+                "reference": "6c04fdef19bd06007cddfe730447dbfcfd93dd57",
+                "shasum": ""
+            },
+            "require": {
+                "kertz/twitteroauth": "*",
+                "php": ">=5.3.2",
+                "symfony/framework-bundle": "2.*",
+                "symfony/security-bundle": "~2.1"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "FOS\\TwitterBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "FriendsOfSymfony Community",
+                    "homepage": "https://github.com/FriendsOfSymfony/FOSTwitterBundle/contributors"
+                }
+            ],
+            "description": "Symfony FOSTwitterBundle",
+            "homepage": "http://friendsofsymfony.github.com",
+            "keywords": [
+                "Twitter authentication"
+            ],
+            "time": "2013-06-03 19:02:38"
+        },
+        {
             "name": "gregwar/captcha",
             "version": "v1.0.7",
             "target-dir": "Gregwar/Captcha",
@@ -669,6 +713,32 @@
                 "sql"
             ],
             "time": "2013-04-26 18:42:52"
+        },
+        {
+            "name": "kertz/twitteroauth",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kertz/twitteroauth.git",
+                "reference": "88eb43ba510b120bf7791fe78d42a44332c1e0c0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kertz/twitteroauth/zipball/88eb43ba510b120bf7791fe78d42a44332c1e0c0",
+                "reference": "88eb43ba510b120bf7791fe78d42a44332c1e0c0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "twitteroauth"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "time": "2013-08-29 17:04:43"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -1468,7 +1538,9 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
-        "gregwar/captcha-bundle": 20
+        "gregwar/captcha-bundle": 20,
+        "friendsofsymfony/twitter-bundle": 20,
+        "kertz/twitteroauth": 20
     },
     "platform": {
         "php": ">=5.3.3"
