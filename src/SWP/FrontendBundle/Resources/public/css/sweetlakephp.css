@@ -102,3 +102,16 @@ form.no-bottom .form-actions {
     margin-top: -11px;
     width: 125px;
 }
+
+ul.twitter-tweets {
+    display: block;
+    float: left;
+    font-size: 12px;
+}
+
+ul.twitter-tweets li{
+    background: url("../img/icons/twitter.png") no-repeat scroll 0 50% transparent;
+    line-height: 18px;
+    margin: 2px 0 12px;
+    padding-left: 40px;
+}

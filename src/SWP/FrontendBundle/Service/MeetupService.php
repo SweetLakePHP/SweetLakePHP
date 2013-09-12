@@ -32,6 +32,26 @@ class MeetupService
     }
 
     /**
+     * Get one or more events
+     *
+     * @return array
+     */
+    public function getPastEvents()
+    {
+        $events = $this->client->getEvents(
+            array(
+                'group_urlname' => 'SweetlakePHP',
+                'status'        => 'past',
+                'desc'          => 'desc'
+            )
+        )->toArray();
+
+        $this->eventsFiller($events);
+
+        return $events;
+    }
+
+    /**
      * Returns one event
      *
      * @param integer $id identifier of event

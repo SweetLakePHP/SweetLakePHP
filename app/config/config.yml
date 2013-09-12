@@ -64,9 +64,3 @@ gregwar_captcha: ~
 dms_meetup_api:
     client:
         key: %meetup_api_key%
-
-fos_twitter:
-    file: %kernel.root_dir%/../vendor/kertz/twitteroauth/twitteroauth/twitteroauth.php
-    consumer_key:    %twitter_key%
-    consumer_secret: %twitter_secret%
-    callback_url:    %twitter_callback%

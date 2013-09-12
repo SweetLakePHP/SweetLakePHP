@@ -4,18 +4,6 @@
     {% trans %}event.singular{% endtrans %}: {{ event.name }}
 {% endblock %}
 
-{% block javascripts %}
-    <script type="text/javascript">
-        var disqus_shortname = 'sweetlakephp'; // required: replace example with your forum shortname
-
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-{% endblock %}
-
 {% block content %}
     <div id="wrapper">
         <div id="page-title">
@@ -25,12 +13,6 @@
         </div>
 
         <div class="meetup-show">
-            <a href="{{ path('index') }}" class="btn">
-                <i class="icon fa-icon-arrow-left"></i>
-                {% trans %}event.back{% endtrans %}
-            </a>
-            <br><br>
-
             <table class="info">
                 <tr>
                     <td>When:</td>
@@ -40,11 +22,13 @@
                     <td>Where:</td>
                     <td>{{ event.venue.name }}, {{ event.venue.address_1 }} {{ event.venue.city }}</td>
                 </tr>
+                <tr>
+                    <td>Meetup link:</td>
+                    <td><a href="http://www.meetup.com/SweetlakePHP/events/{{ event.id }}/"></a></td>
+                </tr>
             </table>
 
             <p>{{ event.description | raw }}</p>
-
-            <div id="disqus_thread"></div>
         </div>
     </div>
 {% endblock %}

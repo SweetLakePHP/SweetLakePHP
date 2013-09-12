@@ -1,0 +1,18 @@
+<div class="thumbnail">
+    <div class="row-fluid">
+
+        <div class="span3">
+            <div class="image">
+                <img src="{{ asset('bundles/swpfrontend/img/meetup.png') }}">
+            </div>
+        </div>
+
+        <div class="span9">
+            <a class="title" href="{{ path('event.show', {'id': meetup.id}) }}">{{ meetup.name }} ({{ meetup.datetime.format('d-m-Y') }})</a>
+            <div class="content">
+                {{ meetup.description | striptags | raw | nl2br }}
+            </div>
+            <a class="btn btn-info readmore" href="{{ path('event.show', {'id': meetup.id}) }}">{% trans %}event.read_more{% endtrans %}</a>
+        </div>
+    </div>
+</div>

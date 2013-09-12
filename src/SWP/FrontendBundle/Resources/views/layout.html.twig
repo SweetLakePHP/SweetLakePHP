@@ -38,12 +38,16 @@
             '@SWPFrontendBundle/Resources/public/js/jquery.flot.pie.min.js'
             '@SWPFrontendBundle/Resources/public/js/jquery.flot.stack.js'
             '@SWPFrontendBundle/Resources/public/js/jquery.flot.resize.min.js'
+            '@SWPFrontendBundle/Resources/public/js/twitter.js'
             '@SWPFrontendBundle/Resources/public/js/custom.js'
             '@SWPFrontendBundle/Resources/public/js/bootstrap-datepicker.js'
             '@SWPFrontendBundle/Resources/public/js/application.js'
         %}
             <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
+
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
 
         {% block javascripts %}{% endblock %}
 
@@ -115,6 +119,12 @@
                                         <li{% if menuIsActive('about') %} class="active"{% endif %}>
                                             <a href="{{ path('about') }}">About</a>
                                         </li>
+                                        <li{% if menuIsActive('meetup.list') %} class="active"{% endif %}>
+                                            <a href="{{ path('meetup.list') }}">Meetups</a>
+                                        </li>
+                                        <li{% if menuIsActive('community.tweets') %} class="active"{% endif %}>
+                                            <a href="{{ path('community.tweets') }}">Community</a>
+                                        </li>
                                         <li{% if menuIsActive('contact') %} class="active"{% endif %}>
                                             <a href="{{ path('contact') }}">Contact</a>
                                         </li>
@@ -159,7 +169,9 @@
                     <div class="span3">
                         <h3>Latest Tweets</h3>
 
-                        <ul id="twitter"></ul>
+                        <ul id="twitter">
+                            <li>Loading..</li>
+                        </ul>
 
                         <div class="clear"></div>
                     </div>

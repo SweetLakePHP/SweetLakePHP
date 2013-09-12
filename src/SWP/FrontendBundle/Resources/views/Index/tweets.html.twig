@@ -1,0 +1,25 @@
+{% extends 'SWPFrontendBundle::layout.html.twig' %}
+
+{% block title %}
+    Tweets
+{% endblock %}
+
+{% block content %}
+    <div id="wrapper">
+        <div id="page-title">
+            <div id="page-title-inner">
+                <h2>What does our community says?</h2>
+            </div>
+        </div>
+
+        <ul id="commonity-tweets" class="twitter-tweets"><li>Loading..</li></ul>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript">
+        $.getJSON(Routing.generate('tweet.friends', {'user': 'sweetlakephp', 'numberOfTweets': 50}), function(tweets){
+            $("#commonity-tweets").html(tz_format_twitter_v2(tweets));
+        });
+    </script>
+{% endblock %}

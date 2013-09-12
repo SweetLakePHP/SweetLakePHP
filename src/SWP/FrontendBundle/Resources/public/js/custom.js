@@ -185,11 +185,9 @@ jQuery(document).ready(function($){
 /* -------------------- Twitter --------------------- */
 
 jQuery(document).ready(function($){
-
-	// $.getJSON('http://api.twitter.com/1.1/statuses/user_timeline/lukaszholeczek.json?count=3&callback=?', function(tweets){
-	// 	$("#twitter").html(tz_format_twitter(tweets));
-	// });
-
+	$.getJSON(Routing.generate('tweet.list', {'user': 'sweetlakephp', 'numberOfTweets': 3}), function(tweets){
+		$("#twitter").html(tz_format_twitter(tweets));
+	});
 });
 
 jQuery(document).ready(function($){

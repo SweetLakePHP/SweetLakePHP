@@ -10,6 +10,13 @@ services:
         class: SWP\FrontendBundle\Service\RequestService
         arguments:
             container: "@service_container"
+    swp_frontend.twitterService:
+        class: SWP\FrontendBundle\Service\TwitterService
+        arguments:
+            key:         %twitter_consumer_key%
+            keysecret:   %twitter_consumer_secret%
+            token:       %twitter_oauth_token%
+            tokenSecret: %twitter_oauth_secret%
 
     # Twig Extensions
     swp_frontend.menu.twig.extension:
@@ -22,5 +29,11 @@ services:
         class: SWP\FrontendBundle\Extension\SidebarExtension
         arguments:
             meetupService: "@swp_frontend.meetupService"
+        tags:
+            -  { name: twig.extension }
+    swp_frontend.twitter.twig.extension:
+        class: SWP\FrontendBundle\Extension\TwitterExtension
+        arguments:
+            twitterService: "@swp_frontend.twitterService"
         tags:
             -  { name: twig.extension }

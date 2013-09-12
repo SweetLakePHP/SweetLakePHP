@@ -1,19 +1,25 @@
 {% extends 'SWPFrontendBundle::layout.html.twig' %}
 
 {% block title %}
-    Home
+    Meetups
 {% endblock %}
 
 {% block content %}
     <div id="wrapper">
         <div id="page-title">
             <div id="page-title-inner">
-                <h2>Welkom on SweetLake PHP!</h2>
+                <h2>Meetups</h2>
             </div>
         </div>
 
         <div class="news">
-            {% for event in events %}
+            <h3>Upcomming</h3>
+            {% for event in upcomming %}
+                {% include 'SWPFrontendBundle:Meetup:p-small.html.twig' with {'meetup': event} %}
+            {% endfor %}
+
+            <h3>Past</h3>
+            {% for event in past %}
                 {% include 'SWPFrontendBundle:Meetup:p-small.html.twig' with {'meetup': event} %}
             {% endfor %}
         </div>

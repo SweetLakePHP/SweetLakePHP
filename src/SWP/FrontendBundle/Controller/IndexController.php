@@ -3,6 +3,7 @@
 namespace SWP\FrontendBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -77,5 +78,36 @@ class IndexController extends Controller
         return array(
             'contactForm' => $contactForm->createView()
         );
+    }
+
+    /**
+     * @Route("/community/tweets", name="community.tweets")
+     * @Template()
+     */
+    public function TweetsAction()
+    {
+        return array();
+    }
+
+    /**
+     * @Route("/tweets/{user}/{numberOfTweets}", name="tweet.list", options={"expose"=true})
+     */
+    public function getTweets($user, $numberOfTweets)
+    {
+        $twitterService = $this->get('swp_frontend.twitterService');
+        $tweets         = $twitterService->getTweets($user, $numberOfTweets);
+
+        return new JsonResponse($tweets);
+    }
+
+    /**
+     * @Route("/tweets/{user}/{numberOfTweets}/friends", name="tweet.friends", options={"expose"=true})
+     */
+    public function getTweetsFriends($user, $numberOfTweets)
+    {
+        $twitterService = $this->get('swp_frontend.twitterService');
+        $tweets         = $twitterService->getTweetsFriends($user, $numberOfTweets);
+
+        return new JsonResponse($tweets);
     }
 }
