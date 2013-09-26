@@ -801,17 +801,17 @@
         },
         {
             "name": "gregwar/captcha",
-            "version": "v1.0.7",
+            "version": "v1.0.8",
             "target-dir": "Gregwar/Captcha",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Gregwar/Captcha.git",
-                "reference": "v1.0.7"
+                "reference": "88bbf9e206957c7870995aabaf8c90afc090c082"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Gregwar/Captcha/zipball/v1.0.7",
-                "reference": "v1.0.7",
+                "url": "https://api.github.com/repos/Gregwar/Captcha/zipball/88bbf9e206957c7870995aabaf8c90afc090c082",
+                "reference": "88bbf9e206957c7870995aabaf8c90afc090c082",
                 "shasum": ""
             },
             "require": {
@@ -846,7 +846,7 @@
                 "captcha",
                 "spam"
             ],
-            "time": "2013-06-19 13:56:05"
+            "time": "2013-08-14 07:42:54"
         },
         {
             "name": "gregwar/captcha-bundle",
@@ -855,16 +855,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Gregwar/CaptchaBundle.git",
-                "reference": "aef6a785cab69f541913810004a2450a99ecb234"
+                "reference": "6b4e7db721c754ec319e0ae6865b10131512b61e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Gregwar/CaptchaBundle/zipball/aef6a785cab69f541913810004a2450a99ecb234",
-                "reference": "aef6a785cab69f541913810004a2450a99ecb234",
+                "url": "https://api.github.com/repos/Gregwar/CaptchaBundle/zipball/6b4e7db721c754ec319e0ae6865b10131512b61e",
+                "reference": "6b4e7db721c754ec319e0ae6865b10131512b61e",
                 "shasum": ""
             },
             "require": {
-                "gregwar/captcha": "v1.0.7",
+                "gregwar/captcha": "v1.0.8",
                 "php": ">=5.3.0"
             },
             "type": "captcha-bundle",
@@ -899,7 +899,7 @@
                 "spam",
                 "visual"
             ],
-            "time": "2013-09-06 15:01:56"
+            "time": "2013-09-21 11:45:18"
         },
         {
             "name": "guzzle/guzzle",
