@@ -19,4 +19,9 @@ parameters:
 
     meetup_api_key:    key
 
+    twitter_consumer_key:     ~
+    twitter_consumer_secret:  ~
+    twitter_oauth_token:      ~
+    twitter_oauth_secret:     ~
+
     #delivery_address:  email@domain.com
