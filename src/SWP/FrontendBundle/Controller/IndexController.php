@@ -84,7 +84,7 @@ class IndexController extends Controller
      * @Route("/community/tweets", name="community.tweets")
      * @Template()
      */
-    public function TweetsAction()
+    public function tweetsAction()
     {
         return array();
     }
