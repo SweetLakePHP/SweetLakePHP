@@ -3,7 +3,7 @@
 namespace SWP\FrontendBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -97,7 +97,10 @@ class IndexController extends Controller
         $twitterService = $this->get('swp_frontend.twitterService');
         $tweets         = $twitterService->getTweets($user, $numberOfTweets);
 
-        return new JsonResponse($tweets);
+        $response = new Response((string) $tweets);
+        $response->headers->set('Content-Type', 'application/json');
+
+        return $response;
     }
 
     /**
@@ -108,6 +111,9 @@ class IndexController extends Controller
         $twitterService = $this->get('swp_frontend.twitterService');
         $tweets         = $twitterService->getTweetsFriends($user, $numberOfTweets);
 
-        return new JsonResponse($tweets);
+        $response = new Response((string) $tweets);
+        $response->headers->set('Content-Type', 'application/json');
+
+        return $response;
     }
 }
