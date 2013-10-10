@@ -139,7 +139,7 @@
 
         <div class="container">
             {% for key, messages in app.session.getFlashbag.all %}
-                <div class="span7 center-span alert alert-{{ key }}">
+                <div class="span11 center-span alert alert-{{ key }}">
                     <button class="close" data-dismiss="alert" type="button">×</button>
                     {% for message in messages %}
                         <div>{{ message | trans }}</div>
