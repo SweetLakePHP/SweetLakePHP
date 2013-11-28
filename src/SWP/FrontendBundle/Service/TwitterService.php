@@ -2,33 +2,35 @@
 
 namespace SWP\FrontendBundle\Service;
 
+use Guzzle\Http\Client;
+use Guzzle\Plugin\Oauth\OauthPlugin;
+
 class TwitterService
 {
-    protected $connection;
+    protected $client;
 
-    public function __construct($cusumerKey = null, $consumerSecret = null, $accessToken = null, $accessTokenSecret = null)
+    public function __construct($consumerKey = null, $consumerSecret = null, $accessToken = null, $accessTokenSecret = null)
     {
-        // nasty way to get the twitter oauth
-        require_once("../vendor/abraham/twitteroauth/twitteroauth/twitteroauth.php");
+        $this->client = new Client('https://api.twitter.com/{version}', array(
+            'version' => '1.1'
+        ));
 
-        $this->connection = new \TwitterOAuth($cusumerKey, $consumerSecret, $accessToken, $accessTokenSecret);
+        // Sign all requests with the OauthPlugin
+        $this->client->addSubscriber(new OauthPlugin(array(
+            'consumer_key'  => $consumerKey,
+            'consumer_secret' => $consumerSecret,
+            'token'       => $accessToken,
+            'token_secret'  => $accessTokenSecret
+        )));
     }
 
     public function getTweets($twitterUser, $numberOfTweets = 5)
     {
-        if ($this->connection) {
-            return $this->connection->get("https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=" . $twitterUser . "&count=" . $numberOfTweets);
-        }
-
-        return null;
+        return $this->client->get("statuses/user_timeline.json?screen_name=" . $twitterUser . "&count=" . $numberOfTweets)->send()->getBody();
     }
 
     public function getTweetsFriends($twitterUser, $numberOfTweets = 5)
     {
-        if ($this->connection) {
-            return $this->connection->get("https://api.twitter.com/1.1/statuses/home_timeline.json?screen_name=" . $twitterUser . "&count=" . $numberOfTweets);
-        }
-
-        return null;
+        return $this->client->get("statuses/home_timeline.json?screen_name=" . $twitterUser . "&count=" . $numberOfTweets)->send()->getBody();
     }
 }
