@@ -81,6 +81,16 @@ class IndexController extends Controller
     }
 
     /**
+     * @Route("/sponsors", name="sponsors")
+     * @Template()
+     * @Method({"GET"})
+     */
+    public function sponsorsAction(Request $request)
+    {
+        return array();
+    }
+
+    /**
      * @Route("/community/tweets", name="community.tweets")
      * @Template()
      */

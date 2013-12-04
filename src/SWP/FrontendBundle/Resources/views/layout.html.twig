@@ -128,6 +128,9 @@
                                         <li{% if menuIsActive('contact') %} class="active"{% endif %}>
                                             <a href="{{ path('contact') }}">Contact</a>
                                         </li>
+                                        <li{% if menuIsActive('sponsors') %} class="active"{% endif %}>
+                                            <a href="{{ path('sponsors') }}">Sponsors</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -172,9 +175,7 @@
                         <div class="clear"></div>
                     </div>
 
-                    <div class="span1"></div>
-
-                    <div class="span5">
+                    <div class="span3">
                         <h3>Contributors</h3>
                         <div class="contributors">
                             {% for contributor in getContributors() %}
@@ -183,6 +184,12 @@
                                 Oh no, none contributors found!
                             {% endfor %}
                         </div>
+                    </div>
+
+                    <div class="span3">
+                        <h3>Head sponsors</h3>
+
+                        <a href="{{ path('sponsors') }}"><img id="transip-logo" src="{{ asset('bundles/swpfrontend/img/sponsors/transip.png') }}" /></a>
                     </div>
                 </div>
             </div>

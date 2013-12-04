@@ -1,0 +1,28 @@
+{% extends 'SWPFrontendBundle::layout.html.twig' %}
+
+{% block title %}
+    Contact
+{% endblock %}
+
+{% block content %}
+    <div id="wrapper">
+        <div id="page-title">
+            <div id="page-title-inner">
+                <h2>Sponsor Page</h2>
+            </div>
+        </div>
+
+        <div id="head-sponsors">
+            <h1>Head sponsors</h1>
+            <br>
+            <img id="transip-logo" src="{{ asset('bundles/swpfrontend/img/sponsors/transip.png') }}"  style="width: 250px" /><br>
+            <h3>TransIp</h3>
+            Website: <a href="http://www.transip.nl" target="_blank">transip.nl</a><br>
+            TransIp sponsors SweetLakePHP a <a href="https://www.transip.nl/vps/" target="_blank">BladeVPS x1</a>!<br>
+            <br>
+            <h1>Meetup sponsors</h1>
+            <br>
+            to be continued..
+        </div>
+    </div>
+{% endblock %}
