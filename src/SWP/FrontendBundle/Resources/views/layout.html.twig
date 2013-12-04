@@ -163,7 +163,7 @@
                     </div>
 
                     <div class="span3">
-                        <h3>Latest Tweets</h3>
+                        <h3>Latest Tweets <small><a href="https://twitter.com/SweetlakePHP" target="_blank" rel="tooltip" title="SweetLakePHP's Twitter">Follow us</a></small></h3>
 
                         <ul id="twitter">
                             <li>Loading..</li>
@@ -172,17 +172,17 @@
                         <div class="clear"></div>
                     </div>
 
-                    <div class="span3">
+                    <div class="span1"></div>
 
-                    </div>
-
-                    <div class="span3">
-                        <h3>Follow Us</h3>
-
-                        <div id="social-r" class="tooltips">
-                            <a href="https://twitter.com/SweetlakePHP" target="_blank" rel="tooltip" title="Twitter" class="twitter">Twitter</a>
+                    <div class="span5">
+                        <h3>Contributors</h3>
+                        <div class="contributors">
+                            {% for contributor in getContributors() %}
+                                <a href="https://www.github.com/{{ contributor.login }}" target="_blank"><img class="img-rounded" width="48" height="48" src="{{ contributor.avatar_url }}" rel="tooltip" title="{{ contributor.login }}"></a>
+                            {% else %}
+                                Oh no, none contributors found!
+                            {% endfor %}
                         </div>
-
                     </div>
                 </div>
             </div>

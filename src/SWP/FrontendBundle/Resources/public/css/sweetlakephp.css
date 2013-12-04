@@ -115,3 +115,8 @@ ul.twitter-tweets li{
     margin: 2px 0 12px;
     padding-left: 40px;
 }
+
+.contributors a {
+    margin-right: 5px;
+    margin-bottom: 5px;
+}

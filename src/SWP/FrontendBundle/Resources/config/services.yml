@@ -37,3 +37,7 @@ services:
             twitterService: "@swp_frontend.twitterService"
         tags:
             -  { name: twig.extension }
+    swp_frontend.contributors.twig.extension:
+        class: SWP\FrontendBundle\Extension\ContributorsExtension
+        tags:
+            -  { name: twig.extension }
