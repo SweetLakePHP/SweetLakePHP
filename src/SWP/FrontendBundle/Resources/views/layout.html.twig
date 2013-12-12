@@ -187,10 +187,21 @@
                         </div>
                     </div>
 
-                    <div class="span3">
-                        <h3>Head sponsors</h3>
+                    <style type="text/css">
+                        div.sponsors img {
+                            width: 256px;
+                            padding: 0 5px 0 5px;
+                            background-color: #FFFFFF;
+                            margin-bottom: 5px;
+                        }
+                    </style>
 
-                        <a href="{{ path('sponsors') }}"><img id="transip-logo" src="{{ asset('bundles/swpfrontend/img/sponsors/transip.png') }}" /></a>
+                    <div class="span3 sponsors">
+                        <h3>Main sponsors</h3>
+
+                        <a href="{{ path('sponsors') }}"><img id="transip-logo" title="TransIP" src="{{ asset('bundles/swpfrontend/img/sponsors/transip.png') }}" /></a>
+                        <a href="{{ path('sponsors') }}"><img title="O'Reilly" src="{{ asset('bundles/swpfrontend/img/sponsors/oreilly.png') }}" /></a>
+
                     </div>
                 </div>
             </div>
