@@ -1,7 +1,7 @@
 {% extends 'SWPFrontendBundle::layout.html.twig' %}
 
 {% block title %}
-    Event
+    {% trans %}event.singular{% endtrans %}: {{ event.name }}
 {% endblock %}
 
 {% block content %}

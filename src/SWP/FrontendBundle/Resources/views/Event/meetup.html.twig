@@ -15,16 +15,16 @@
         <div class="meetup-show">
             <table class="info">
                 <tr>
-                    <td>When:</td>
+                    <td>{% trans %}event.when{% endtrans %}:</td>
                     <td>{{ event.datetime.format('d-m-Y H:s') }}</td>
                 </tr>
                 <tr>
-                    <td>Where:</td>
+                    <td>{% trans %}event.where{% endtrans %}:</td>
                     <td>{{ event.venue.name }}, {{ event.venue.address_1 }} {{ event.venue.city }}</td>
                 </tr>
                 <tr>
-                    <td>Meetup link:</td>
-                    <td><a href="http://www.meetup.com/SweetlakePHP/events/{{ event.id }}/" target="_blank">Meetup link</a></td>
+                    <td>{% trans %}event.link{% endtrans %}:</td>
+                    <td><a href="http://www.meetup.com/SweetlakePHP/events/{{ event.id }}/" target="_blank">{% trans %}event.link{% endtrans %}</a></td>
                 </tr>
             </table>
 

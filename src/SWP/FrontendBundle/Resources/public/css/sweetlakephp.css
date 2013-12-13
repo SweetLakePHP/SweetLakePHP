@@ -125,3 +125,10 @@ ul.twitter-tweets li{
     background-color: #FFFFFF;
     padding: 5px;
 }
+
+div.sponsors img {
+    width: 256px;
+    padding: 0 5px 0 5px;
+    background-color: #FFFFFF;
+    margin-bottom: 5px;
+}

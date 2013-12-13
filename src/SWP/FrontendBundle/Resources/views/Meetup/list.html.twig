@@ -1,24 +1,24 @@
 {% extends 'SWPFrontendBundle::layout.html.twig' %}
 
 {% block title %}
-    Meetups
+    {% trans %}meetup.plural{% endtrans %}
 {% endblock %}
 
 {% block content %}
     <div id="wrapper">
         <div id="page-title">
             <div id="page-title-inner">
-                <h2>Meetups</h2>
+                <h2>{% trans %}meetup.plural{% endtrans %}</h2>
             </div>
         </div>
 
         <div class="news">
-            <h3>Upcoming</h3>
+            <h3>{% trans %}meetup.upcoming{% endtrans %}</h3>
             {% for event in upcomming %}
                 {% include 'SWPFrontendBundle:Meetup:p-small.html.twig' with {'meetup': event} %}
             {% endfor %}
 
-            <h3>Past</h3>
+            <h3>{% trans %}meetup.past{% endtrans %}</h3>
             {% for event in past %}
                 {% include 'SWPFrontendBundle:Meetup:p-small.html.twig' with {'meetup': event} %}
             {% endfor %}

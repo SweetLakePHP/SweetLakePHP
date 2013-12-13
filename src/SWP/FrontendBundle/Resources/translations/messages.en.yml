@@ -5,8 +5,10 @@ contact:
     email:                              E-mail
     subject:                            Subject
     content:                            Content
+    us:                                 Contact us
+    suggestions:                        If you have some questions/comments or suggestions, you can fill in the form below.
     captcha:
-        title:                           Captcha
+        title:                          Captcha
         refresh:                        Renew captcha by clicking on the image
     send:                               Send
     sent:
@@ -18,3 +20,46 @@ event:
     read_more:                          Read more
     upcoming:                           Upcoming events
     back:                               Back to overview
+    when:                               When
+    where:                              Where
+    link:                               Meetup link
+
+meetup:
+    singular:                           Meetup
+    plural:                             Meetups
+    upcoming:                           Upcoming
+    past:                               Past
+
+footer:
+    sponsors:                           Main sponsors
+    tweets:                             Latest Tweets
+    follow:                             Follow us
+    loading:                            Loading
+    contributors:                       Contributors
+    no-contributors:                    Oh no, none contributors found!
+
+menu:
+    singular:                           Menu
+    plural:                             Menus
+    home:                               Home
+    about:                              About
+    meetups:                            Meetups
+    community:                          Community
+    contact:                            Contact
+    sponsors:                           Sponsors
+
+community:
+    singular:
+    tweets:                             Tweets
+    loading:                            Loading
+    say:                                What does our community say?
+
+sponsor:
+    singular:                           Sponsor
+    plural:                             Sponsors
+    page:                               Sponsor page
+    main:                               Main sponsors
+    meetups:                            Meetup sponsors
+    continued:                          To be continued..
+
+# {% trans %}sponsor.{% endtrans %}
