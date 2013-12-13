@@ -62,4 +62,13 @@ sponsor:
     meetups:                            Meetup sponsors
     continued:                          To be continued..
 
+login:
+    singular:                           Login
+    title:                              Please sign in
+    signin:                             Sign in
+    remember:                           Remember me
+    email:                              E-mail address
+    password:                           Password
+
+
 # {% trans %}sponsor.{% endtrans %}

@@ -1,0 +1,24 @@
+{% extends 'SWPFrontendBundle::login.html.twig' %}
+
+{% block title %}
+    {% trans %}login.singular{% endtrans %}
+{% endblock %}
+
+{% block content %}
+    <form class="form-signin" action="{{ path('login_check') }}" method="post">
+        <h2 class="form-signin-heading">{% trans %}login.title{% endtrans %}</h2>
+
+        {% if error %}
+            <div>{{ error.message }}</div>
+        {% endif %}
+
+        <input type="text" name="_username" class="input-block-level" placeholder="{% trans %}login.email{% endtrans %}" value="{{ last_email }}">
+        <input type="password" name="_password" class="input-block-level" placeholder="{% trans %}login.password{% endtrans %}">
+
+        <label class="checkbox">
+            <input type="checkbox" value="remember-me"> {% trans %}login.remember{% endtrans %}
+        </label>
+
+        <button class="btn btn-large btn-primary" type="submit">{% trans %}login.signin{% endtrans %}</button>
+    </form>
+{% endblock %}

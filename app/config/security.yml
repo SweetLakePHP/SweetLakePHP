@@ -2,16 +2,18 @@ security:
     encoders:
         Symfony\Component\Security\Core\User\User: plaintext
 
+    encoders:
+        SWP\BackendBundle\Entity\User: sha512
+
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
         ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:
-        in_memory:
-            memory:
-                users:
-                    user:  { password: userpass, roles: [ 'ROLE_USER' ] }
-                    admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
+        main:
+            entity:
+                class: Acme\UserBundle\Entity\User
+                property: username
 
     firewalls:
         dev:
@@ -23,3 +25,4 @@ security:
             anonymous: ~
 
     access_control:
+        - { path: ^/admin, roles: ROLE_ADMIN }

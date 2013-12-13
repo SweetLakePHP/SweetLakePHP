@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- start: Meta -->
+        <meta charset="utf-8" />
+        <title>SweetLakePHP - {% block title %}{% endblock %}</title>
+        <meta name="description" content="SweetLakePHP - User community" />
+        <meta name="keywords" content="sweetlakephp" />
+        <meta name="author" content="SweetLakePHP member's" />
+        <!-- end: Meta -->
+
+        {% block javascripts %}{% endblock %}
+
+        <!-- start: CSS -->
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700">
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Serif">
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Boogaloo">
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Economica:700,400italic">
+
+        {% stylesheets
+            'bundles/swpfrontend/css/bootstrap.css'
+            'bundles/swpfrontend/css/bootstrap-responsive.css'
+            'bundles/swpfrontend/css/style.css'
+            'bundles/swpfrontend/css/login.css'
+        filter='cssrewrite' %}
+            <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
+        {% endstylesheets %}
+
+        {% block stylesheets %}{% endblock %}
+
+        <!--[if lt IE 9 ]>
+          <link href="css/styleIE.css" rel="stylesheet">
+        <![endif]-->
+
+        <!--[if IE 9 ]>
+          <link href="css/styleIE9.css" rel="stylesheet">
+        <![endif]-->
+
+        <!-- end: CSS -->
+
+        <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div class="logo-container">
+            <a href="{{ path('index') }}"><img class="logo" src="{{ asset('bundles/swpfrontend/img/logo.png') }}" alt="logo"></a>
+        </div>
+
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
+    </body>
+</html>

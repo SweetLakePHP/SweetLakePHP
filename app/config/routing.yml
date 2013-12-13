@@ -7,3 +7,10 @@ gregwar_captcha_routing:
 
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+
+
+login:
+    path:   /login
+    defaults:  { _controller: SWPFrontendBundle:Security:login }
+login_check:
+    path:   /login_check
