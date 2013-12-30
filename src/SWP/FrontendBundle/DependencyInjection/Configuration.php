@@ -28,6 +28,9 @@ class Configuration implements ConfigurationInterface
             ->children()
                 ->scalarNode('contact_email')->end()
                 ->scalarNode('contact_receivers')->end()
+
+                ->scalarNode('github_username')->end()
+                ->scalarNode('github_repository')->end()
             ->end()
         ;
 

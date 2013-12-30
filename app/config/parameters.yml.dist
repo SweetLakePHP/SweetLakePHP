@@ -24,4 +24,7 @@ parameters:
     twitter_oauth_token:      ~
     twitter_oauth_secret:     ~
 
+    github_username:   verschoof
+    github_repository: SweetLakePHP
+
     #delivery_address:  email@domain.com

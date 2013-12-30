@@ -17,6 +17,15 @@ services:
             keysecret:   %twitter_consumer_secret%
             token:       %twitter_oauth_token%
             tokenSecret: %twitter_oauth_secret%
+            rootDir:     %kernel.root_dir%
+            enviorment:  %kernel.environment%
+    swp_frontend.githubService:
+        class: SWP\FrontendBundle\Service\GithubService
+        arguments:
+            username:    %github_username%
+            repository:  %github_repository%
+            rootDir:     %kernel.root_dir%
+            enviorment:  %kernel.environment%
 
     # Twig Extensions
     swp_frontend.menu.twig.extension:
@@ -31,13 +40,9 @@ services:
             meetupService: "@swp_frontend.meetupService"
         tags:
             -  { name: twig.extension }
-    swp_frontend.twitter.twig.extension:
-        class: SWP\FrontendBundle\Extension\TwitterExtension
-        arguments:
-            twitterService: "@swp_frontend.twitterService"
-        tags:
-            -  { name: twig.extension }
     swp_frontend.contributors.twig.extension:
         class: SWP\FrontendBundle\Extension\ContributorsExtension
+        arguments:
+            githubService: "@swp_frontend.githubService"
         tags:
             -  { name: twig.extension }
