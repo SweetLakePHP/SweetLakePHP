@@ -4,15 +4,8 @@ SweetLakePHP
 Our website at sweetlakephp.nl
 
 
-Todo:
-* Import Meetup API
-* Add menu helper
+Want to get involved with this project? See our [issues (bug/feature) page](https://github.com/verschoof/SweetLakePHP/issues?state=open).
 
----
-
-* Twitter api with follow sweetlakePHP and the members
-* Twitter follow the members of the meetup group
-* Add disqus
 
 
 # Getting started
@@ -20,7 +13,7 @@ Todo:
 ## Requirements
 
 * A local running webserver like WAMP, XAMPP
-* A virtual host: <yourhostname>
+* A virtual host
 * You must have Meetup account (API key)
 
 
@@ -28,9 +21,9 @@ Todo:
 
 ### Step 1: Get the files from GIT
 
-Go to your <yourhostname> folder and type:
+Go to your project folder and type:
 
-    git clone https://github.com/verschoof/SweetLakePHP.git
+    git clone https://github.com/verschoof/SweetLakePHP.git sweetlakephp
 
 
 ### Step 2: Get your API key from Meetup
@@ -64,7 +57,7 @@ Be patient, this process takes some time, if you dont see any errors, then compo
 
 ### Step 5: Almost done (last step)
 
-At this time you can browse to your vhost <yourhostname>
+At this time you can browse to your vhost (http://yourhostname)
 
 The loading will take some time, but if you will see a very basic page that mean composer could not run the last steps.
 
