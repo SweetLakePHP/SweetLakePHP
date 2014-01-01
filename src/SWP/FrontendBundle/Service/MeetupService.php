@@ -22,7 +22,7 @@ class MeetupService
             array(
                 'group_urlname' => 'SweetlakePHP',
                 'status'        => 'upcoming',
-                'desc'          => 'desc'
+                'asc'          => 'asc'
             )
         )->toArray();
 
