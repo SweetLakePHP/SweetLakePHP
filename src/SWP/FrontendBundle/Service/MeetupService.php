@@ -104,6 +104,9 @@ class MeetupService
      */
     protected function eventFiller(array &$event)
     {
+        // add target _blank to all the links
+        $event['description'] = preg_replace("/<a(.*?)>/", "<a$1 target=\"_blank\">", $event['description']);
+
         $datetime = new \DateTime();
         $datetime->setTimestamp(substr($event['time'], 0, 10));
 
