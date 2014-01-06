@@ -21,7 +21,7 @@ class IndexController extends Controller
     public function indexAction()
     {
         $meetupService = $this->get('swp_frontend.meetupService');
-        $events        = $meetupService->getUpcomingEvents();
+        $events        = $meetupService->getUpcomingEvents('asc');
 
         return array(
             'events' => $events

@@ -16,13 +16,23 @@ class MeetupService
      *
      * @return array
      */
-    public function getUpcomingEvents()
+    public function getUpcomingEvents($sortOrder = 'desc')
     {
+
+        $aAllowedSortOrderValues = array(
+            'asc',
+            'desc'
+        );
+        
+        if(!in_array($sortOrder, $aAllowedSortOrderValues)){
+           $sortOrder = 'desc';
+        }
+        
         $events = $this->client->getEvents(
             array(
                 'group_urlname' => 'SweetlakePHP',
                 'status'        => 'upcoming',
-                'asc'          => 'asc'
+                $sortOrder          => $sortOrder
             )
         )->toArray();
 
@@ -94,9 +104,6 @@ class MeetupService
      */
     protected function eventFiller(array &$event)
     {
-        // add target _blank to all the links
-        $event['description'] = preg_replace("/<a(.*?)>/", "<a$1 target=\"_blank\">", $event['description']);
-
         $datetime = new \DateTime();
         $datetime->setTimestamp(substr($event['time'], 0, 10));
 
