@@ -1,0 +1,14 @@
+account:
+    singular:                           Account
+    plural:                             Accounts
+    settings:                           Account settings
+    email:                              E-Mail address
+    password:
+        current:                        Current password
+        invalid:                        Invalid password
+        first:                          Password
+        second:                         Repeat password
+        mismatch:                       The password fields must match.
+    edit:
+        success:                        Account successfully edited
+    save:                               Save changes

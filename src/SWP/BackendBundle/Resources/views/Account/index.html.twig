@@ -1,0 +1,28 @@
+{% extends 'SWPFrontendBundle::layout.html.twig' %}
+
+{% block title %}
+    {% trans %}account.singular{% endtrans %}
+{% endblock %}
+
+{% block content %}
+    <div id="wrapper">
+        <div id="page-title">
+            <div id="page-title-inner">
+                <h2>{% trans %}account.settings{% endtrans %}</h2>
+            </div>
+        </div>
+
+        {{ form_start(form, {'attr': {'class': 'form-horizontal no-bottom'}}) }}
+            {% form_theme form 'SWPBackendBundle:Form:bootstrap.html.twig' %}
+
+            {{ form_errors(form) }}
+
+            {{ form_rest(form) }}
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">{% trans %}account.save{% endtrans %}</button>
+            </div>
+
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

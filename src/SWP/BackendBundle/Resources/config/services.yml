@@ -1,0 +1,8 @@
+parameters:
+   swp_backend.userService.class: SWP\BackendBundle\Service\UserService
+
+services:
+    swp_backend.useerService:
+        class: %swp_backend.userService.class%
+        arguments:
+            securityEncoderFactory: "@security.encoder_factory"

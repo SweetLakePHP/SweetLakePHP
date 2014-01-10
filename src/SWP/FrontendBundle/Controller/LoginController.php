@@ -2,9 +2,6 @@
 
 namespace SWP\FrontendBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -37,5 +34,23 @@ class LoginController extends Controller
             'last_email' => $session->get(SecurityContext::LAST_USERNAME),
             'error'      => $error,
         );
+    }
+
+    /**
+     * @Route("/login_check", name="login_check")
+     * @Method({"POST"})
+     */
+    public function loginCheckAction()
+    {
+        // The security layer will intercept this request
+    }
+
+    /**
+     * @Route("/logout", name="logout")
+     * @Method({"GET"})
+     */
+    public function logoutAction()
+    {
+        // The security layer will intercept this request
     }
 }

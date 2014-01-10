@@ -132,7 +132,30 @@
                                         <li{% if menuIsActive('sponsors') %} class="active"{% endif %}>
                                             <a href="{{ path('sponsors') }}">{% trans %}menu.sponsors{% endtrans %}</a>
                                         </li>
+
+                                        {% if app.user %}
+                                            <li{% if menuIsActive('admin.index') %} class="active"{% endif %}>
+                                                <a href="{{ path('admin.index') }}">{% trans %}menu.admin{% endtrans %}</a>
+                                            </li>
+                                        {% endif %}
                                     </ul>
+
+                                    {% if app.user %}
+                                        <ul class="nav pull-right">
+                                            <li{% if menuIsActive('account.index') %} class="active"{% endif %}>
+                                                <a href="{{ path('account.index') }}">{% trans %}menu.account{% endtrans %}</a>
+                                            </li>
+                                            <li{% if menuIsActive('logout') %} class="active"{% endif %}>
+                                                <a href="{{ path('logout') }}">{% trans %}menu.logout{% endtrans %}</a>
+                                            </li>
+                                        </ul>
+                                    {% else %}
+                                        <ul class="nav pull-right">
+                                            <li{% if menuIsActive('login') %} class="active"{% endif %}>
+                                                <a href="{{ path('login') }}">{% trans %}menu.login{% endtrans %}</a>
+                                            </li>
+                                        </ul>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>

@@ -9,7 +9,7 @@
         <h2 class="form-signin-heading">{% trans %}login.title{% endtrans %}</h2>
 
         {% if error %}
-            <div>{{ error.message }}</div>
+            <div class="alert alert-error">{{ error.message }}</div>
         {% endif %}
 
         <input type="text" name="_username" class="input-block-level" placeholder="{% trans %}login.email{% endtrans %}" value="{{ last_email }}">

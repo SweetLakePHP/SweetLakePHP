@@ -47,6 +47,10 @@ menu:
     community:                          Community
     contact:                            Contact
     sponsors:                           Sponsors
+    admin:                              Admin
+    logout:                             Logout
+    login:                              Login
+    account:                            Account
 
 community:
     singular:
@@ -69,6 +73,5 @@ login:
     remember:                           Remember me
     email:                              E-mail address
     password:                           Password
-
 
 # {% trans %}sponsor.{% endtrans %}

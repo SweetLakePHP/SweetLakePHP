@@ -23,7 +23,9 @@
         "gregwar/captcha-bundle": "dev-master",
         "dms/meetup-api-bundle": "dev-master",
         "friendsofsymfony/jsrouting-bundle": "~1.1",
-        "guzzle/guzzle": "3.7.*"
+        "guzzle/guzzle": "3.7.*",
+        "doctrine/migrations": "dev-master",
+        "doctrine/doctrine-migrations-bundle": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [

@@ -20,6 +20,8 @@ class AppKernel extends Kernel
             new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),
             new DMS\Bundle\MeetupApiBundle\DMSMeetupApiBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+            new SWP\BackendBundle\SWPBackendBundle(),
+            new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
