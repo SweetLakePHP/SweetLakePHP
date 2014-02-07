@@ -25,9 +25,13 @@ Go to our [Github repository](https://github.com/verschoof/SweetLakePHP) and cli
 
 In a terminal, go to the folder you want to create the project in, and clone your fork:
 
-    git clone <repo> sweetlakephp
+    git clone git@github.com:<username>/SweetLakePHP.git sweetlakephp
 
-You can find the `<repo>` at Github, which should look something like `git@github.com:<username>/SweetLakePHP.git` (SSH) or `https://github.com/<username>/SweetLakePHP.git` (HTTPS).
+Or if your prefer HTTPS in stead of SSH:
+
+    git clone https://github.com/<username>/SweetLakePHP.git sweetlakephp
+
+Replace `<username>` with your Github username.
 
 
 ### Step 3: Get your API key from Meetup
@@ -75,7 +79,7 @@ Basic examples for Apache2 and Nginx can be found in Symfony 2's cookbook: [Conf
 
 ### Step 8: Almost done (last step)
 
-At this time you should be able to browse to your locally running project (`http://localhost/` or whatever you configured in step 6).
+At this time you should be able to browse to your locally running project (`http://localhost/` or whatever you configured in step 7).
 
 The loading will take some time, but if you will see a very basic page that mean composer could not run the last steps.
 
