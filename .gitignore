@@ -1,3 +1,4 @@
+/.idea/workspace.xml
 /app/bootstrap.php.cache
 /app/cache/*
 /app/config/parameters_*.yml
