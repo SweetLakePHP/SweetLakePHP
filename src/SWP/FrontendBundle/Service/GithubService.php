@@ -3,7 +3,6 @@
 namespace SWP\FrontendBundle\Service;
 
 use Guzzle\Http\Client;
-use Guzzle\Plugin\Oauth\OauthPlugin;
 use Doctrine\Common\Cache\FilesystemCache;
 use Guzzle\Cache\DoctrineCacheAdapter;
 use Guzzle\Plugin\Cache\CachePlugin;
