@@ -102,7 +102,7 @@ class IndexController extends Controller
     /**
      * @Route("/tweets/{user}/{numberOfTweets}", name="tweet.list", options={"expose"=true})
      */
-    public function getTweets($user, $numberOfTweets)
+    public function getTweetsAction($user, $numberOfTweets)
     {
         $twitterService = $this->get('swp_frontend.twitterService');
         $tweets         = $twitterService->getTweets($user, $numberOfTweets);
@@ -116,7 +116,7 @@ class IndexController extends Controller
     /**
      * @Route("/tweets/{user}/{numberOfTweets}/friends", name="tweet.friends", options={"expose"=true})
      */
-    public function getTweetsFriends($user, $numberOfTweets)
+    public function getTweetsFriendsAction($user, $numberOfTweets)
     {
         $twitterService = $this->get('swp_frontend.twitterService');
         $tweets         = $twitterService->getTweetsFriends($user, $numberOfTweets);

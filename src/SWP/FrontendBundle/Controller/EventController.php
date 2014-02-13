@@ -27,11 +27,6 @@ class EventController extends Controller
             );
         }
 
-        throw new Exception("Meetup not found", 404);
-    }
-
-    public function showNews($id)
-    {
-
+        throw new \Exception("Meetup not found", 404);
     }
 }
