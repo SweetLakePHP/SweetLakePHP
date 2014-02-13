@@ -3,11 +3,9 @@
 SweetLakePHP
 ============
 
-Our website at sweetlakephp.nl
-
+Our website at [sweetlakephp.nl](http://sweetlakephp.nl/)!
 
 Want to get involved with this project? See our [issues (bug/feature) page](https://github.com/verschoof/SweetLakePHP/issues?state=open).
-
 
 
 # Getting started
@@ -15,57 +13,81 @@ Want to get involved with this project? See our [issues (bug/feature) page](http
 ## Requirements
 
 * A local running webserver like WAMP, XAMPP
-* A virtual host
-* You must have Meetup account (API key)
+* A Meetup account (you'll need an API key)
 
 
 ## Installation
 
-### Step 1: Get the files from GIT
+### Step 1: Fork the project
 
-Go to your project folder and type:
-
-    git clone https://github.com/verschoof/SweetLakePHP.git sweetlakephp
+Go to our [Github repository](https://github.com/verschoof/SweetLakePHP) and click "Fork".
 
 
-### Step 2: Get your API key from Meetup
+### Step 2: Get the files from GIT
 
-* Go to url [Meetup api key](http://www.meetup.com/meetup_api/key/)
+In a terminal, go to the folder you want to create the project in, and clone your fork:
 
-Copy your API key
+    git clone git@github.com:<username>/SweetLakePHP.git sweetlakephp
+
+Or if your prefer HTTPS in stead of SSH:
+
+    git clone https://github.com/<username>/SweetLakePHP.git sweetlakephp
+
+Replace `<username>` with your Github username.
 
 
+### Step 3: Get your API key from Meetup
 
-### Step 3: Create your config files
+* Get your [Meetup API key](http://www.meetup.com/meetup_api/key/) (you'll need an account).
 
-In the project 'app' folders you find a folder named 'config'. We must add there two files
-* parameters_dev.yml
-* parameters_prod.yml
 
- Simply copy the file 'parameters.yml.dist' to parameters_dev.yml and parameters_prod.yml.
- Edit both files and make the following change:
-* Line 20: meetup_api_key, replace 'key' with your API key
+### Step 4: Create your config files
+
+In the project 'app' folders you find a folder named 'config'. We must add two files:
+
+* `parameters_dev.yml`
+* `parameters_prod.yml`
+
+Simply copy the file `parameters.yml.dist` to `parameters_dev.yml` and `parameters_prod.yml`.
+Edit both files and make and following changes:
+
+* Line 20: meetup_api_key, replace 'key' with your API key.
 
 Extra change for file parameters_dev.yml:
-* Line 27: uncomment #delivery_address, and add there an e-mailaddress 
 
-The file parameters_prod.yml is only required if you use app.php ( We encourage developers to use only app_dev.php.).
+* Line 14: uncomment `#mailer_delivery_address`, and add your e-mail address.
 
-### Step 4: Run composer
+The file `parameters_prod.yml` is only required if you use `app.php` (we encourage developers to use `app_dev.php` only).
+
+
+### Step 5: Make `app/cache` and `app/logs` writable for the webserver
+
+Please read section _Setting up Permissions_ under [Configuration and Setup](http://symfony.com/doc/current/book/installation.html#configuration-and-setup) in [The Book](http://symfony.com/doc/current/book/index.html).
+
+
+### Step 6: Install dependencies with composer
 
     php composer.phar install
 
-Be patient, this process takes some time, if you dont see any errors, then composer ran succesfully.
+Be patient, this process takes some time, if you dont see any errors, then composer ran successfully.
 
-### Step 5: Almost done (last step)
 
-At this time you can browse to your vhost (http://yourhostname)
+### Step 7: Configure your webserver
+
+How the webserver should be configured depends on which webserver you use.
+
+Basic examples for Apache2 and Nginx can be found in Symfony 2's cookbook: [Configuring a web server](http://symfony.com/doc/current/cookbook/configuration/web_server_configuration.html).
+
+
+### Step 8: Almost done (last step)
+
+At this time you should be able to browse to your locally running project (`http://localhost/` or whatever you configured in step 7).
 
 The loading will take some time, but if you will see a very basic page that mean composer could not run the last steps.
 
 We have to add the assets to the web folder. That is done with one command.
 
-    php app/console assets:install web -symlink
+    php app/console assets:install web --symlink
     php app/console assetic:dump
 
 Revisit your browser and see if the website is fully loaded.
