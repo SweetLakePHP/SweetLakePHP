@@ -1,3 +1,5 @@
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/6e9c7314-18a3-409f-a88c-6c73a4f75f3d/big.png)](https://insight.sensiolabs.com/projects/6e9c7314-18a3-409f-a88c-6c73a4f75f3d)
+
 SweetLakePHP
 ============
 
