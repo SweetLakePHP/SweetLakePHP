@@ -59,8 +59,9 @@ swiftmailer:
 
 # SWP Configuration
 swp_frontend:
-    contact_email:     %contact_email%
-    contact_receivers: %contact_receivers%
+    contact_email:        %contact_email%
+    contact_receivers:    %contact_receivers%
+    meetup_group_urlname: %meetup_group_urlname%
 
 # Gregwar Configuration
 gregwar_captcha: ~

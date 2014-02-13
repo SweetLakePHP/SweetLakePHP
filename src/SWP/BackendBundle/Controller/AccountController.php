@@ -30,7 +30,7 @@ class AccountController extends Controller
 
         if ($request->getMethod() === "POST") {
             $account     = $request->request->get('account');
-            $userService = $this->get('swp_backend.useerService');
+            $userService = $this->get('swp_backend.userService');
 
             if (false === $userService->checkPassword($user, $account['currentPassword'])) {
                 $accountForm->get('currentPassword')->addError(new FormError('account.password.invalid'));

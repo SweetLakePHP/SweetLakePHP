@@ -1,8 +1,14 @@
 parameters:
-   swp_backend.userService.class: SWP\BackendBundle\Service\UserService
+   swp_backend.userService.class:    SWP\BackendBundle\Service\UserService
+   swp_backend.writeupService.class: SWP\BackendBundle\Service\WriteupService
 
 services:
-    swp_backend.useerService:
+    swp_backend.userService:
         class: %swp_backend.userService.class%
         arguments:
             securityEncoderFactory: "@security.encoder_factory"
+            entityManager:          "@doctrine.orm.entity_manager"
+    swp_backend.writeupService:
+        class: %swp_backend.writeupService.class%
+        arguments:
+            entityManager: "@doctrine.orm.entity_manager"

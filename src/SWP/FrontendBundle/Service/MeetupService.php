@@ -4,11 +4,40 @@ namespace SWP\FrontendBundle\Service;
 
 class MeetupService
 {
-    protected $client ;
+    protected $client;
+    protected $groupUrlName;
 
-    public function __construct($meetupClientFactory)
+    public function __construct($meetupClientFactory, $groupUrlName)
     {
-        $this->client = $meetupClientFactory->getKeyAuthClient();
+        $this->client       = $meetupClientFactory->getKeyAuthClient();
+        $this->groupUrlName = $groupUrlName;
+    }
+
+    /**
+     * Get all the events
+     */
+    public function findAll($sortOrder = 'desc')
+    {
+        $aAllowedSortOrderValues = array(
+            'asc',
+            'desc'
+        );
+
+        if(!in_array($sortOrder, $aAllowedSortOrderValues)){
+           $sortOrder = 'desc';
+        }
+
+        $events = $this->client->getEvents(
+            array(
+                'group_urlname' => $this->groupUrlName,
+                'status'        => 'upcoming,past',
+                $sortOrder      => $sortOrder
+            )
+        )->toArray();
+
+        $this->eventsFiller($events);
+
+        return $events;
     }
 
     /**
@@ -23,16 +52,16 @@ class MeetupService
             'asc',
             'desc'
         );
-        
+
         if(!in_array($sortOrder, $aAllowedSortOrderValues)){
            $sortOrder = 'desc';
         }
-        
+
         $events = $this->client->getEvents(
             array(
-                'group_urlname' => 'SweetlakePHP',
+                'group_urlname' => $this->groupUrlName,
                 'status'        => 'upcoming',
-                $sortOrder          => $sortOrder
+                $sortOrder      => $sortOrder
             )
         )->toArray();
 
@@ -50,7 +79,7 @@ class MeetupService
     {
         $events = $this->client->getEvents(
             array(
-                'group_urlname' => 'SweetlakePHP',
+                'group_urlname' => $this->groupUrlName,
                 'status'        => 'past',
                 'desc'          => 'desc'
             )

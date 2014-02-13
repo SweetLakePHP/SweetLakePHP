@@ -1,3 +1,6 @@
+admin:
+    actions:                            Admin actions
+
 contact:
     singular:                           Contact
     plural:                             Contacts
@@ -23,6 +26,7 @@ event:
     when:                               When
     where:                              Where
     link:                               Meetup link
+    manage:                             Manage events
 
 meetup:
     singular:                           Meetup

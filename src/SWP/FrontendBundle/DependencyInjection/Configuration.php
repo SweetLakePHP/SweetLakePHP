@@ -31,6 +31,8 @@ class Configuration implements ConfigurationInterface
 
                 ->scalarNode('github_username')->end()
                 ->scalarNode('github_repository')->end()
+
+                ->scalarNode('meetup_group_urlname')->end()
             ->end()
         ;
 

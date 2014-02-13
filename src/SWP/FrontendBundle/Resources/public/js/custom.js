@@ -139,49 +139,6 @@ jQuery(document).ready(function($){
 
 });
 
-/* -------------------- Buttons 3D Style --------------------- */
-
-jQuery(document).ready(function($){
-
-	$(':button').each(function(){
-
-		if($(this).hasClass('btn')) {
-
-			$(this).wrap('<div class="btn-overlay" />');
-
-			var inner = $(this).html();
-
-			if(browser()) {
-
-				$(this).html('<span>' + inner + '</span>');
-
-			}
-
-		}
-
-	});
-
-
-	$('a').each(function(){
-
-		if($(this).hasClass('btnOverlay')) {
-
-			$(this).wrap('<div class="btn-overlay" />');
-
-			var inner = $(this).html();
-
-			if(browser()) {
-
-				$(this).html('<span>' + inner + '</span>');
-
-			}
-
-		}
-
-	});
-
-});
-
 /* -------------------- Twitter --------------------- */
 
 jQuery(document).ready(function($){

@@ -6,6 +6,7 @@ services:
         class: %swp_frontend.meetupService.class%
         arguments:
             meetupClientFactory: "@dms_meetup_api.client_factory"
+            group_urlname:       "%meetup_group_urlname%"
     swp_frontend.requestService:
         class: SWP\FrontendBundle\Service\RequestService
         arguments:

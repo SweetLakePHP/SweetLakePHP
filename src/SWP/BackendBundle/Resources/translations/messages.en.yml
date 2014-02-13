@@ -1,3 +1,8 @@
+global:
+    save:                               Save
+    edit:                               Edit
+    cancel:                             Cancel
+
 account:
     singular:                           Account
     plural:                             Accounts
@@ -12,3 +17,18 @@ account:
     edit:
         success:                        Account successfully edited
     save:                               Save changes
+
+writeup:
+    singular:                           Writeup
+    plural:                             Writeups
+    subject:                            Onderwerp
+    content:                            Content
+    preview:                            Voorbeeld
+    autosave:                           Autosave
+    send:
+        title:                          Send mail
+        header:                         Send email to members
+        confirm:                        Are you sure you want to send this mail the all of our members?
+    edit:
+        success:                        Writeup is successfully edited
+        failed:                         Something went wrong!

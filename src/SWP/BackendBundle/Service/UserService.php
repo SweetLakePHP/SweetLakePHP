@@ -4,13 +4,15 @@ namespace SWP\BackendBundle\Service;
 
 use SWP\BackendBundle\Entity\User;
 
-class UserService
+class UserService extends EntityBaseService
 {
     protected $securityEncoderFactory;
 
-    public function __construct($securityEncoderFactory)
+    public function __construct($securityEncoderFactory, $em)
     {
         $this->securityEncoderFactory = $securityEncoderFactory;
+
+        parent::__construct($em);
     }
 
     public function checkPassword(User $user, $password)

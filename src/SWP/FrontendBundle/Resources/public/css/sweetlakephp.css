@@ -139,3 +139,67 @@ div.sponsors img {
 form.error {
     color: #B94A48;
 }
+
+.center {
+    text-align: center;
+}
+
+.quick-actions li {
+    background-color: #F6F6F6;
+    background-image: -moz-linear-gradient(center top , #F9F9F9 0%, #EDEDED 100%);
+    border: 1px solid #D5D5D5;
+    border-radius: 4px;
+    box-shadow: 0 1px 0 0 #FFFFFF inset, 0 1px 0 rgba(255, 255, 255, 0.4);
+    display: inline-block;
+    line-height: 18px;
+    margin: 0 10px 10px;
+    padding: 0;
+}
+
+.quick-actions li:hover {
+    background-image: -moz-linear-gradient(center top, #EDEDED 0%, #F9F9F9 100%);
+}
+
+.quick-actions li a {
+    color: #666666;
+    display: block;
+    text-align: center;
+    text-shadow: 0 1px 0 #FFFFFF;
+    padding: 20px 30px;
+    text-decoration: none;
+}
+.quick-actions li a i {
+    font-size: 3em;
+}
+
+.manage-events {
+    margin-bottom: 5px;
+}
+.manage-events .title {
+    font-size: 1.5em;
+    border: 0px;
+    margin: 7px 0 0 15px;
+    float: left;
+}
+.manage-events .btn-overlay{
+    margin: 0 0 0 5px;
+    border: 0px;
+    padding: 2px;
+}
+
+#autosave_holder {
+    -webkit-transition: background-color 3s;
+    -moz-transition: background-color 3s;
+    -o-transition: background-color 3s;
+    -ms-transition: background-color 3s;
+    transition: background-color 3s;
+}
+
+#writeup_preview {
+    border: 1px #cccccc solid;
+    padding: 10px;
+}
+
+#writeup_send_button {
+    margin-top: 6px;
+}

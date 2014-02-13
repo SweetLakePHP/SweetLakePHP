@@ -1,0 +1,33 @@
+{% extends 'SWPFrontendBundle::layout.html.twig' %}
+
+{% block title %}
+    {% trans %}event.manage{% endtrans %}
+{% endblock %}
+
+{% block content %}
+    <div id="wrapper">
+        <div id="page-title">
+            <div id="page-title-inner">
+                <h2>{% trans %}event.manage{% endtrans %}</h2>
+            </div>
+        </div>
+
+        {% for meetup in meetups %}
+            <div class="thumbnail manage-events">
+                <div class="row-fluid">
+                    <div class="span12">
+                        <div class="title">{{ meetup.name }}</div>
+
+                        <div class="buttons btn-group pull-right">
+                            {% if meetup.status == 'past' %}
+                                <a href="{{ path('event.writeup', {'eventId': meetup.id}) }}" class="btn">{% trans %}writeup.singular{% endtrans %}</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            {% trans %}meetup.nonefound{% endtrans %}
+        {% endfor %}
+    </div>
+{% endblock %}

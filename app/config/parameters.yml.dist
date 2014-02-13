@@ -19,7 +19,8 @@ parameters:
     contact_email:     email@domain.com
     contact_receivers: "email1@domain.com, email2@domain.com"
 
-    meetup_api_key: key
+    meetup_api_key:       key
+    meetup_group_urlname: SweetlakePHP
 
     twitter_consumer_key:    ~
     twitter_consumer_secret: ~

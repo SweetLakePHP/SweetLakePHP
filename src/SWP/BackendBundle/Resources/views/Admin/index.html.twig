@@ -1,18 +1,26 @@
 {% extends 'SWPFrontendBundle::layout.html.twig' %}
 
 {% block title %}
-    Admin Page
+    {% trans %}admin.actions{% endtrans %}
 {% endblock %}
 
 {% block content %}
     <div id="wrapper">
         <div id="page-title">
             <div id="page-title-inner">
-                <h2>Admin Page</h2>
+                <h2>{% trans %}admin.actions{% endtrans %}</h2>
             </div>
         </div>
 
-        <h3>Hello!</h3>
-        If you reached this page your an admin =)
+        <div class="span11 center center">
+            <ul class="quick-actions">
+                <li>
+                    <a href="{{ path('event.list') }}">
+                        <i class="fa fa-calendar"></i><br>
+                        {% trans %}event.manage{% endtrans %}
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
 {% endblock %}

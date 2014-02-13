@@ -1,0 +1,70 @@
+{% extends 'SWPFrontendBundle::layout.html.twig' %}
+
+{% block title %}
+    {% trans %}writeup.singular{% endtrans %}
+{% endblock %}
+
+{% block content %}
+    <div id="wrapper">
+        <div id="page-title">
+            <div id="page-title-inner">
+                <button id="writeup_send_button" {% if writeup.sent %}disabled="disabled"{% endif %} class="btn pull-right {% if writeup.sent %}btn-danger{% else %}btn-success{% endif %}" data-toggle="modal" data-target="#writeup_send_modal">
+                    <i class="fa fa-envelope"></i>
+                    {% trans %}writeup.send.title{% endtrans %}
+                </button>
+
+                <h2>{% trans %}writeup.singular{% endtrans %}</h2>
+            </div>
+        </div>
+
+        <div id="autosave_holder" class="pull-right form-inline">
+            <label class="checkbox">
+                <input type="checkbox" id="writeup_autosave" />
+                {% trans %}writeup.autosave{% endtrans %}
+            </label>
+        </div>
+
+        <span id="event_id" style="display: none;">{{ meetup.id }}</span>
+
+        <form id="writeup_form" class="form-horizontal no-bottom" method="post" action="">
+            {% form_theme form 'SWPFrontendBundle:Form:bootstrap.html.twig' %}
+            {{ form_widget(form) }}
+
+            <div class="control-group">
+                <label class="required control-label" for="event_writeup_content">
+                    {% trans %}writeup.preview{% endtrans %}
+                </label>
+                <div id="writeup_preview" class="controls">{{ preview | raw }}</div>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">
+                    <i class="fa fa-save"></i>
+                    {% trans %}global.save{% endtrans %}
+                </button>
+                <a href="{{ path('event.list') }}" class="btn">{% trans %}global.cancel{% endtrans %}</a>
+            </div>
+        </form>
+    </div>
+
+    <div id="writeup_send_modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">{% trans %}writeup.send.header{% endtrans %}</h3>
+        </div>
+
+        <div class="modal-body">
+            {% trans %}writeup.send.confirm{% endtrans %}
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">
+                {% trans %}global.cancel{% endtrans %}
+            </button>
+            <button class="btn btn-primary">
+                <i class="fa fa-envelope"></i>
+                {% trans %}writeup.send.title{% endtrans %}
+            </button>
+        </div>
+    </div>
+{% endblock %}
