@@ -3,21 +3,21 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "297e3034cf245cf4200aaabc5efa0bb9",
+    "hash": "3112465bd1ded439a55db3e9f2d0e43a",
     "packages": [
         {
             "name": "dms/meetup-api-bundle",
-            "version": "dev-master",
+            "version": "v1.0.0",
             "target-dir": "DMS/Bundle/MeetupApiBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rdohms/DMSMeetupApiBundle.git",
-                "reference": "f050172106710293e32385e041507a6a96e0bad3"
+                "reference": "e34ee015e67488955eb36e6fe3cb87966ef12320"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rdohms/DMSMeetupApiBundle/zipball/f050172106710293e32385e041507a6a96e0bad3",
-                "reference": "f050172106710293e32385e041507a6a96e0bad3",
+                "url": "https://api.github.com/repos/rdohms/DMSMeetupApiBundle/zipball/e34ee015e67488955eb36e6fe3cb87966ef12320",
+                "reference": "e34ee015e67488955eb36e6fe3cb87966ef12320",
                 "shasum": ""
             },
             "require": {
@@ -50,7 +50,7 @@
                 "meetup.com",
                 "symfony"
             ],
-            "time": "2013-04-23 10:36:36"
+            "time": "2013-04-12 13:11:38"
         },
         {
             "name": "dms/meetup-api-client",
@@ -530,17 +530,17 @@
         },
         {
             "name": "doctrine/doctrine-migrations-bundle",
-            "version": "dev-master",
+            "version": "1.0.0-BETA3",
             "target-dir": "Doctrine/Bundle/MigrationsBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineMigrationsBundle.git",
-                "reference": "667f20875f0dd3f3fce3e5a7d97cceac92a8e9d1"
+                "reference": "b87093e2c798fd4388e8914440d8ed32c2025fbc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineMigrationsBundle/zipball/667f20875f0dd3f3fce3e5a7d97cceac92a8e9d1",
-                "reference": "667f20875f0dd3f3fce3e5a7d97cceac92a8e9d1",
+                "url": "https://api.github.com/repos/doctrine/DoctrineMigrationsBundle/zipball/b87093e2c798fd4388e8914440d8ed32c2025fbc",
+                "reference": "b87093e2c798fd4388e8914440d8ed32c2025fbc",
                 "shasum": ""
             },
             "require": {
@@ -567,7 +567,9 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 },
                 {
                     "name": "Symfony Community",
@@ -585,7 +587,7 @@
                 "migrations",
                 "schema"
             ],
-            "time": "2014-01-02 21:27:15"
+            "time": "2013-12-18 05:36:26"
         },
         {
             "name": "doctrine/inflector",
@@ -946,17 +948,17 @@
         },
         {
             "name": "gregwar/captcha-bundle",
-            "version": "dev-master",
+            "version": "v1.0.8",
             "target-dir": "Gregwar/CaptchaBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Gregwar/CaptchaBundle.git",
-                "reference": "800643d72c022f6e71d1cdb6e315f3a9c647661e"
+                "reference": "e3727a975db3d8a1087e1f185b3abb9ab8038b8c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Gregwar/CaptchaBundle/zipball/800643d72c022f6e71d1cdb6e315f3a9c647661e",
-                "reference": "800643d72c022f6e71d1cdb6e315f3a9c647661e",
+                "url": "https://api.github.com/repos/Gregwar/CaptchaBundle/zipball/e3727a975db3d8a1087e1f185b3abb9ab8038b8c",
+                "reference": "e3727a975db3d8a1087e1f185b3abb9ab8038b8c",
                 "shasum": ""
             },
             "require": {
@@ -995,7 +997,7 @@
                 "spam",
                 "visual"
             ],
-            "time": "2013-11-25 10:48:00"
+            "time": "2013-08-14 07:45:48"
         },
         {
             "name": "guzzle/guzzle",
@@ -1718,7 +1720,9 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 },
                 {
                     "name": "Symfony Community",
@@ -1731,16 +1735,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.3.9",
+            "version": "v2.3.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "ee1e0f2ef882ccd6a53ff91e5ffc39a22b6a6b74"
+                "reference": "e4b9ff28b7c357971947ed12f99fbc68ff116830"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/ee1e0f2ef882ccd6a53ff91e5ffc39a22b6a6b74",
-                "reference": "ee1e0f2ef882ccd6a53ff91e5ffc39a22b6a6b74",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/e4b9ff28b7c357971947ed12f99fbc68ff116830",
+                "reference": "e4b9ff28b7c357971947ed12f99fbc68ff116830",
                 "shasum": ""
             },
             "require": {
@@ -1823,7 +1827,9 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 },
                 {
                     "name": "Symfony Community",
@@ -1835,7 +1841,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-01-05 01:24:54"
+            "time": "2014-02-12 08:18:23"
         },
         {
             "name": "twig/extensions",
@@ -1886,16 +1892,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.15.0",
+            "version": "v1.15.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig.git",
-                "reference": "85e4ff98000157ff753d934b9f13659a953f5666"
+                "reference": "1fb5784662f438d7d96a541e305e28b812e2eeed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/85e4ff98000157ff753d934b9f13659a953f5666",
-                "reference": "85e4ff98000157ff753d934b9f13659a953f5666",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/1fb5784662f438d7d96a541e305e28b812e2eeed",
+                "reference": "1fb5784662f438d7d96a541e305e28b812e2eeed",
                 "shasum": ""
             },
             "require": {
@@ -1919,11 +1925,19 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 },
                 {
                     "name": "Armin Ronacher",
-                    "email": "armin.ronacher@active-4.com"
+                    "email": "armin.ronacher@active-4.com",
+                    "role": "Project Founder"
+                },
+                {
+                    "name": "Twig Team",
+                    "homepage": "https://github.com/fabpot/Twig/graphs/contributors",
+                    "role": "Contributors"
                 }
             ],
             "description": "Twig, the flexible, fast, and secure template language for PHP",
@@ -1931,7 +1945,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2013-12-06 07:47:10"
+            "time": "2014-02-13 10:19:29"
         },
         {
             "name": "willdurand/jsonp-callback-validator",
@@ -1982,8 +1996,6 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
-        "gregwar/captcha-bundle": 20,
-        "dms/meetup-api-bundle": 20,
         "doctrine/migrations": 20,
         "doctrine/doctrine-migrations-bundle": 20
     },
