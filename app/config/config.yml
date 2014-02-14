@@ -19,6 +19,8 @@ framework:
     session:         ~
     fragments:       ~
     http_method_override: true
+    session:
+         save_path: "%kernel.root_dir%/sessions"
 
 # Twig Configuration
 twig:
