@@ -118,9 +118,10 @@ ul.twitter-tweets li{
     padding-left: 40px;
 }
 
-.contributors a {
+.contributors img {
     margin-right: 5px;
     margin-bottom: 5px;
+    border: 1px solid #444444;
 }
 
 #transip-logo {
