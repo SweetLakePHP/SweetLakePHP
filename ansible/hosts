@@ -1,0 +1,16 @@
+[vagrant]
+192.168.30.48
+
+[production-test]
+192.168.30.49
+
+[production-real]
+149.210.152.247
+
+[production:children]
+production-test
+production-real
+
+[servers:children]
+vagrant
+production

@@ -1,0 +1,25 @@
+server {
+    server_name {{ sweetlakephp_server_name }};
+    set $application_env {{ sweetlakephp_application_env }};
+
+    listen      80;
+    root        {{ sweetlakephp_web_root }};
+    index       index.php index.html;
+
+    access_log  {{ sweetlakephp_access_log }};
+    error_log   {{ sweetlakephp_error_log }};
+
+    location / {
+        try_files $uri /{{ sweetlakephp_fastcgi_index }}?$args;
+    }
+
+    location ~ \.php$ {
+        fastcgi_pass     unix:/var/run/php5-fpm.sock;
+        fastcgi_read_timeout 240;
+        fastcgi_index    {{ sweetlakephp_fastcgi_index }};
+        fastcgi_param    APPLICATION_ENV    $application_env;
+        fastcgi_param    SCRIPT_FILENAME    $document_root$fastcgi_script_name;
+        include          fastcgi_params;
+    }
+
+}

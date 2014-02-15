@@ -1,0 +1,30 @@
+parameters:
+    database_driver:   pdo_mysql
+    database_host:     {{ sweetlakephp_db_host }}
+    database_port:     ~
+    database_socket:   {{ mariadb_socket }}
+    database_name:     {{ sweetlakephp_db_name }}
+    database_user:     {{ sweetlakephp_db_user }}
+    database_password: {{ sweetlakephp_db_password }}
+
+    mailer_transport:  smtp
+    mailer_host:       127.0.0.1
+    mailer_user:       ~
+    mailer_password:   ~
+    mailer_delivery_address:  ramon@future500.nl
+
+    locale:            en
+    secret:            {{ sweetlakephp_symfony_secret }}
+
+    contact_email:     contact@sweetlakephp.nl
+    contact_receivers: "ramon@@future500.nl, mitchel@future500.nl"
+
+    meetup_api_key:    {{ sweetlakephp_meetup_api_key }}
+
+    twitter_consumer_key:     {{ sweetlakephp_twitter_consumer_key }}
+    twitter_consumer_secret:  {{ sweetlakephp_twitter_consumer_secret }}
+    twitter_oauth_token:      {{ sweetlakephp_twitter_oauth_token }}
+    twitter_oauth_secret:     {{ sweetlakephp_twitter_oauth_secret }}
+
+    github_username:   verschoof
+    github_repository: SweetLakePHP

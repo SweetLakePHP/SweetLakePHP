@@ -1,0 +1,69 @@
+---
+- name: Provision SweetlakePHP
+  hosts: servers
+  sudo: yes
+
+  roles:
+    - apt-update
+    - acl
+    - bashrc
+    - debian
+    - git
+    - nginx
+    - mariadb
+    - php_cli
+    - php_fpm
+    - php_extensions
+    - php_composer
+
+  vars_files:
+    - group_vars/production.crypt
+
+  tasks:
+    - name: copy nginx configuration
+      template: src=templates/nginx.cfg.j2 dest=/etc/nginx/sites-available/sweetlakephp force=yes
+      notify: restart nginx
+
+    - name: enable nginx configuration
+      file:  src=/etc/nginx/sites-available/sweetlakephp dest=/etc/nginx/sites-enabled/sweetlakephp state=link
+      notify: restart nginx
+
+    - name: create database
+      mysql_db: "name={{ sweetlakephp_db_name }} state=present"
+
+    - name: create database user
+      mysql_user: name={{ sweetlakephp_db_user }} password={{ sweetlakephp_db_password }} priv={{ sweetlakephp_db_name }}.*:ALL state=present
+
+- name: Production specific tasks
+  hosts: production
+  sudo: yes
+
+  roles:
+    - ufw
+    - ufw_rules
+
+  tasks:
+    - name: add deploy user
+      user: name={{ production_deploy_user }} shell=/bin/bash
+
+    - name: add personal authorized key
+      authorized_key: user={{ production_deploy_user }} key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+
+    - name: add user to sudoers
+      lineinfile: "dest=/etc/sudoers state=present insertafter=EOF line='{{ production_deploy_user }} ALL=NOPASSWD: ALL'"
+
+    - name: add github to known_hosts
+      lineinfile: dest=/etc/ssh/ssh_known_hosts line="{{lookup('pipe', 'ssh-keyscan github.com') }}" state=present create=yes
+
+    - name: create php log directory
+      file: "path={{ php_log_dir }} owner=root group={{ php_fpm_group }} mode=0774 state=directory"
+
+    - name: create project directories
+      file: "path={{ item.path }} owner={{ production_deploy_user }} group={{ php_fpm_group }} mode={{ item.mode }} state=directory"
+      with_items:
+        - {path: "{{ sweetlakephp_root }}", mode: "0755"}
+        - {path: "{{ sweetlakephp_root }}/source", mode: "0755"}
+        - {path: "{{ sweetlakephp_root }}/releases", mode: "0755"}
+        - {path: "{{ sweetlakephp_root }}/shared", mode: "0755"}
+        - {path: "{{ sweetlakephp_root }}/shared/sessions", mode: "0775"}
+

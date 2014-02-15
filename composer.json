@@ -8,6 +8,12 @@
             "": "src/"
         }
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:Future500BV/ansible-provisioning"
+        }
+    ],
     "require": {
         "php": ">=5.3.3",
         "symfony/symfony": "2.3.*",
@@ -25,7 +31,11 @@
         "friendsofsymfony/jsrouting-bundle": "~1.1",
         "guzzle/guzzle": "3.7.*",
         "doctrine/migrations": "~1.0@dev",
-        "doctrine/doctrine-migrations-bundle": "~1.0@dev"
+        "doctrine/doctrine-migrations-bundle": "~1.0@dev",
+        "f500/ansible-provisioning": "dev-master"
+    },
+    "require-dev": {
+        "psecio/iniscan": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [
