@@ -11,12 +11,12 @@
             "target-dir": "DMS/Bundle/MeetupApiBundle",
             "source": {
                 "type": "git",
-                "url": "https://github.com/rdohms/DMSMeetupApiBundle.git",
+                "url": "https://github.com/rdohms/dms-meetup-api-bundle.git",
                 "reference": "e34ee015e67488955eb36e6fe3cb87966ef12320"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rdohms/DMSMeetupApiBundle/zipball/e34ee015e67488955eb36e6fe3cb87966ef12320",
+                "url": "https://api.github.com/repos/rdohms/dms-meetup-api-bundle/zipball/e34ee015e67488955eb36e6fe3cb87966ef12320",
                 "reference": "e34ee015e67488955eb36e6fe3cb87966ef12320",
                 "shasum": ""
             },
@@ -509,7 +509,9 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 },
                 {
                     "name": "Symfony Community",
@@ -1391,7 +1393,9 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 }
             ],
             "description": "The base bundle for the Symfony Distributions",
