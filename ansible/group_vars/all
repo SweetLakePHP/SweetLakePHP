@@ -1,0 +1,20 @@
+---
+ansible_connection: ssh
+
+php_cli_allow_url_fopen: "On"
+php_session_cookie_secure: "Off"
+php_log_dir: "/var/log/php5"
+php_fpm_user: "www-data"
+php_fpm_group: "www-data"
+
+php_extensions:
+    - php5-curl
+    - php5-intl
+    - php5-gd
+    - php5-mysql
+
+mariadb_socket: "/var/run/mysqld/mysqld.sock"
+
+sweetlakephp_db_host: localhost
+sweetlakephp_db_name: sweetlakephp
+sweetlakephp_db_user: sweetlakephp

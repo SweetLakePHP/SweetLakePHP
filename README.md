@@ -12,8 +12,8 @@ Want to get involved with this project? See our [issues (bug/feature) page](http
 
 ## Requirements
 
-* A local running webserver like WAMP, XAMPP
 * A Meetup account (you'll need an API key)
+* If you don't use Vagrant, you'll need A local running webserver. Projects that include a local webserver are for example WAMP or XAMPP.
 
 
 ## Installation
@@ -43,36 +43,45 @@ Replace `<username>` with your Github username.
 
 ### Step 4: Create your config files
 
-In the project 'app' folders you find a folder named 'config'. We must add two files:
+In the project 'app' folders you find a folder named 'config'. We must add a file called:
 
 * `parameters_dev.yml`
-* `parameters_prod.yml`
 
-Simply copy the file `parameters.yml.dist` to `parameters_dev.yml` and `parameters_prod.yml`.
-Edit both files and make and following changes:
+Simply copy the file `parameters.yml.dist` to `parameters_dev.yml`.
+Edit the file and make and following changes:
 
 * Line 20: meetup_api_key, replace 'key' with your API key.
-
-Extra change for file parameters_dev.yml:
-
 * Line 14: uncomment `#mailer_delivery_address`, and add your e-mail address.
 
-The file `parameters_prod.yml` is only required if you use `app.php` (we encourage developers to use `app_dev.php` only).
-
-
-### Step 5: Make `app/cache` and `app/logs` writable for the webserver
-
-Please read section _Setting up Permissions_ under [Configuration and Setup](http://symfony.com/doc/current/book/installation.html#configuration-and-setup) in [The Book](http://symfony.com/doc/current/book/index.html).
-
-
-### Step 6: Install dependencies with composer
+### Step 5: Install dependencies with composer
 
     php composer.phar install
 
 Be patient, this process takes some time, if you dont see any errors, then composer ran successfully.
 
 
-### Step 7: Configure your webserver
+### Step 6: Make `app/cache` and `app/logs` writable for the webserver
+
+Please read section _Setting up Permissions_ under [Configuration and Setup](http://symfony.com/doc/current/book/installation.html#configuration-and-setup) in [The Book](http://symfony.com/doc/current/book/index.html).
+
+
+### Step 7A (Vagrant users only): Vagrant up
+
+This repository contains a Vagrantfile. This means that is uses [Vagrant](http://www.vagrantup.com) to automatically create a virtual machine on your system.
+_Unfortunately, Ansible does not work that well with Vagrant on Windows, so don't even try unless you know what you're doing. Installing a local webserver is a lot less painful_
+
+In the root of the project, enter the command:
+
+    vagrant up
+
+After the machine is created, [Ansible](http://docs.ansible.com) is used to "provision" it. That just means all the necessary software is installed. It also takes care of the proper config files for the webserver.
+
+The webserver is configured to listen to the hostname *sweetlakephp.loc*, so the url should be [http://sweetlakephp.loc](http://sweetlakephp.loc).
+You will need to add this line in your local hosts file (/etc/hosts on Linux and OS X, %SystemRoot%\system32\drivers\etc\hosts on Windows).
+
+    192.168.30.48  sweetlakephp.loc
+
+### Step 7B (local webserver only): Configure your webserver
 
 How the webserver should be configured depends on which webserver you use.
 
@@ -83,7 +92,7 @@ Basic examples for Apache2 and Nginx can be found in Symfony 2's cookbook: [Conf
 
 At this time you should be able to browse to your locally running project (`http://localhost/` or whatever you configured in step 7).
 
-The loading will take some time, but if you will see a very basic page that mean composer could not run the last steps.
+The loading will take some time, but if you will see a very basic page (without styles) that means composer could not run the last steps.
 
 We have to add the assets to the web folder. That is done with one command.
 

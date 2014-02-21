@@ -1,0 +1,20 @@
+---
+ansible_ssh_user: vagrant
+ansible_ssh_private_key_file: ~/.vagrant.d/insecure_private_key
+
+bash_users:
+    - vagrant
+
+nginx_group: vagrant
+nginx_user: vagrant
+php_fpm_user: vagrant
+php_fpm_group: vagrant
+php_opcache_validate_timestamps: On
+
+sweetlakephp_server_name: "sweetlakephp.loc"
+sweetlakephp_fastcgi_index: "app_dev.php"
+sweetlakephp_application_env: "dev"
+sweetlakephp_root: "/vagrant"
+sweetlakephp_web_root: "/vagrant/web"
+sweetlakephp_access_log: "/var/log/nginx/sweetlakephp.access"
+sweetlakephp_error_log: "/var/log/nginx/sweetlakephp.error"

@@ -1,0 +1,23 @@
+---
+production_ssh_user: ramon
+production_deploy_user: deploy
+
+ufw_rules_allow_ports:
+    - 22
+    - 80
+    - 443
+
+bash_users:
+    - vagrant
+
+symfony_env: prod
+
+sweetlakephp_github_repo: "https://github.com/verschoof/SweetLakePHP.git"
+sweetlakephp_server_name: "sweetlakephp.nl www.sweetlakephp.nl"
+sweetlakephp_fastcgi_index: "app.php"
+sweetlakephp_application_env: "production"
+sweetlakephp_root: "/home/deploy/sweetlakephp"
+sweetlakephp_source: "{{ sweetlakephp_root }}/source"
+sweetlakephp_web_root: "{{ sweetlakephp_root }}/current/web"
+sweetlakephp_access_log: "/var/log/nginx/sweetlakephp.access"
+sweetlakephp_error_log: "/var/log/nginx/sweetlakephp.error"
