@@ -1,0 +1,12 @@
+f500.bashrc
+f500.debian
+f500.repo_dotdeb
+f500.nginx
+f500.mariadb55
+f500.php
+f500.php_cli
+f500.php_fpm
+f500.php_extensions
+f500.php_composer
+f500.ufw
+f500.ufw_rules

@@ -9,15 +9,13 @@
       private: no
       default: "master"
 
-  vars_files:
-    - group_vars/production.crypt
-
   tasks:
     - name: find correct folder names for deploy
       deploy: "path={{ sweetlakephp_root }}"
 
     - name: "clone repository"
       git: "repo={{ sweetlakephp_github_repo }} dest={{ sweetlakephp_source }} version={{ sweetlakephp_version }}"
+
     - name: copy files to new release folder
       command: "cp -r {{ sweetlakephp_source }} {{ deploy.new_release_path }}"
     - name: remove .git folder from new release folder

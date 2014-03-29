@@ -5,19 +5,14 @@
 
   roles:
     - apt-update
-    - acl
-    - bashrc
-    - debian
-    - git
-    - nginx
-    - mariadb
-    - php_cli
-    - php_fpm
-    - php_extensions
-    - php_composer
-
-  vars_files:
-    - group_vars/production.crypt
+    - f500.bashrc
+    - f500.debian
+    - f500.nginx
+    - f500.mariadb55
+    - f500.php_cli
+    - f500.php_fpm
+    - f500.php_extensions
+    - f500.php_composer
 
   tasks:
     - name: copy nginx configuration
@@ -34,13 +29,14 @@
     - name: create database user
       mysql_user: name={{ sweetlakephp_db_user }} password={{ sweetlakephp_db_password }} priv={{ sweetlakephp_db_name }}.*:ALL state=present
 
+
 - name: Production specific tasks
   hosts: production
   sudo: yes
 
   roles:
-    - ufw
-    - ufw_rules
+    - f500.ufw
+    - f500.ufw_rules
 
   tasks:
     - name: add deploy user
