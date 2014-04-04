@@ -28,8 +28,7 @@
       mysql_db: "name={{ sweetlakephp_db_name }} state=present"
 
     - name: create database user
-      mysql_user: name={{ sweetlakephp_db_user }} password={{ sweetlakephp_db_password }} priv={{ sweetlakephp_db_name }}.*:ALL state=present
-
+      mysql_user: name={{ sweetlakephp_db_user }} password={{ sweetlakephp_db_password }} host='%' priv=*.*:ALL,GRANT state=present
 
 - name: Production specific tasks
   hosts: production
