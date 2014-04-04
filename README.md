@@ -14,6 +14,7 @@ Want to get involved with this project? See our [issues (bug/feature) page](http
 
 * A Meetup account (you'll need an API key)
 * If you don't use Vagrant, you'll need A local running webserver. Projects that include a local webserver are for example WAMP or XAMPP.
+* If you do use Vagrant, you'll also need Ansible (minimal version 1.5)
 
 
 ## Installation
@@ -78,6 +79,12 @@ Please read section _Setting up Permissions_ under [Configuration and Setup](htt
 This repository contains a Vagrantfile. This means that is uses [Vagrant](http://www.vagrantup.com) to automatically create a virtual machine on your system.
 _Unfortunately, Ansible does not work that well with Vagrant on Windows, so don't even try unless you know what you're doing. Installing a local webserver is a lot less painful_
 
+**Ansible Galaxy:**
+In the root of the project, enter the command:
+   
+    ansible-galaxy -r ansible/ansible-galaxy.txt -p ansible --force
+
+**Vagrant:**
 In the root of the project, enter the command:
 
     vagrant up
