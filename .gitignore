@@ -1,4 +1,6 @@
 /.idea/workspace.xml
+/.vagrant
+/ansible/f500.*
 /app/bootstrap.php.cache
 /app/cache/*
 /app/config/parameters_*.yml
@@ -6,4 +8,6 @@
 /bin/*
 /vendor/*
 /web/bundles/*
+/web/css/*
+/web/js/*
 /web/uploads/*

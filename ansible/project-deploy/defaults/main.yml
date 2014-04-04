@@ -1,0 +1,28 @@
+---
+
+# These variables must be set
+# project_github_repo: "github_repository"
+# project_root: "path_to_project_on_the_target_machine"
+
+project_version: "master"
+
+project_source_path: "{{ project_root }}/source"
+project_build_path: "{{ project_root }}/build"
+
+project_environment:
+  SYMFONY_ENV: "prod"
+
+# set this to override composer discovery
+# project_has_composer: true/false
+project_composer_binary: composer.phar
+project_command_for_has_composer: "ls -1 composer.json"
+project_command_for_composer_install: "{{ project_composer_binary }} install --no-ansi --no-dev --no-interaction --no-progress --optimize-autoloader --no-scripts"
+
+project_files: []
+project_templates: []
+project_shared_children: []
+
+project_pre_dependency_commands: []
+project_post_dependency_commands: []
+
+project_finalize: true

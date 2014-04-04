@@ -1,0 +1,13 @@
+# Test to have ansible provisioning agains localhost for travis builds
+#---
+#language: php
+#php:
+#before_install:
+# - sudo apt-get update -qq
+# - sudo apt-get install -qq python-apt python-pycurl
+#install:
+#  - pip install ansible
+#  - echo localhost > inventory
+#  - ansible-playbook -i inventory ansible/provision.yml --connection=local --sudo
+# script:
+#  - echo "This should test the website after ansible provisioning"

@@ -41,7 +41,7 @@ Replace `<username>` with your Github username.
 * Get your [Meetup API key](http://www.meetup.com/meetup_api/key/) (you'll need an account).
 
 
-### Step 4: Create your config files
+### Step 4: Create your config file
 
 In the project 'app' folders you find a folder named 'config'. We must add a file called:
 
@@ -50,8 +50,16 @@ In the project 'app' folders you find a folder named 'config'. We must add a fil
 Simply copy the file `parameters.yml.dist` to `parameters_dev.yml`.
 Edit the file and make and following changes:
 
+* Line 5-8: db_credentials, enter the database credentials for your local db server.
 * Line 20: meetup_api_key, replace 'key' with your API key.
 * Line 14: uncomment `#mailer_delivery_address`, and add your e-mail address.
+
+If you use Vagrant, the database credentials are:
+
+    database_socket:   /var/run/mysqld/mysqld.sock
+    database_name:     sweetlakephp
+    database_user:     sweetlakephp
+    database_password: secret
 
 ### Step 5: Install dependencies with composer
 
