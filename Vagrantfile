@@ -10,7 +10,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         config_dev.vm.box = "f500/debian-wheezy64"
 
         config_dev.vm.network :private_network, ip: "192.168.30.48"
-        config_dev.vm.synced_folder ".", "/vagrant", rsync: true
+        config_dev.vm.synced_folder ".", "/vagrant", type: "nfs"
 
         config_dev.vm.provider :virtualbox do |vb|
             vb.name = "sweetlakephp_development"
