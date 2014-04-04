@@ -5,6 +5,7 @@
 
   roles:
     - apt-update
+    - install_apt_packages
     - f500.bashrc
     - f500.debian
     - f500.nginx

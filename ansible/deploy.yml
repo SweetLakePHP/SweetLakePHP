@@ -2,68 +2,38 @@
 - name: Deploy the application
   hosts: production
   remote_user: deploy
+  sudo: no
 
-  vars_prompt:
-    - name: sweetlakephp_version
-      prompt: "What tag (or any valid git reference) do you wish to deploy?"
-      private: no
-      default: "master"
+  vars:
+    project_root: "{{ sweetlakephp_root }}"
+    project_github_repo: "{{ sweetlakephp_github_repo }}"
 
-  tasks:
-    - name: find correct folder names for deploy
-      deploy: "path={{ sweetlakephp_root }}"
+    project_environment:
+      SYMFONY_ENV: "prod"
 
-    - name: "clone repository"
-      git: "repo={{ sweetlakephp_github_repo }} dest={{ sweetlakephp_source }} version={{ sweetlakephp_version }}"
+    project_shared_children:
+      - path: "/app/sessions"
+        src: "sessions"
+      - path: "/web/uploads"
+        src: "uploads"
 
-    - name: copy files to new release folder
-      command: "cp -r {{ sweetlakephp_source }} {{ deploy.new_release_path }}"
-    - name: remove .git folder from new release folder
-      file: "path={{ deploy.new_release_path }}/.git state=absent"
+    project_templates:
+      - name: parameters.yml
+        src: "templates/parameters_prod.yml.j2"
+        dest: "/app/config/parameters_prod.yml"
 
-    - name: create parameters file
-      template: "src=templates/parameters_prod.yml.j2 dest='{{ deploy.new_release_path }}/app/config/parameters_prod.yml' force=yes"
+    project_has_composer: yes
 
-    - name: install composer packages
-      command: "composer.phar install --no-ansi --no-dev --no-interaction --no-progress --optimize-autoloader --no-scripts --working-dir={{ deploy.new_release_path }}"
-      environment:
-        SYMFONY_ENV: "{{ symfony_env }}"
+    project_post_dependency_commands:
+      - "php vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/bin/build_bootstrap.php"
+      - "app/console cache:clear"
+      - "app/console doctrine:migrations:migrate --no-interaction"
+      - "app/console assets:install"
+      - "app/console assetic:dump"
 
-    - name: build bootstrap
-      command: "php vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/bin/build_bootstrap.php chdir={{ deploy.new_release_path }}"
-      environment:
-        SYMFONY_ENV: "{{ symfony_env }}"
+  roles:
+    - project-deploy
 
-    - name: clear cache
-      command: "app/console cache:clear chdir={{ deploy.new_release_path }}"
-      environment:
-        SYMFONY_ENV: "{{ symfony_env }}"
-
-    - name: assets install
-      command: "app/console assets:install chdir={{ deploy.new_release_path }}"
-      environment:
-        SYMFONY_ENV: "{{ symfony_env }}"
-
-    - name: assetic dump
-      command: "app/console assetic:dump chdir={{ deploy.new_release_path }}"
-      environment:
-        SYMFONY_ENV: "{{ symfony_env }}"
-
-    - name: perform migrations
-      command: "app/console doctrine:migrations:migrate --no-interaction chdir={{ deploy.new_release_path }}"
-      environment:
-        SYMFONY_ENV: "{{ symfony_env }}"
-      register: migrations_result
-      changed_when: "'No migrations to execute' not in migrations_result.stdout"
-
-    - name: remove app/sessions folder
-      file: "path='{{ deploy.new_release_path }}/app/sessions' state=absent"
-
-    - name: create symlink to shared/sessions folder
-      file: "path='{{ deploy.new_release_path }}/app/sessions' src='{{ sweetlakephp_root }}/shared/sessions' state=link"
-
-    - name: create symlink for current release
-      file: src={{ deploy.new_release_path }} dest={{ deploy.current_path }} state=link
-
-    - name: remove old releases
-      deploy: "path={{ sweetlakephp_root }} state=cleanup"
+  post_tasks:
+    - name: Remove old releases
+      deploy: "path={{ project_root }} state=cleanup"
