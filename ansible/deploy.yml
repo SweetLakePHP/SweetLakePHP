@@ -1,12 +1,14 @@
 ---
+- name: maintenance flag + db dump
+
 - name: Deploy the application
   hosts: production
-  remote_user: deploy
+  remote_user: "{{ production_deploy_user }}"
   sudo: no
 
   vars:
     project_root: "{{ sweetlakephp_root }}"
-    project_github_repo: "{{ sweetlakephp_github_repo }}"
+    project_git_repo: "{{ sweetlakephp_github_repo }}"
 
     project_environment:
       SYMFONY_ENV: "prod"
@@ -24,7 +26,7 @@
 
     project_has_composer: yes
 
-    project_post_dependency_commands:
+    project_post_build_commands:
       - "php vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/bin/build_bootstrap.php"
       - "app/console cache:clear"
       - "app/console doctrine:migrations:migrate --no-interaction"
@@ -32,8 +34,10 @@
       - "app/console assetic:dump"
 
   roles:
-    - project-deploy
+    - f500.project_deploy
 
   post_tasks:
     - name: Remove old releases
       deploy: "path={{ project_root }} state=cleanup"
+
+- name: maintenance flag + db dump
