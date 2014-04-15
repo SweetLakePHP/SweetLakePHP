@@ -1,6 +1,4 @@
 ---
-- name: maintenance flag + db dump
-
 - name: Deploy the application
   hosts: production
   remote_user: "{{ production_deploy_user }}"
@@ -9,6 +7,7 @@
   vars:
     project_root: "{{ sweetlakephp_root }}"
     project_git_repo: "{{ sweetlakephp_github_repo }}"
+    project_deploy_strategy: git
 
     project_environment:
       SYMFONY_ENV: "prod"
@@ -39,5 +38,3 @@
   post_tasks:
     - name: Remove old releases
       deploy: "path={{ project_root }} state=cleanup"
-
-- name: maintenance flag + db dump
