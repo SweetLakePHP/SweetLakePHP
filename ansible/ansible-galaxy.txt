@@ -10,3 +10,4 @@ f500.php_extensions
 f500.php_composer
 f500.ufw
 f500.ufw_rules
+f500.project_deploy
