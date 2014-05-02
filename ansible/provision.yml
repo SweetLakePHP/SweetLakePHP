@@ -14,6 +14,7 @@
     - f500.php_fpm
     - f500.php_extensions
     - f500.php_composer
+    - f500.php_xdebug
 
   tasks:
     - name: copy nginx configuration

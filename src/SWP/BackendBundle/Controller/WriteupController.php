@@ -37,6 +37,7 @@ class WriteupController extends Controller
 
         if (!$writeup) {
             $writeup = $writeupService->newInstance();
+            $writeup->setEventId($eventId);
         }
 
         $writeupForm = $this->createForm(new Type\WriteupType(), $writeup);
@@ -45,7 +46,7 @@ class WriteupController extends Controller
         $preview = $markdownParser->transformMarkdown($writeup->getContent());
 
         if ($request->getMethod() == "POST") {
-            $writeupForm->bind($request);
+            $writeupForm->handleRequest($request);
 
             if ($writeupForm->isvalid()) {
                 $em = $this->getDoctrine()->getManager();
@@ -92,7 +93,7 @@ class WriteupController extends Controller
         $writeupPost = $request->request->get('writeup');
 
         $writeupForm = $this->createForm(new Type\WriteupType(), $writeup);
-        $writeupForm->bind($writeupPost);
+        $writeupForm->handleRequest($writeupPost);
 
         if ($writeupForm->isValid()) {
             $em = $this->getDoctrine()->getManager();
