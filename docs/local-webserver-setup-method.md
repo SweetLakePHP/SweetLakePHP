@@ -1,4 +1,4 @@
-# Painful installation method
+# Local webserver method (aka the Painful way)
 
 ## Requirements
 
@@ -41,7 +41,7 @@ Simply copy the file `parameters.yml.dist` to `parameters_dev.yml`.
 Edit the file and make and following changes:
 
 * Line 5-8: db_credentials, enter the database credentials for your local db server.
-* Line 14: uncomment `#mailer_delivery_address`, and replace 'YOUR@EMAIL-ADDRESS.HERE' with your e-mail address.
+* Line 14: uncomment `#mailer_delivery_address`, and replace 'YOUR_EMAIL_ADDRESS_HERE' with your e-mail address.
 * Line 22: meetup_api_key, replace 'ADD_YOUR_MEETUP_API_KEY_HERE' with your API key.
 * Line 24-27: _OPTIONAL_ add your twitter API key settings
 

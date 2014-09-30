@@ -24,9 +24,11 @@ Want to get involved with this project? See our [issues (bug/feature) page](http
 
 ## Installation
 
-* this is the Vagrant manual. We highly recommend using a virtual environment for development, but if you have a 
+This is the Vagrant manual. We highly recommend using a virtual environment for development, but if you have a 
 local webserver (or, you are subjected to cruel and unusual punishment and **have** to use Windows), you can find 
-a more detailed description of the installation process [here](docs/local-webserver-setup.md).
+a more detailed description of the installation process:
+
+[Local webserver setup method](docs/local-webserver-setup-method.md).
 
 ### Step 1: Create your config file
 
@@ -37,7 +39,7 @@ In the project 'app' folders you find a folder named 'config'. We must add a fil
 Simply copy the file `parameters.yml.dist` to `parameters_dev.yml`.
 Edit the file and make and following changes:
 
-* Line 14: uncomment `#mailer_delivery_address`, and replace 'YOUR@EMAIL-ADDRESS.HERE' with your e-mail address.
+* Line 14: uncomment `#mailer_delivery_address`, and replace 'YOUR_EMAIL_ADDRESS_HERE' with your e-mail address.
 * Line 22: meetup_api_key, replace 'ADD_YOUR_MEETUP_API_KEY_HERE' with your API key.
 * Line 24-27: _OPTIONAL_ add your twitter API key settings
 
