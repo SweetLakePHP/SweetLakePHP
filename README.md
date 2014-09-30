@@ -58,7 +58,7 @@ _Unfortunately, Ansible does not work that well with Vagrant on Windows, so don'
 **Ansible Galaxy:**
 In the root of the project, enter the command:
    
-    ansible-galaxy install -r ansible/ansible-galaxy.txt
+    ansible-galaxy install -r ansible/ansible-galaxy.txt --force
 
 **Vagrant:**
 In the root of the project, enter the command:
