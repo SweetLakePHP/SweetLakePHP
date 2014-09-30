@@ -69,12 +69,7 @@ If you use Vagrant, the database credentials are:
 Be patient, this process takes some time, if you dont see any errors, then composer ran successfully.
 
 
-### Step 6: Make `app/cache` and `app/logs` writable for the webserver
-
-Please read section _Setting up Permissions_ under [Configuration and Setup](http://symfony.com/doc/current/book/installation.html#configuration-and-setup) in [The Book](http://symfony.com/doc/current/book/index.html).
-
-
-### Step 7A (Vagrant users only): Vagrant up
+### Step 6 (Vagrant users only): Vagrant up
 
 This repository contains a Vagrantfile. This means that is uses [Vagrant](http://www.vagrantup.com) to automatically create a virtual machine on your system.
 _Unfortunately, Ansible does not work that well with Vagrant on Windows, so don't even try unless you know what you're doing. Installing a local webserver is a lot less painful_
@@ -82,19 +77,25 @@ _Unfortunately, Ansible does not work that well with Vagrant on Windows, so don'
 **Ansible Galaxy:**
 In the root of the project, enter the command:
    
-    ansible-galaxy install -r ansible/ansible-galaxy.txt -p ansible --force
+    ansible-galaxy install -r ansible/ansible-galaxy.txt --force
 
 **Vagrant:**
 In the root of the project, enter the command:
 
     vagrant up
 
-After the machine is created, [Ansible](http://docs.ansible.com) is used to "provision" it. That just means all the necessary software is installed. It also takes care of the proper config files for the webserver.
+After the machine is created, [Ansible](http://docs.ansible.com) is used to "provision" it. That just means all the
+necessary software is installed. It also takes care of the proper config files for the webserver.
 
-The webserver is configured to listen to the hostname *sweetlakephp.loc*, so the url should be [http://sweetlakephp.loc](http://sweetlakephp.loc).
-You will need to add this line in your local hosts file (/etc/hosts on Linux and OS X, %SystemRoot%\system32\drivers\etc\hosts on Windows).
+The webserver is configured to listen to the hostname *sweetlakephp.loc*, so the url should be
+[http://sweetlakephp.loc](http://sweetlakephp.loc). You will need to add this line in your local hosts file
+(/etc/hosts on Linux and OS X, %SystemRoot%\system32\drivers\etc\hosts on Windows).
 
     192.168.30.48  sweetlakephp.loc
+
+### Step 7A (local webserver only): Make `app/cache` and `app/logs` writable for the webserver
+
+Please read section _Setting up Permissions_ under [Configuration and Setup](http://symfony.com/doc/current/book/installation.html#configuration-and-setup) in [The Book](http://symfony.com/doc/current/book/index.html).
 
 ### Step 7B (local webserver only): Configure your webserver
 

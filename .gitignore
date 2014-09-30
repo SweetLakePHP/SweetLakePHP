@@ -1,6 +1,6 @@
 /.idea/workspace.xml
 /.vagrant
-/ansible/f500.*
+/ansible/roles/*
 /app/bootstrap.php.cache
 /app/cache/*
 /app/config/parameters_*.yml
