@@ -25,6 +25,8 @@ writeup:
     content:                            Content
     preview:                            Voorbeeld
     autosave:                           Autosave
+    view:                               Bekijk writeup
+    back:                               Terug naar de meetup
     send:
         title:                          Send mail
         header:                         Send email to members

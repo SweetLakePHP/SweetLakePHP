@@ -18,7 +18,7 @@ use SWP\BackendBundle\Form\Type;
 class WriteupController extends Controller
 {
     /**
-     * @Route("/{eventId}/writeup", name="event.writeup" , requirements={"eventId" = "\d+"})
+     * @Route("/{eventId}/writeup", name="event.writeup", requirements={"eventId" = "\d+"})
      * @Method({"GET", "POST"})
      * @Template()
      */

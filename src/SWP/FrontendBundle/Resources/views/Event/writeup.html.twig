@@ -1,0 +1,23 @@
+{% extends 'SWPFrontendBundle::layout.html.twig' %}
+
+{% block title %}
+    {% trans %}event.singular{% endtrans %}: {{ event.name }}
+{% endblock %}
+
+{% block content %}
+    <div id="wrapper">
+        <div id="page-title">
+            <div id="page-title-inner">
+                <h2>{{ event.name }} - {% trans %}writeup.singular{% endtrans %}</h2>
+            </div>
+        </div>
+
+        <div class="meetup-show">
+            <a href="{{ path('event.show', {'id': event.id}) }}" class="btn">
+                {% trans %}writeup.back{% endtrans %}
+            </a><br />
+            <br />
+            {{ writeupContent | raw }}
+        </div>
+    </div>
+{% endblock %}
