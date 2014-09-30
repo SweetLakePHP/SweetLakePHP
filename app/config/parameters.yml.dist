@@ -1,8 +1,8 @@
 parameters:
     database_driver:   pdo_mysql
-    database_host:     localhost
-    database_port:     ~
-    database_socket:   /var/run/mysqld/mysqld.sock
+    database_host:     192.168.30.48
+    database_port:     3306
+    database_socket:   ~
     database_name:     sweetlakephp
     database_user:     sweetlakephp
     database_password: secret
