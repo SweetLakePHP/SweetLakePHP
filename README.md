@@ -14,8 +14,8 @@ Want to get involved with this project? See our [issues (bug/feature) page](http
 * [Virtualbox](https://www.virtualbox.org/)
 * [Vagrant](https://www.vagrantup.com/)
 * [Ansible](http://docs.ansible.com/intro_installation.html) (minimal version 1.5)
-* A fork of our [Github repository](https://github.com/verschoof/SweetLakePHP)
-* A clone of your repository on your local machine
+* A [fork](https://help.github.com/articles/fork-a-repo) of our [Github repository](https://github.com/verschoof/SweetLakePHP)
+* A [clone](http://stackoverflow.com/questions/1872113/how-do-i-clone-a-github-project-to-run-locally) of your repository on your local machine
 
 ## Also: gather the following information
 
@@ -32,7 +32,7 @@ a more detailed description of the installation process:
 
 ### Step 1: Create your config file
 
-In the project 'app' folders you find a folder named 'config'. We must add a file called:
+In the project 'app' folders you will find a folder named 'config'. You must add a file called:
 
 * `parameters_dev.yml`
 
