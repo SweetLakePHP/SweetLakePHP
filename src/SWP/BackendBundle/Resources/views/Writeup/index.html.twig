@@ -8,11 +8,6 @@
     <div id="wrapper">
         <div id="page-title">
             <div id="page-title-inner">
-                <button id="writeup_send_button" {% if writeup.sent %}disabled="disabled"{% endif %} class="btn pull-right {% if writeup.sent %}btn-danger{% else %}btn-success{% endif %}" data-toggle="modal" data-target="#writeup_send_modal">
-                    <i class="fa fa-envelope"></i>
-                    {% trans %}writeup.send.title{% endtrans %}
-                </button>
-
                 <h2>{% trans %}writeup.singular{% endtrans %}</h2>
             </div>
         </div>
@@ -45,26 +40,5 @@
                 <a href="{{ path('event.list') }}" class="btn">{% trans %}global.cancel{% endtrans %}</a>
             </div>
         </form>
-    </div>
-
-    <div id="writeup_send_modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="myModalLabel">{% trans %}writeup.send.header{% endtrans %}</h3>
-        </div>
-
-        <div class="modal-body">
-            {% trans %}writeup.send.confirm{% endtrans %}
-        </div>
-
-        <div class="modal-footer">
-            <button class="btn" data-dismiss="modal" aria-hidden="true">
-                {% trans %}global.cancel{% endtrans %}
-            </button>
-            <button class="btn btn-primary">
-                <i class="fa fa-envelope"></i>
-                {% trans %}writeup.send.title{% endtrans %}
-            </button>
-        </div>
     </div>
 {% endblock %}
