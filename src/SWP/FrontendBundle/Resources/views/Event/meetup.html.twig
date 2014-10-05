@@ -8,9 +8,11 @@
     <div id="wrapper">
         <div id="page-title">
             <div id="page-title-inner">
-                <div class="pull-right">
-                    <a href="{{ path('event.show-writeup', {'id': event.id}) }}" class="btn" style="margin-top: 6px;">{% trans %}writeup.view{% endtrans %}</a>
-                </div>
+                {% if hasWriteup %}
+                    <div class="pull-right">
+                        <a href="{{ path('event.show-writeup', {'id': event.id}) }}" class="btn" style="margin-top: 6px;">{% trans %}writeup.view{% endtrans %}</a>
+                    </div>
+                {% endif %}
                 <h2>{{ event.name }}</h2>
             </div>
         </div>

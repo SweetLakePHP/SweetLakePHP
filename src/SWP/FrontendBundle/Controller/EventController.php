@@ -20,13 +20,23 @@ class EventController extends Controller
         $meetupService = $this->get('swp_frontend.meetupService');
         $meetupService->getUpcomingEvents();
 
+        /* @var $writeupService WriteupService */
+        $writeupService = $this->get('swp_backend.writeupService');
+        $writeup        = $writeupService->findByEventId($id);
+
+        $hasWriteup = false;
+        if ($writeup) {
+            $hasWriteup = true;
+        }
+
         $event = $meetupService->find($id);
         if (!$event) {
             throw new \LogicException("Meetup not found", 404);
         }
 
         return array(
-            'event' => $event
+            'event'      => $event,
+            'hasWriteup' => $hasWriteup
         );
     }
 
@@ -48,6 +58,10 @@ class EventController extends Controller
         /* @var $writeupService WriteupService */
         $writeupService = $this->get('swp_backend.writeupService');
         $writeup        = $writeupService->findByEventId($id);
+
+        if (!$writeup) {
+            throw new \InvalidArgumentException(sprintf('Write up for event %s can not been found', $id));
+        }
 
         $markdownParser = $this->get('markdown.parser');
         $writeupContent = $markdownParser->transformMarkdown($writeup->getContent());
