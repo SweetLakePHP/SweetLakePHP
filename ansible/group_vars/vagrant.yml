@@ -7,6 +7,7 @@ nginx_user: vagrant
 php_fpm_user: vagrant
 php_fpm_group: vagrant
 php_opcache_validate_timestamps: On
+php_opcache_revalidate_freq: 0
 mariadb_bind_address: 0.0.0.0
 
 sweetlakephp_server_name: "sweetlakephp.loc"
