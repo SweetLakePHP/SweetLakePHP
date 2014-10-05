@@ -1,25 +1,25 @@
 parameters:
     database_driver:   pdo_mysql
-    database_host:     localhost
-    database_port:     ~
+    database_host:     192.168.30.48
+    database_port:     3306
     database_socket:   ~
-    database_name:     symfony
-    database_user:     root
-    database_password: ~
+    database_name:     sweetlakephp
+    database_user:     sweetlakephp
+    database_password: secret
 
     mailer_transport:        smtp
     mailer_host:             127.0.0.1
     mailer_user:             ~
     mailer_password:         ~
-    # mailer_delivery_address: email@domain.com
+    # mailer_delivery_address: YOUR@EMAIL-ADDRESS.HERE
 
     locale: en
     secret: ThisTokenIsNotSoSecretChangeIt
 
     contact_email:     email@domain.com
-    contact_receivers: "email1@domain.com, email2@domain.com"
+    contact_receivers: "email1@domain.com"
 
-    meetup_api_key:       key
+    meetup_api_key: ADD_YOUR_MEETUP_API_KEY_HERE
     meetup_group_urlname: SweetlakePHP
 
     twitter_consumer_key:    ~
