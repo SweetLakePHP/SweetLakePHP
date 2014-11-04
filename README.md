@@ -5,7 +5,7 @@ SweetLakePHP
 
 Our website at [sweetlakephp.nl](http://sweetlakephp.nl/)!
 
-Want to get involved with this project? See our [issues (bug/feature) page](https://github.com/verschoof/SweetLakePHP/issues?state=open).
+Want to get involved with this project? See our [issues (bug/feature) page](https://github.com/SweetlakePHP/SweetLakePHP/issues?state=open).
 
 # Getting started
 
@@ -14,7 +14,7 @@ Want to get involved with this project? See our [issues (bug/feature) page](http
 * [Virtualbox](https://www.virtualbox.org/)
 * [Vagrant](https://www.vagrantup.com/)
 * [Ansible](http://docs.ansible.com/intro_installation.html) (minimal version 1.5)
-* A [fork](https://help.github.com/articles/fork-a-repo) of our [Github repository](https://github.com/verschoof/SweetLakePHP)
+* A [fork](https://help.github.com/articles/fork-a-repo) of our [Github repository](https://github.com/SweetlakePHP/SweetLakePHP)
 * A [clone](http://stackoverflow.com/questions/1872113/how-do-i-clone-a-github-project-to-run-locally) of your repository on your local machine
 
 ## Also: gather the following information
