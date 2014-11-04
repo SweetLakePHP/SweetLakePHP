@@ -35,14 +35,14 @@ class User implements UserInterface, \Serializable
     protected $password;
 
     /**
-     * @ORM\Column(name="is_active", type="boolean")
+     * @ORM\Column(name="active", type="boolean")
      */
-    protected $isActive;
+    protected $active;
 
     public function __construct()
     {
-        $this->isActive = true;
-        $this->salt     = md5(uniqid(null, true));
+        $this->active = true;
+        $this->salt   = md5(uniqid(null, true));
     }
 
     public function getUsername()
@@ -165,25 +165,36 @@ class User implements UserInterface, \Serializable
     }
 
     /**
-     * Set isActive
+     * Activate user
      *
-     * @param boolean $isActive
-     * @return User
+     * @return $this
      */
-    public function setIsActive($isActive)
+    public function activate()
     {
-        $this->isActive = $isActive;
+        $this->active = true;
 
         return $this;
     }
 
     /**
-     * Get isActive
+     * Deactivate user
+     *
+     * @return $this
+     */
+    public function deactivate()
+    {
+        $this->active = false;
+
+        return $this;
+    }
+
+    /**
+     * Check if user is active
      *
      * @return boolean
      */
-    public function getIsActive()
+    public function isActive()
     {
-        return $this->isActive;
+        return $this->active;
     }
 }
