@@ -5,6 +5,8 @@ use Symfony\Component\Config\Loader\LoaderInterface;
 
 class AppKernel extends Kernel
 {
+    protected $developmentEnvironments = array('dev', 'test');
+
     public function registerBundles()
     {
         $bundles = array(
@@ -25,7 +27,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
         );
 
-        if (in_array($this->getEnvironment(), array('dev', 'test'))) {
+        if (in_array($this->getEnvironment(), $this->developmentEnvironments)) {
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
@@ -36,6 +38,30 @@ class AppKernel extends Kernel
 
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
-        $loader->load(__DIR__.'/config/config_'.$this->getEnvironment().'.yml');
+        $loader->load(__DIR__.'/config/config_' . $this->getEnvironment() . '.yml');
+    }
+
+    /**
+     * Override the cache dir for Vagrant
+     */
+    public function getCacheDir()
+    {
+        if (in_array($this->getEnvironment(), $this->developmentEnvironments)) {
+            return '/dev/shm/' . basename(dirname(__DIR__)) . '/cache/' . $this->environment;
+        }
+
+        return parent::getCacheDir();
+    }
+
+    /**
+     * Override the logs dir for Vagrant
+     */
+    public function getLogDir()
+    {
+        if (in_array($this->getEnvironment(), $this->developmentEnvironments)) {
+            return '/dev/shm/' . basename(dirname(__DIR__)) . '/log/' . $this->environment;
+        }
+
+        return parent::getLogDir();
     }
 }
