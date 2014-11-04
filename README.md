@@ -74,10 +74,15 @@ The webserver is configured to listen to the hostname _sweetlakephp.loc_, so the
 
     192.168.30.48  sweetlakephp.loc
 
+### Step 3: Vagrant up
+Run doctrine migrations in the vagrantbox
 
+    vagrant ssh
+    cd /vagrant/
+    app/console doctrine:migrations:migrate
+
+### Go ahead and make some changes!
 At this time you should be able to browse to [http://sweetlakephp.loc]. Congratulations!
-
-Go ahead and make some changes!
 
 
 ### Troubleshooting
