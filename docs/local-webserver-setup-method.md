@@ -10,7 +10,7 @@
 
 ### Step 1: Fork the project
 
-Go to our [Github repository](https://github.com/verschoof/SweetLakePHP) and click "Fork".
+Go to our [Github repository](https://github.com/SweetlakePHP/SweetLakePHP) and click "Fork".
 
 
 ### Step 2: Get the files from GIT
