@@ -76,10 +76,6 @@ class WriteupController extends Controller
         $meetupService = $this->get('swp_frontend.meetupService');
         $meetup        = $meetupService->find($eventId);
 
-        if (!$meetup['status'] == 'past') {
-
-        }
-
         $writeupService = $this->get('swp_backend.writeupService');
         $writeup        = $writeupService->findOneBy(array('eventId' => $eventId));
 

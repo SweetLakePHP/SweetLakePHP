@@ -109,14 +109,6 @@ class MeetupService
         return $event;
     }
 
-    public function sendMessage($subject, $message, array $members)
-    {
-//        $this->client->PostMessage(array(
-//                'dryrun' => true,
-//                'group_id' =>
-//            ))->toArray();
-    }
-
     /**
      * Adds extra fields on an array of events
      *
