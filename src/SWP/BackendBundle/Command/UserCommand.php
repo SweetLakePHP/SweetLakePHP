@@ -23,7 +23,7 @@ class UserCommand extends ContainerAwareCommand
             )
             ->addArgument(
                'password',
-               InputArgument::OPTIONAL,
+               InputArgument::REQUIRED,
                'Set the new password of the user'
             )
         ;
@@ -45,7 +45,7 @@ class UserCommand extends ContainerAwareCommand
         $encodedPassword = $encoder->encodePassword($password, $user->getSalt());
         $user->setPassword($encodedPassword);
 
-        $em = $this->getContainer()->get('doctrine')->getEntityManager();
+        $em = $this->getContainer()->get('doctrine')->getManager();
         $em->persist($user);
         $em->flush();
 
