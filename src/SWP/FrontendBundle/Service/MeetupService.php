@@ -2,12 +2,22 @@
 
 namespace SWP\FrontendBundle\Service;
 
+use DMS\Bundle\MeetupApiBundle\Service\ClientFactory;
+use DMS\Service\Meetup\MeetupKeyAuthClient;
+
 class MeetupService
 {
+    /**
+     * @var MeetupKeyAuthClient
+     */
     protected $client;
+
+    /**
+     * @var string
+     */
     protected $groupUrlName;
 
-    public function __construct($meetupClientFactory, $groupUrlName)
+    public function __construct(ClientFactory $meetupClientFactory, $groupUrlName)
     {
         $this->client       = $meetupClientFactory->getKeyAuthClient();
         $this->groupUrlName = $groupUrlName;
@@ -15,6 +25,10 @@ class MeetupService
 
     /**
      * Get all the events
+     *
+     * @param string $sortOrder
+     *
+     * @return array
      */
     public function findAll($sortOrder = 'desc')
     {
