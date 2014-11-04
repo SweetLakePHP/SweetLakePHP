@@ -39,18 +39,12 @@ In the project 'app' folders you will find a folder named 'config'. You must add
 Simply copy the file `parameters.yml.dist` to `parameters_dev.yml`.
 Edit the file and make and following changes:
 
-* Line 14: uncomment `#mailer_delivery_address`, and replace 'YOUR_EMAIL_ADDRESS_HERE' with your e-mail address.
+* Line 14: mailer_delivery_address, replace 'YOUR_EMAIL_ADDRESS_HERE' with your e-mail address.
 * Line 22: meetup_api_key, replace 'ADD_YOUR_MEETUP_API_KEY_HERE' with your API key.
 * Line 24-27: _OPTIONAL_ add your twitter API key settings
 
-### Step 2: Install dependencies with composer
 
-    php composer.phar install
-
-Be patient, this process takes some time, if you dont see any errors, then composer ran successfully.
-
-
-### Step 3: Vagrant up
+### Step 2: Vagrant up
 
 This repository contains a Vagrantfile. This means that is uses [Vagrant](http://www.vagrantup.com) to automatically create a virtual machine on your system.
 _Unfortunately, Ansible does not work that well with Vagrant on Windows, so don't even try unless you know what you're doing. Installing a local webserver is a lot less painful_
@@ -68,12 +62,14 @@ In the root of the project, enter the command:
 After the machine is created, [Ansible](http://docs.ansible.com) is used to "provision" it. That just means all the
 necessary software is installed. It also takes care of the proper config files for the webserver.
 
+Be patient, this process takes some time. Also, as part of the vagrant provisioning, a _composer install_ is run.
+You **do not** have to run that manually.
+
 The webserver is configured to listen to the hostname _sweetlakephp.loc_, so the url should be
 [http://sweetlakephp.loc]. You will need to add this line in your local hosts file
 (/etc/hosts on Linux and OS X, %SystemRoot%\system32\drivers\etc\hosts on Windows).
 
     192.168.30.48  sweetlakephp.loc
-
 
 At this time you should be able to browse to [http://sweetlakephp.loc]. Congratulations!
 
@@ -82,13 +78,20 @@ Go ahead and make some changes!
 
 ### Troubleshooting
 
+**Q: I get an nginx error saying "bad gateway"**
+
+A: Are you sure you remembered to perform step 1? Add your meetup API key!
+
 **Q: I see a very blank page with some content, but no styles.**
 
 A: Something went wrong with the final steps of the `composer install` command.
-We have to add the assets to the web folder. That can be done with the following commands:
+We have to add the assets to the web folder. That can be done with the following commands, but remember:
+this must be done _inside_ the vagrant box!
 
-    php app/console assets:install web --symlink
-    php app/console assetic:dump
+    vagrant ssh
+    > cd /vagrant
+    > php app/console assets:install web --symlink
+    > php app/console assetic:dump
 
 Revisit your browser and see if the website is fully loaded.
 
