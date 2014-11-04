@@ -18,7 +18,7 @@ class UserCommand extends ContainerAwareCommand
             ->setDescription('Create a new user')
             ->addArgument(
                 'email',
-                InputArgument::OPTIONAL,
+                InputArgument::REQUIRED,
                 'Please give the email of the new user'
             )
             ->addArgument(
