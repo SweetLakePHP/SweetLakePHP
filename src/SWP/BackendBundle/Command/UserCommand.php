@@ -23,7 +23,7 @@ class UserCommand extends ContainerAwareCommand
             )
             ->addArgument(
                'password',
-               InputArgument::OPTIONAL,
+               InputArgument::REQUIRED,
                'Set the new password of the user'
             )
         ;
