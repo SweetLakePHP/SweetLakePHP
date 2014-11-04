@@ -37,4 +37,11 @@
 
   post_tasks:
     - name: Remove old releases
-      deploy: "path={{ project_root }} state=cleanup"
+      deploy: "path={{ project_root }} state=clean"
+
+    - name: retrieve local user
+      local_action: command whoami
+      register: local_user
+
+    - name: Whoohoo!
+      slack: domain=future500.slack.com msg="Version {{ project_version }} of {{ project_git_repo }} deployed on {{ inventory_hostname }} by {{ local_user.stdout }}!" token={{ slack_api_token }}
