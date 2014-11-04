@@ -10,6 +10,11 @@ php_opcache_validate_timestamps: On
 php_opcache_revalidate_freq: 0
 mariadb_bind_address: 0.0.0.0
 
+php_xdebug_profiler_enable: 1
+php_xdebug_remote_enable: 1
+php_xdebug_remote_connect_back: 1
+php_xdebug_idekey: "PHPSTORM"
+
 sweetlakephp_server_name: "sweetlakephp.loc"
 sweetlakephp_fastcgi_index: "app_dev.php"
 sweetlakephp_application_env: "dev"
