@@ -73,9 +73,6 @@ class WriteupController extends Controller
      */
     public function autosaveAction(Request $request, $eventId)
     {
-        $meetupService = $this->get('swp_frontend.meetupService');
-        $meetup        = $meetupService->find($eventId);
-
         $writeupService = $this->get('swp_backend.writeupService');
         $writeup        = $writeupService->findOneBy(array('eventId' => $eventId));
 
