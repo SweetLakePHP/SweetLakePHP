@@ -203,3 +203,9 @@ form.error {
 #writeup_send_button {
     margin-top: 6px;
 }
+
+i.fa-slack {
+    -ms-transform: rotate(19deg);
+    -webkit-transform: rotate(19deg);
+    transform: rotate(19deg);
+}
