@@ -6,6 +6,7 @@ SweetLakePHP
 Our website at [sweetlakephp.nl](http://sweetlakephp.nl/)!
 
 Want to get involved with this project? See our [issues (bug/feature) page](https://github.com/SweetlakePHP/SweetLakePHP/issues?state=open).
+
 As a coding standard, we use the [PSR-2](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md) standard.
 
 # Getting started
