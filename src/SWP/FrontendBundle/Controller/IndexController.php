@@ -56,13 +56,11 @@ class IndexController extends Controller
                 $email   = $this->container->getParameter('contact_email');
                 $contact = $request->request->get('contact');
 
-
                 $message = \Swift_Message::newInstance()
                     ->setSubject($contact['subject'])
                     ->setFrom($email)
                     ->setReplyTo($contact['email'])
-                    ->setBody($contact['content'])
-                ;
+                    ->setBody($contact['content']);
 
                 foreach ($contactEmails as $key => $email) {
                     $message->addTo($email);
@@ -107,7 +105,7 @@ class IndexController extends Controller
         $twitterService = $this->get('swp_frontend.twitterService');
         $tweets         = $twitterService->getTweets($user, $numberOfTweets);
 
-        $response = new Response((string) $tweets);
+        $response = new Response((string)$tweets);
         $response->headers->set('Content-Type', 'application/json');
 
         return $response;
@@ -121,7 +119,7 @@ class IndexController extends Controller
         $twitterService = $this->get('swp_frontend.twitterService');
         $tweets         = $twitterService->getTweetsFriends($user, $numberOfTweets);
 
-        $response = new Response((string) $tweets);
+        $response = new Response((string)$tweets);
         $response->headers->set('Content-Type', 'application/json');
 
         return $response;

@@ -23,5 +23,4 @@ class MeetupController extends Controller
             'past'      => $pastMeetups
         );
     }
-
 }
