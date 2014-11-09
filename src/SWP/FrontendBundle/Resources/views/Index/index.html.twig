@@ -13,13 +13,11 @@
         </div>
 
         <div class="news">
-            {% if events is empty %}
-                <h2>No meetups scheduled yet :(</h2>
+            {% for event in events %}
+                {% include 'SWPFrontendBundle:Meetup:p-small.html.twig' with {'meetup': event} %}
             {% else %}
-                {% for event in events %}
-                    {% include 'SWPFrontendBundle:Meetup:p-small.html.twig' with {'meetup': event} %}
-                {% endfor %}
-            {% endif %}
+                <h2>No meetups scheduled yet :(</h2>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}
