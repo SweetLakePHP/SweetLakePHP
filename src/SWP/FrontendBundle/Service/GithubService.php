@@ -24,12 +24,12 @@ class GithubService
         // Add the cache plugin to the client object
         $this->client->addSubscriber(new CachePlugin(array(
             'storage' => new DefaultCacheStorage(
-                new DoctrineCacheAdapter(
-                    new FilesystemCache($rootDir . '/cache/' . $environment . '/guzzle')
-                ),
-                'github-',  // Key prefix
-                18000 // TTL
-            )
+                    new DoctrineCacheAdapter(
+                        new FilesystemCache($rootDir . '/cache/' . $environment . '/guzzle')
+                    ),
+                    'github-', // Key prefix
+                    18000 // TTL
+                )
         )));
     }
 

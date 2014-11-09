@@ -18,7 +18,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('swp_frontend');
+        $rootNode    = $treeBuilder->root('swp_frontend');
 
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for
@@ -26,15 +26,14 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
-                ->scalarNode('contact_email')->end()
-                ->scalarNode('contact_receivers')->end()
+            ->scalarNode('contact_email')->end()
+            ->scalarNode('contact_receivers')->end()
 
-                ->scalarNode('github_username')->end()
-                ->scalarNode('github_repository')->end()
+            ->scalarNode('github_username')->end()
+            ->scalarNode('github_repository')->end()
 
-                ->scalarNode('meetup_group_urlname')->end()
-            ->end()
-        ;
+            ->scalarNode('meetup_group_urlname')->end()
+            ->end();
 
         return $treeBuilder;
     }

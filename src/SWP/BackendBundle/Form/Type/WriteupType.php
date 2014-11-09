@@ -10,27 +10,26 @@ use Symfony\Component\Validator\Constraints;
 
 class WriteupType extends AbstractType
 {
-        /**
+    /**
      * @param FormBuilderInterface $builder
-     * @param array $options
+     * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('subject', 'text', array(
                 'constraints' => array(
-                   new Constraints\NotBlank()
+                    new Constraints\NotBlank()
                 )
             ))
             ->add('content', 'textarea', array(
-                'attr' => array(
+                'attr'        => array(
                     'class' => 'input-block-level'
                 ),
                 'constraints' => array(
                     new Constraints\NotBlank()
                 )
-            ))
-        ;
+            ));
     }
 
     /**

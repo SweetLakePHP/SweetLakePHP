@@ -19,12 +19,13 @@ class AccountType extends AbstractType
             ->add('password', 'repeated', array(
                 'type'            => 'password',
                 'invalid_message' => 'account.password.mismatch',
-                'options'         => array('attr' => array(
-                    'class' => 'password-field'
-                )),
+                'options'         => array(
+                    'attr' => array(
+                        'class' => 'password-field'
+                    )
+                ),
                 'required'        => true,
-            ))
-        ;
+            ));
     }
 
     public function getName()

@@ -53,10 +53,10 @@ class TwitterService
 
         // Sign all requests with the OauthPlugin
         $this->client->addSubscriber(new OauthPlugin(array(
-            'consumer_key' => $consumerKey,
+            'consumer_key'    => $consumerKey,
             'consumer_secret' => $consumerSecret,
-            'token' => $accessToken,
-            'token_secret' => $accessTokenSecret
+            'token'           => $accessToken,
+            'token_secret'    => $accessTokenSecret
         )));
     }
 
