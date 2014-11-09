@@ -25,6 +25,7 @@ class AppKernel extends Kernel
             new SWP\BackendBundle\SWPBackendBundle(),
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
+            new BOMO\IcalBundle\BOMOIcalBundle(),
         );
 
         if (in_array($this->getEnvironment(), $this->developmentEnvironments)) {

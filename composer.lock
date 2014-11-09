@@ -4,8 +4,57 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "dd72ef180ef785a67aa4e71c6be88de9",
+    "hash": "e18f64f890138571f4430bc68c64a06e",
     "packages": [
+        {
+            "name": "bomo/ical-bundle",
+            "version": "v1.0.5",
+            "target-dir": "BOMO/IcalBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/BorisMorel/IcalBundle.git",
+                "reference": "2d3a282b7837e3dce0233f3c2e8f1da2f2b243e6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/BorisMorel/IcalBundle/zipball/2d3a282b7837e3dce0233f3c2e8f1da2f2b243e6",
+                "reference": "2d3a282b7837e3dce0233f3c2e8f1da2f2b243e6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "symfony/framework-bundle": "~2.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "BOMO\\IcalBundle": ""
+                },
+                "files": [
+                    "lib/kigkonsult/icalcreator/iCalcreator.class.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Philippe Le Van",
+                    "homepage": "https://twitter.com/plv",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Boris Morel",
+                    "email": "boris.morel@imag.fr",
+                    "homepage": "https://github.com/BorisMorel",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Create ics url or file for Symfony 2",
+            "homepage": "http://github.com/BorisMorel/IcalBundle",
+            "time": "2014-07-23 14:00:22"
+        },
         {
             "name": "dflydev/markdown",
             "version": "v1.0.3",
