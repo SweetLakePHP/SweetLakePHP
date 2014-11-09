@@ -26,8 +26,14 @@ class TwitterService
      */
     protected $client;
 
-    public function __construct($consumerKey = null, $consumerSecret = null, $accessToken = null, $accessTokenSecret = null, $rootDir, $environment)
-    {
+    public function __construct(
+        $consumerKey = null,
+        $consumerSecret = null,
+        $accessToken = null,
+        $accessTokenSecret = null,
+        $rootDir,
+        $environment
+    ) {
         $this->consumerKey = $consumerKey;
 
         $this->client = new Client('https://api.twitter.com/{version}', array(
@@ -37,20 +43,20 @@ class TwitterService
         // Add the cache plugin to the client object
         $this->client->addSubscriber(new CachePlugin(array(
             'storage' => new DefaultCacheStorage(
-                new DoctrineCacheAdapter(
-                    new FilesystemCache($rootDir . '/cache/' . $environment . '/guzzle')
-                ),
-                'twitter-',  // Key prefix
-                3600 // TTL
-            )
+                    new DoctrineCacheAdapter(
+                        new FilesystemCache($rootDir . '/cache/' . $environment . '/guzzle')
+                    ),
+                    'twitter-', // Key prefix
+                    3600 // TTL
+                )
         )));
 
         // Sign all requests with the OauthPlugin
         $this->client->addSubscriber(new OauthPlugin(array(
-            'consumer_key'    => $consumerKey,
+            'consumer_key' => $consumerKey,
             'consumer_secret' => $consumerSecret,
-            'token'           => $accessToken,
-            'token_secret'    => $accessTokenSecret
+            'token' => $accessToken,
+            'token_secret' => $accessTokenSecret
         )));
     }
 
@@ -66,7 +72,7 @@ class TwitterService
 
     protected function doApiCallGet($url)
     {
-        if($this->twitterCredentialsAvailable()) {
+        if ($this->twitterCredentialsAvailable()) {
             return $this->client->get($url)->send()->body();
         }
         return json_encode($this->mockTwitterData);
