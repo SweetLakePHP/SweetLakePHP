@@ -204,7 +204,7 @@ form.error {
     margin-top: 6px;
 }
 
-i.fa-slack {
+i.fa-slack-rotate-19-degrees {
     -ms-transform: rotate(19deg);
     -webkit-transform: rotate(19deg);
     transform: rotate(19deg);
