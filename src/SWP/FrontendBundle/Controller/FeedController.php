@@ -36,7 +36,7 @@ class FeedController extends Controller
             ->setName('SweetlakePHP Meetups')
             ->setDescription('A calendar service containing SweetlakePHP meetups');
 
-        foreach($events as $event) {
+        foreach ($events as $event) {
             $dateTime = $event['datetime'];
 
             $description = $event['yes_rsvp_count'] . " Sweetlakers are attending the talk: " . $event['name'];
@@ -52,7 +52,7 @@ class FeedController extends Controller
             // Perhaps we should like to a vCard here for locations and make those dynamic as well.
             // @see https://code.google.com/p/calagator/wiki/IcalLocation#iCal_LOCATION_property
             // LOCATION;ALTREP="http://xyzcorp.com/conf-rooms/f123.vcf":Conference Room - F123, Bldg. 002
-            $venue = $event['venue'];
+            $venue          = $event['venue'];
             $locationString = $venue['name'] . ', ' . $venue['address_1'] . ', ' . $venue['city'] . ', ' . $venue['country'];
             $calendarEvent->setLocation($locationString);
         }
@@ -61,7 +61,7 @@ class FeedController extends Controller
             $calendar->returnCalendar(),
             200,
             array(
-                'Content-Type' => 'text/calendar; charset=utf-8',
+                'Content-Type'        => 'text/calendar; charset=utf-8',
                 'Content-Disposition' => 'attachment; filename="calendar.ics"',
             )
         );
@@ -75,7 +75,7 @@ class FeedController extends Controller
     public function reminderAction()
     {
         $meetupService = $this->get('swp_frontend.meetupService');
-        $events       = $meetupService->getUpcomingEvents('asc');
+        $events        = $meetupService->getUpcomingEvents('asc');
 
         /** @var \BOMO\IcalBundle\Provider\IcsProvider $provider */
         $provider = $this->get('bomo_ical.ics_provider');
@@ -91,18 +91,18 @@ class FeedController extends Controller
             ->setName('SweetlakePHP Organisers')
             ->setDescription('A calendar service containing SweetlakePHP organisational reminders');
 
-        foreach($events as $event) {
+        foreach ($events as $event) {
             $dateTime = $event['datetime'];
 
             // Calculate buns and cans
             // Usually there are 10 knaks per can, and everybody eats two buns (?)
-            $people = $event['yes_rsvp_count'];
+            $people        = $event['yes_rsvp_count'];
             $bunsPerPerson = 2;
-            $knaksPerCan = 10;
+            $knaksPerCan   = 10;
 
             $buns = $people * $bunsPerPerson;
             $cans = 0;
-            if($buns !== 0) {
+            if ($buns !== 0) {
                 $cans = ceil($buns / $knaksPerCan);
             }
 
@@ -126,7 +126,7 @@ class FeedController extends Controller
             // Perhaps we should like to a vCard here for locations and make those dynamic as well.
             // @see https://code.google.com/p/calagator/wiki/IcalLocation#iCal_LOCATION_property
             // LOCATION;ALTREP="http://xyzcorp.com/conf-rooms/f123.vcf":Conference Room - F123, Bldg. 002
-            $venue = $event['venue'];
+            $venue          = $event['venue'];
             $locationString = $venue['name'] . ', ' . $venue['address_1'] . ', ' . $venue['city'] . ', ' . $venue['country'];
             $calendarEvent->setLocation($locationString);
         }
@@ -135,7 +135,7 @@ class FeedController extends Controller
             $calendar->returnCalendar(),
             200,
             array(
-                'Content-Type' => 'text/calendar; charset=utf-8',
+                'Content-Type'        => 'text/calendar; charset=utf-8',
                 'Content-Disposition' => 'attachment; filename="reminders.ics"',
             )
         );
