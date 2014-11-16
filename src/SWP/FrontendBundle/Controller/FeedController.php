@@ -106,18 +106,21 @@ class FeedController extends Controller
                 $cans = ceil($buns / $knaksPerCan);
             }
 
+            $reminder = "Hotdog reminder. Get {$buns} buns, {$cans} cans of knaks and some sauerkraut";
+
             $calendarEvent = $calendar->newEvent();
             $calendarEvent->setStartDate($dateTime);
             $calendarEvent->setEndDate($dateTime->modify('+4 hours'));
             $calendarEvent->setName('SweetlakePHP Hotdogs');
+            $calendarEvent->setDescription($reminder);
 
             $firstAlarm = $provider->createAlarm();
             $firstAlarm->setAction('display');
-            $firstAlarm->setDescription("Hotdog reminder. Get {$buns} buns, {$cans} cans of knaks and some sauerkraut");
+            $firstAlarm->setDescription($reminder);
             $firstAlarm->setTrigger('-PT11H');
 
             $secondAlarm = $provider->createAlarm();
-            $secondAlarm->setDescription("Hotdog reminder. Get {$buns} buns, {$cans} cans of knaks and some sauerkraut");
+            $secondAlarm->setDescription($reminder);
             $secondAlarm->setTrigger('-PT4H');
 
             $calendarEvent->attachAlarm($firstAlarm);
