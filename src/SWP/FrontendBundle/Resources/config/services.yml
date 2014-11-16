@@ -2,6 +2,10 @@ parameters:
     swp_frontend.meetupService.class: SWP\FrontendBundle\Service\MeetupService
 
 services:
+    swp_frontend.calendarService:
+        class: SWP\FrontendBundle\Service\CalendarService
+        arguments:
+            container: "@service_container"
     swp_frontend.meetupService:
         class: %swp_frontend.meetupService.class%
         arguments:
