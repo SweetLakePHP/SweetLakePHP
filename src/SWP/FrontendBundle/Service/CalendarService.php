@@ -8,7 +8,6 @@
 namespace SWP\FrontendBundle\Service;
 
 use BOMO\IcalBundle\Provider\IcsProvider;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Class CalendarService
@@ -18,26 +17,46 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class CalendarService
 {
     /**
-     * @var ContainerInterface $container
+     * @var IcsProvider
      */
-    private $container;
+    private $icsProvider;
 
     /**
-     * @param ContainerInterface $container
+     * @var MeetupService
      */
-    public function __construct(ContainerInterface $container)
+    private $meetupService;
+
+    /**
+     * @param $icsProvider
+     * @param MeetupService $meetupService
+     */
+    public function __construct(IcsProvider $icsProvider, MeetupService $meetupService)
     {
-        $this->container = $container;
+        $this->icsProvider = $icsProvider;
+        $this->meetupService = $meetupService;
     }
 
     /**
-     * @return ContainerInterface
+     * @return MeetupService
      */
-    public function getContainer()
+    public function getMeetupService()
     {
-        return $this->container;
+        return $this->meetupService;
     }
 
+    /**
+     * @return IcsProvider
+     */
+    public function getIcsProvider()
+    {
+        return $this->icsProvider;
+    }
+
+    /**
+     * @param IcsProvider $provider
+     *
+     * @return \BOMO\IcalBundle\Model\Calendar
+     */
     private function createBaseCalendar(IcsProvider $provider)
     {
         $timezone = $provider->createTimezone();
@@ -53,11 +72,10 @@ class CalendarService
      */
     public function getMeetups()
     {
-        $meetupService = $this->getContainer()->get('swp_frontend.meetupService');
+        $meetupService = $this->getMeetupService();
         $events        = $meetupService->findAll();
 
-        /** @var IcsProvider $provider */
-        $provider = $this->getContainer()->get('bomo_ical.ics_provider');
+        $provider = $this->getIcsProvider();
         $calendar = $this->createBaseCalendar($provider);
 
         $calendar
@@ -90,11 +108,10 @@ class CalendarService
 
     public function getOrganiserCalendar()
     {
-        $meetupService = $this->getContainer()->get('swp_frontend.meetupService');
+        $meetupService = $this->getMeetupService();
         $events        = $meetupService->getUpcomingEvents('asc');
 
-        /** @var IcsProvider $provider */
-        $provider = $this->getContainer()->get('bomo_ical.ics_provider');
+        $provider = $this->getIcsProvider();
         $calendar = $this->createBaseCalendar($provider);
 
         $calendar
