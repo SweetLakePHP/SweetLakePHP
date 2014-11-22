@@ -77,7 +77,9 @@ class User implements UserInterface, \Serializable
     /**
      * @inheritDoc
      */
-    public function eraseCredentials() {}
+    public function eraseCredentials()
+    {
+    }
 
     /**
      * @see \Serializable::serialize()
@@ -102,7 +104,7 @@ class User implements UserInterface, \Serializable
             $this->email,
             $this->salt,
             $this->password,
-        ) = unserialize($serialized);
+            ) = unserialize($serialized);
     }
 
     /**
@@ -119,6 +121,7 @@ class User implements UserInterface, \Serializable
      * Set email
      *
      * @param string $email
+     *
      * @return User
      */
     public function setEmail($email)
@@ -142,6 +145,7 @@ class User implements UserInterface, \Serializable
      * Set salt
      *
      * @param string $salt
+     *
      * @return User
      */
     public function setSalt($salt)
@@ -155,6 +159,7 @@ class User implements UserInterface, \Serializable
      * Set password
      *
      * @param string $password
+     *
      * @return User
      */
     public function setPassword($password)

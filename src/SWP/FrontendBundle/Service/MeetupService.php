@@ -37,8 +37,8 @@ class MeetupService
             'desc'
         );
 
-        if(!in_array($sortOrder, $aAllowedSortOrderValues)){
-           $sortOrder = 'desc';
+        if (!in_array($sortOrder, $aAllowedSortOrderValues)) {
+            $sortOrder = 'desc';
         }
 
         $events = $this->client->getEvents(
@@ -67,8 +67,8 @@ class MeetupService
             'desc'
         );
 
-        if(!in_array($sortOrder, $aAllowedSortOrderValues)){
-           $sortOrder = 'desc';
+        if (!in_array($sortOrder, $aAllowedSortOrderValues)) {
+            $sortOrder = 'desc';
         }
 
         $events = $this->client->getEvents(
@@ -108,6 +108,7 @@ class MeetupService
      * Returns one event
      *
      * @param integer $id identifier of event
+     *
      * @return array
      */
     public function find($id)
@@ -127,6 +128,7 @@ class MeetupService
      * Adds extra fields on an array of events
      *
      * @param array $events Array of events
+     *
      * @return MeetupService
      */
     protected function eventsFiller(array &$events)
@@ -143,6 +145,7 @@ class MeetupService
      * Adds extra fields on an event
      *
      * @param array $event Single event
+     *
      * @return MeetupService
      */
     protected function eventFiller(array &$event)
