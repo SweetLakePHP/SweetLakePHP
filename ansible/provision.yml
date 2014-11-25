@@ -40,6 +40,9 @@
     - f500.php_xdebug
 
   tasks:
+    - name: Add the .profile, CD /vagrant directory on SSH
+      lineinfile: dest=/home/vagrant/.profile insertafter=EOF line="cd /vagrant"
+
     - name: copy the parameters distfile
       command: cp /vagrant/app/config/parameters.yml.dist /vagrant/app/config/parameters_dev.yml creates=/vagrant/app/config/parameters_dev.yml
 
