@@ -33,11 +33,9 @@
       - "app/console assetic:dump"
 
   roles:
+    - f500.module_only_role_for_testing
     - f500.project_deploy
 
   post_tasks:
-    - name: Remove old releases
-      deploy: "path={{ project_root }} state=clean"
-
     - name: Whoohoo!
       slack: domain=future500.slack.com msg="Version {{ project_version }} of SweetlakePHP deployed on Production by {{ lookup('pipe','whoami') }}!" token={{ slack_api_token }}
