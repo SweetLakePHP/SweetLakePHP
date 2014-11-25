@@ -73,7 +73,7 @@ class TwitterService
     protected function doApiCallGet($url)
     {
         if ($this->twitterCredentialsAvailable()) {
-            return $this->client->get($url)->send()->body();
+            return $this->client->get($url)->send()->getBody();
         }
         return json_encode($this->mockTwitterData);
     }
