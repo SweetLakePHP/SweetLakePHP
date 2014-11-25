@@ -68,6 +68,7 @@ class Writeup
      * Set eventId
      *
      * @param integer $eventId
+     *
      * @return Writeup
      */
     public function setEventId($eventId)
@@ -91,6 +92,7 @@ class Writeup
      * Set subject
      *
      * @param string $subject
+     *
      * @return Writeup
      */
     public function setSubject($subject)
@@ -114,6 +116,7 @@ class Writeup
      * Set content
      *
      * @param string $content
+     *
      * @return Writeup
      */
     public function setContent($content)
@@ -137,6 +140,7 @@ class Writeup
      * Set createdAt
      *
      * @param \DateTime $createdAt
+     *
      * @return Writeup
      */
     public function setCreatedAt($createdAt)
@@ -160,6 +164,7 @@ class Writeup
      * Set updatedAt
      *
      * @param \DateTime $updatedAt
+     *
      * @return Writeup
      */
     public function setUpdatedAt($updatedAt)
@@ -183,6 +188,7 @@ class Writeup
      * Set sent
      *
      * @param boolean $sent
+     *
      * @return Writeup
      */
     public function setSent($sent)

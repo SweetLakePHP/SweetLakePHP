@@ -11,10 +11,31 @@ use Guzzle\Plugin\Cache\DefaultCacheStorage;
 
 class TwitterService
 {
+    /**
+     * @var null|string $consumerKey
+     */
+    protected $consumerKey;
+
+    /**
+     * @var array
+     */
+    protected $mockTwitterData = array();
+
+    /**
+     * @var \Guzzle\Http\Client $client
+     */
     protected $client;
 
-    public function __construct($consumerKey = null, $consumerSecret = null, $accessToken = null, $accessTokenSecret = null, $rootDir, $environment)
-    {
+    public function __construct(
+        $consumerKey = null,
+        $consumerSecret = null,
+        $accessToken = null,
+        $accessTokenSecret = null,
+        $rootDir,
+        $environment
+    ) {
+        $this->consumerKey = $consumerKey;
+
         $this->client = new Client('https://api.twitter.com/{version}', array(
             'version' => '1.1'
         ));
@@ -22,12 +43,12 @@ class TwitterService
         // Add the cache plugin to the client object
         $this->client->addSubscriber(new CachePlugin(array(
             'storage' => new DefaultCacheStorage(
-                new DoctrineCacheAdapter(
-                    new FilesystemCache($rootDir . '/cache/' . $environment . '/guzzle')
-                ),
-                'twitter-',  // Key prefix
-                3600 // TTL
-            )
+                    new DoctrineCacheAdapter(
+                        new FilesystemCache($rootDir . '/cache/' . $environment . '/guzzle')
+                    ),
+                    'twitter-', // Key prefix
+                    3600 // TTL
+                )
         )));
 
         // Sign all requests with the OauthPlugin
@@ -41,11 +62,24 @@ class TwitterService
 
     public function getTweets($twitterUser, $numberOfTweets = 5)
     {
-        return $this->client->get("statuses/user_timeline.json?screen_name=" . $twitterUser . "&count=" . $numberOfTweets)->send()->getBody();
+        return $this->doApiCallGet("statuses/user_timeline.json?screen_name=" . $twitterUser . "&count=" . $numberOfTweets);
     }
 
     public function getTweetsFriends($twitterUser, $numberOfTweets = 5)
     {
-        return $this->client->get("statuses/home_timeline.json?screen_name=" . $twitterUser . "&count=" . $numberOfTweets)->send()->getBody();
+        return $this->doApiCallGet("statuses/home_timeline.json?screen_name=" . $twitterUser . "&count=" . $numberOfTweets);
+    }
+
+    protected function doApiCallGet($url)
+    {
+        if ($this->twitterCredentialsAvailable()) {
+            return $this->client->get($url)->send()->body();
+        }
+        return json_encode($this->mockTwitterData);
+    }
+
+    protected function twitterCredentialsAvailable()
+    {
+        return ($this->consumerKey !== null);
     }
 }

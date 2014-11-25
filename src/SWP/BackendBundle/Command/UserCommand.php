@@ -22,11 +22,10 @@ class UserCommand extends ContainerAwareCommand
                 'Please give the email of the new user'
             )
             ->addArgument(
-               'password',
-               InputArgument::REQUIRED,
-               'Set the new password of the user'
-            )
-        ;
+                'password',
+                InputArgument::REQUIRED,
+                'Set the new password of the user'
+            );
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -41,7 +40,7 @@ class UserCommand extends ContainerAwareCommand
         $user->setEmail($email);
 
         // set passowrd
-        $encoder = $factory->getEncoder($user);
+        $encoder         = $factory->getEncoder($user);
         $encodedPassword = $encoder->encodePassword($password, $user->getSalt());
         $user->setPassword($encodedPassword);
 

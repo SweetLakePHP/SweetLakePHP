@@ -43,7 +43,7 @@ class WriteupController extends Controller
         $writeupForm = $this->createForm(new Type\WriteupType(), $writeup);
 
         $markdownParser = $this->get('markdown.parser');
-        $preview = $markdownParser->transformMarkdown($writeup->getContent());
+        $preview        = $markdownParser->transformMarkdown($writeup->getContent());
 
         if ($request->getMethod() == "POST") {
             $writeupForm->handleRequest($request);
@@ -108,7 +108,7 @@ class WriteupController extends Controller
         $text = $request->request->get('text');
 
         $markdownParser = $this->get('markdown.parser');
-        $result = $markdownParser->transformMarkdown($text);
+        $result         = $markdownParser->transformMarkdown($text);
 
         return new Response(json_encode($result));
     }

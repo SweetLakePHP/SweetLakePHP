@@ -12,7 +12,7 @@ abstract class EntityBaseService
 
     public function __construct(EntityManager $em)
     {
-        $class = get_class($this);
+        $class        = get_class($this);
         $classExplode = explode("\\", $class);
 
         $repository = $classExplode[0] . $classExplode[1] . ':' . end($classExplode);
