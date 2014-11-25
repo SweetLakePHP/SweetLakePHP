@@ -203,3 +203,7 @@ form.error {
 #writeup_send_button {
     margin-top: 6px;
 }
+
+#head-sponsors img {
+    width: 250px;
+}
