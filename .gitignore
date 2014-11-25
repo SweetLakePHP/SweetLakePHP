@@ -3,7 +3,7 @@
 /ansible/roles/*
 /app/bootstrap.php.cache
 /app/cache/*
-/app/config/parameters_*.yml
+/app/config/parameters.yml
 /app/logs/*
 /bin/*
 /vendor/*

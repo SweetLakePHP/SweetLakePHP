@@ -44,7 +44,7 @@
       lineinfile: dest=/home/vagrant/.profile insertafter=EOF line="cd /vagrant"
 
     - name: copy the parameters distfile
-      command: cp /vagrant/app/config/parameters.yml.dist /vagrant/app/config/parameters_dev.yml creates=/vagrant/app/config/parameters_dev.yml
+      command: cp /vagrant/app/config/parameters.yml.dist /vagrant/app/config/parameters.yml creates=/vagrant/app/config/parameters.yml
 
     - name: composer install
       command: composer install --dev --working-dir=/vagrant
