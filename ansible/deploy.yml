@@ -20,8 +20,8 @@
 
     project_templates:
       - name: parameters.yml
-        src: "templates/parameters_prod.yml.j2"
-        dest: "/app/config/parameters_prod.yml"
+        src: "templates/parameters.yml.j2"
+        dest: "/app/config/parameters.yml"
 
     project_has_composer: yes
 

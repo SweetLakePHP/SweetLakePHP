@@ -38,7 +38,7 @@ In the project 'app' folders you will find a folder named 'config'. You must add
 
 * `parameters_dev.yml`
 
-Simply copy the file `parameters.yml.dist` to `parameters_dev.yml`.
+Simply copy the file `parameters.dist.yml` to `parameters_dev.yml`.
 Edit the file and make and following changes:
 
 * Line 14: mailer_delivery_address, replace 'YOUR_EMAIL_ADDRESS_HERE' with your e-mail address.
