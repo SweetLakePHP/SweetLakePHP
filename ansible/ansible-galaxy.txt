@@ -12,4 +12,3 @@ f500.ufw
 f500.ufw_rules
 f500.php_xdebug
 f500.project_deploy
-f500.project_deploy_module

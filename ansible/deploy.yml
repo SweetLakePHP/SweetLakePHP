@@ -33,7 +33,6 @@
       - "app/console assetic:dump"
 
   roles:
-    - f500.module_only_role_for_testing
     - f500.project_deploy
 
   post_tasks:
