@@ -42,7 +42,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         config_prodsim.vm.provision :ansible do |ansible|
             ansible.inventory_path = "ansible/hosts-production"
             ansible.playbook       = "ansible/setup_local_production_server.yml"
-            ansible.limit          = "production-test"
+            ansible.limit          = "prod-sim"
             ansible.raw_arguments  = "--user=vagrant"
             ansible.raw_arguments  = "--private-key=~/.vagrant.d/insecure_private_key"
             ansible.raw_arguments  = "--ask-vault-pass"

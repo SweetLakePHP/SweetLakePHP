@@ -1,9 +1,9 @@
-[production-test]
+[prod-sim]
 192.168.30.49
 
-[production-real]
+[prod-real]
 sweetlakephp.future500.nl
 
 [production:children]
-production-test
-production-real
+prod-sim
+prod-real
