@@ -2,6 +2,11 @@ parameters:
     swp_frontend.meetupService.class: SWP\FrontendBundle\Service\MeetupService
 
 services:
+    swp_frontend.calendarService:
+        class: SWP\FrontendBundle\Service\CalendarService
+        arguments:
+            icsProvider: "@bomo_ical.ics_provider"
+            meetupService: "@swp_frontend.meetupService"
     swp_frontend.meetupService:
         class: %swp_frontend.meetupService.class%
         arguments:
