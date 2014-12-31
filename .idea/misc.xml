@@ -4,8 +4,8 @@
     <dictionary name="jasper" />
   </component>
   <component name="ProjectResources">
-    <resource url="http://www.lisa.org/tmx14" location="$PROJECT_DIR$/../tmx14.dtd" />
     <resource url="tmx14.dtd" location="$PROJECT_DIR$/../tmx14.dtd" />
+    <resource url="http://www.lisa.org/tmx14" location="$PROJECT_DIR$/../tmx14.dtd" />
   </component>
   <component name="ProjectRootManager" version="2" />
   <component name="masterDetails">
@@ -24,4 +24,3 @@
     </states>
   </component>
 </project>
-

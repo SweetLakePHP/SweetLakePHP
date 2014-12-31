@@ -25,7 +25,13 @@
                 </tr>
                 <tr>
                     <td>{% trans %}event.where{% endtrans %}:</td>
-                    <td>{{ event.venue.name }}, {{ event.venue.address_1 }} {{ event.venue.city }}</td>
+                    <td>
+                        {% if event.venue is defined %}
+                            {{ event.venue.name }}, {{ event.venue.address_1 }} {{ event.venue.city }}
+                        {% else %}
+                            {% trans %}event.location.not-found{% endtrans %}
+                        {% endif %}
+                    </td>
                 </tr>
                 <tr>
                     <td>{% trans %}event.link{% endtrans %}:</td>

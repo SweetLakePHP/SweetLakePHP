@@ -31,13 +31,16 @@
       mysql_user: name={{ sweetlakephp_db_user }} password={{ sweetlakephp_db_password }} host='%' priv=*.*:ALL,GRANT state=present
 
 
-
-- name: Vagrant specific tasks
+- name: Vagrant sudo specific tasks
   hosts: vagrant
   sudo: yes
 
   roles:
     - f500.php_xdebug
+
+- name: Vagrant specific tasks
+  hosts: vagrant
+  sudo: no
 
   tasks:
     - name: Add the .profile, CD /vagrant directory on SSH
