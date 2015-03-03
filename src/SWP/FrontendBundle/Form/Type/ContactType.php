@@ -26,7 +26,7 @@ class ContactType extends AbstractType
             ->add('subject', 'text', array(
                 'constraints' => new Length(array('min' => 3)),
             ))
-            ->add('content', 'textarea', array(
+            ->add('message', 'textarea', array(
                 'attr'        => array(
                     'class' => 'input-block-level'
                 ),

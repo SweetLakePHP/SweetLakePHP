@@ -47,7 +47,7 @@ class IndexController extends Controller
         $contactForm = $this->createForm(new ContactType());
 
         if ($request->getMethod() === "POST") {
-            $contactForm->bind($request);
+            $contactForm->submit($request);
 
             if ($contactForm->isValid()) {
                 $contactEmailsString = $this->container->getParameter('contact_receivers');
@@ -86,6 +86,47 @@ class IndexController extends Controller
     public function sponsorsAction(Request $request)
     {
         return array();
+    }
+
+    /**
+     * @Route("/sponsors/contact", name="sponsors.contact")
+     * @Template()
+     * @Method({"GET","POST"})
+     */
+    public function sponsorsContactAction(Request $request)
+    {
+        $contactForm = $this->createForm(new ContactType());
+
+        if ($request->getMethod() === "POST") {
+            $contactForm->submit($request);
+
+            if ($contactForm->isValid()) {
+                $contactEmailsString = $this->container->getParameter('contact_receivers');
+                $contactEmails       = explode(', ', $contactEmailsString);
+
+                $email   = $this->container->getParameter('contact_email');
+                $contact = $request->request->get('contact');
+
+                $message = \Swift_Message::newInstance()
+                    ->setSubject($contact['subject'])
+                    ->setFrom($email)
+                    ->setReplyTo($contact['email'])
+                    ->setBody($contact['content']);
+
+                foreach ($contactEmails as $key => $email) {
+                    $message->addTo($email);
+                }
+
+                $this->get('mailer')->send($message);
+
+                $this->get('session')->getFlashBag()->add('success', 'contact.sent.success');
+                return $this->redirect($this->generateUrl('sponsors.contact'));
+            }
+        }
+
+        return array(
+            'contactForm' => $contactForm->createView()
+        );
     }
 
     /**
