@@ -31,8 +31,8 @@ class TwitterService
         $consumerSecret = null,
         $accessToken = null,
         $accessTokenSecret = null,
-        $rootDir,
-        $environment
+        $rootDir = '',
+        $environment = ''
     ) {
         $this->consumerKey = $consumerKey;
 
