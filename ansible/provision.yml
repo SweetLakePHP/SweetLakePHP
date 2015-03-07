@@ -50,7 +50,7 @@
       command: cp /vagrant/app/config/parameters.yml.dist /vagrant/app/config/parameters.yml creates=/vagrant/app/config/parameters.yml
 
     - name: composer install
-      command: composer install --dev --working-dir=/vagrant
+      command: composer install --working-dir=/vagrant
 
     - name: doctrine migrations
       command: app/console doctrine:migrations:migrate --no-interaction chdir=/vagrant
