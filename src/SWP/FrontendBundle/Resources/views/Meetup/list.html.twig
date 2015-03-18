@@ -13,12 +13,14 @@
         </div>
 
         <div class="news">
-            <h3>{% trans %}meetup.upcoming{% endtrans %}</h3>
+            <h2>{% trans %}meetup.upcoming{% endtrans %}</h2>
             {% for event in upcomming %}
                 {% include 'SWPFrontendBundle:Meetup:p-small.html.twig' with {'meetup': event} %}
+            {% else %}
+                <h3>{% trans %}meetup.none-found{% endtrans %}</h3>
             {% endfor %}
 
-            <h3>{% trans %}meetup.past{% endtrans %}</h3>
+            <h2>{% trans %}meetup.past{% endtrans %}</h2>
             {% for event in past %}
                 {% include 'SWPFrontendBundle:Meetup:p-small.html.twig' with {'meetup': event} %}
             {% endfor %}
