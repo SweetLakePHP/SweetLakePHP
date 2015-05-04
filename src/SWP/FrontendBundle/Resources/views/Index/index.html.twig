@@ -16,7 +16,7 @@
             {% for event in events %}
                 {% include 'SWPFrontendBundle:Meetup:p-small.html.twig' with {'meetup': event} %}
             {% else %}
-                <h2>No meetups scheduled yet :(</h2>
+                <h2>{% trans %}meetup.none-found{% endtrans %}</h2>
             {% endfor %}
         </div>
     </div>

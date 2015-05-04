@@ -33,6 +33,7 @@ meetup:
     plural:                             Meetups
     upcoming:                           Upcoming
     past:                               Past
+    none-found:                         No meetups scheduled yet :(
 
 footer:
     sponsors:                           Main sponsors
