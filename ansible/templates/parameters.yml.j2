@@ -1,31 +1,31 @@
 parameters:
-    database_driver:   pdo_mysql
+    database_driver:   {{ sweetlakephp_db_driver }}
     database_host:     {{ sweetlakephp_db_host }}
-    database_port:     ~
+    database_port:     {{ sweetlakephp_db_port }}
     database_socket:   {{ mariadb_socket }}
     database_name:     {{ sweetlakephp_db_name }}
     database_user:     {{ sweetlakephp_db_user }}
     database_password: {{ sweetlakephp_db_password }}
 
-    mailer_transport:  smtp
-    mailer_host:       127.0.0.1
-    mailer_user:       ~
-    mailer_password:   ~
-    mailer_delivery_address:  ramon@future500.nl
+    mailer_transport:        {{ sweetlakephp_mailer_transport }}
+    mailer_host:             {{ sweetlakephp_mailer_host }}
+    mailer_user:             {{ sweetlakephp_mailer_user }}
+    mailer_password:         {{ sweetlakephp_mailer_password }}
+    mailer_delivery_address: {{ sweetlakephp_mailer_delivery_address }}
 
-    locale:            en
-    secret:            {{ sweetlakephp_symfony_secret }}
+    locale: {{ sweetlakephp_locale }}
+    secret: {{ sweetlakephp_symfony_secret }}
 
-    contact_email:     contact@sweetlakephp.nl
-    contact_receivers: "ramon@future500.nl, mitchel@future500.nl"
+    contact_email:     {{ sweetlakephp_contact_email }}
+    contact_receivers: {{ sweetlakephp_contact_receivers }}
 
-    meetup_api_key:    {{ sweetlakephp_meetup_api_key }}
-    meetup_group_urlname: SweetlakePHP
+    meetup_api_key:       {{ sweetlakephp_meetup_api_key }}
+    meetup_group_urlname: {{ sweetlakephp_meetup_group_urlname }}
 
-    twitter_consumer_key:     {{ sweetlakephp_twitter_consumer_key }}
-    twitter_consumer_secret:  {{ sweetlakephp_twitter_consumer_secret }}
-    twitter_oauth_token:      {{ sweetlakephp_twitter_oauth_token }}
-    twitter_oauth_secret:     {{ sweetlakephp_twitter_oauth_secret }}
+    twitter_consumer_key:    {{ sweetlakephp_twitter_consumer_key }}
+    twitter_consumer_secret: {{ sweetlakephp_twitter_consumer_secret }}
+    twitter_oauth_token:     {{ sweetlakephp_twitter_oauth_token }}
+    twitter_oauth_secret:    {{ sweetlakephp_twitter_oauth_secret }}
 
-    github_username:   SweetlakePHP
-    github_repository: SweetLakePHP
+    github_username:   {{ sweetlakephp_github_username }}
+    github_repository: {{ sweetlakephp_github_repository }}

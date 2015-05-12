@@ -1,11 +1,11 @@
 ---
-ansible_connection: ssh
+ansible_connection: "ssh"
 
-php_cli_allow_url_fopen: "On"
+php_cli_allow_url_fopen:   "On"
 php_session_cookie_secure: "Off"
-php_log_dir: "/var/log/php5"
-php_fpm_user: "www-data"
-php_fpm_group: "www-data"
+php_log_dir:               "/var/log/php5"
+php_fpm_user:              "www-data"
+php_fpm_group:             "www-data"
 
 php_extensions:
     - php5-curl
@@ -15,6 +15,26 @@ php_extensions:
 
 mariadb_socket: "/var/run/mysqld/mysqld.sock"
 
-sweetlakephp_db_host: localhost
-sweetlakephp_db_name: sweetlakephp
-sweetlakephp_db_user: sweetlakephp
+sweetlakephp_locale: "en"
+
+sweetlakephp_db_driver: "pdo_mysql"
+sweetlakephp_db_host:   "localhost"
+sweetlakephp_db_port:   "~"
+sweetlakephp_db_name:   "sweetlakephp"
+sweetlakephp_db_user:   "sweetlakephp"
+
+sweetlakephp_mailer_transport:        "smtp"
+sweetlakephp_mailer_host:             "127.0.0.1"
+sweetlakephp_mailer_port:             "~"
+sweetlakephp_mailer_user:             "~"
+sweetlakephp_mailer_password:         "~"
+sweetlakephp_mailer_delivery_address: "~"
+
+sweetlakephp_contact_email:     "~"
+sweetlakephp_contact_receivers: "~"
+
+sweetlakephp_meetup_api_key:       "~"
+sweetlakephp_meetup_group_urlname: "SweetLakePHP"
+
+sweetlakephp_github_username:   "SweetlakePHP"
+sweetlakephp_github_repository: "SweetLakePHP"
