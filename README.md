@@ -15,7 +15,7 @@ As a coding style guide, we use the [PSR-2](https://github.com/php-fig/fig-stand
 
 * [Virtualbox](https://www.virtualbox.org/)
 * [Vagrant](https://www.vagrantup.com/)
-* [Ansible](http://docs.ansible.com/intro_installation.html) (minimal version 1.5)
+* [Ansible](http://docs.ansible.com/intro_installation.html) (minimal version 2.0)
 * A [fork](https://help.github.com/articles/fork-a-repo) of our [Github repository](https://github.com/SweetlakePHP/SweetLakePHP)
 * A [clone](http://stackoverflow.com/questions/1872113/how-do-i-clone-a-github-project-to-run-locally) of your repository on your local machine
 
@@ -54,7 +54,7 @@ _Unfortunately, Ansible does not work that well with Vagrant on Windows, so don'
 **Ansible Galaxy:**
 In the root of the project, enter the command:
    
-    ansible-galaxy install -r ansible/ansible-galaxy.txt --force
+    ansible-galaxy install -r ansible/ansible-galaxy.yml --force
 
 **Vagrant:**
 In the root of the project, enter the command:
@@ -76,6 +76,10 @@ The webserver is configured to listen to the hostname _sweetlakephp.loc_, so the
 At this time you should be able to browse to [http://sweetlakephp.loc]. Congratulations!
 
 Go ahead and make some changes!
+
+### Deploy (only for those who have access to the production server)
+
+    > ansible-playbook -i ansible/hosts-production ansible/deploy.yml --limit prod-real --ask-vault-pass 
 
 
 ### Troubleshooting
