@@ -21,8 +21,8 @@ As a coding style guide, we use the [PSR-2](https://github.com/php-fig/fig-stand
 
 ## Also: gather the following information
 
-* A Meetup API key (you'll need an account at [meetup.com])
-* OPTIONAL: a Twitter API key (for loading some tweets in the footer)
+* A [Meetup API key](https://secure.meetup.com/meetup_api/key/) (you'll need an account at [meetup.com])
+* OPTIONAL: a [Twitter API key](https://apps.twitter.com) (for loading some tweets in the footer)
 
 ## Installation
 
