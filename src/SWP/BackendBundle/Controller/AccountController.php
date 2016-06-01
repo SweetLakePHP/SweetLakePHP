@@ -21,6 +21,9 @@ class AccountController extends Controller
      * @Route("/", name="account.index")
      * @Template()
      * @Method({"GET", "POST"})
+     * @param Request $request
+     *
+     * @return array
      */
     public function indexAction(Request $request)
     {

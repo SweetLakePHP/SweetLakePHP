@@ -6,11 +6,19 @@ class MenuExtension extends \Twig_Extension
 {
     protected $request;
 
+    /**
+     * MenuExtension constructor.
+     *
+     * @param $request
+     */
     public function __construct($request)
     {
         $this->request = $request;
     }
 
+    /**
+     * @return array
+     */
     public function getFunctions()
     {
         return array(
@@ -18,6 +26,9 @@ class MenuExtension extends \Twig_Extension
         );
     }
 
+    /**
+     * @return array
+     */
     protected function listBundle()
     {
         $listBundle = array();
@@ -25,6 +36,11 @@ class MenuExtension extends \Twig_Extension
         return $listBundle;
     }
 
+    /**
+     * @param $item
+     *
+     * @return bool
+     */
     public function isActive($item)
     {
         $request = $this->request;
@@ -47,6 +63,9 @@ class MenuExtension extends \Twig_Extension
         return false;
     }
 
+    /**
+     * @return string
+     */
     public function getName()
     {
         return 'swp_menu_extension';

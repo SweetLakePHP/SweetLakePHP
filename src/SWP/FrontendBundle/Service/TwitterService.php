@@ -26,6 +26,16 @@ class TwitterService
      */
     protected $client;
 
+    /**
+     * TwitterService constructor.
+     *
+     * @param null   $consumerKey
+     * @param null   $consumerSecret
+     * @param null   $accessToken
+     * @param null   $accessTokenSecret
+     * @param string $rootDir
+     * @param string $environment
+     */
     public function __construct(
         $consumerKey = null,
         $consumerSecret = null,
@@ -60,16 +70,33 @@ class TwitterService
         )));
     }
 
+    /**
+     * @param     $twitterUser
+     * @param int $numberOfTweets
+     *
+     * @return string
+     */
     public function getTweets($twitterUser, $numberOfTweets = 5)
     {
         return $this->doApiCallGet("statuses/user_timeline.json?screen_name=" . $twitterUser . "&count=" . $numberOfTweets);
     }
 
+    /**
+     * @param     $twitterUser
+     * @param int $numberOfTweets
+     *
+     * @return string
+     */
     public function getTweetsFriends($twitterUser, $numberOfTweets = 5)
     {
         return $this->doApiCallGet("statuses/home_timeline.json?screen_name=" . $twitterUser . "&count=" . $numberOfTweets);
     }
 
+    /**
+     * @param $url
+     *
+     * @return string
+     */
     protected function doApiCallGet($url)
     {
         if ($this->twitterCredentialsAvailable()) {
@@ -78,6 +105,9 @@ class TwitterService
         return json_encode($this->mockTwitterData);
     }
 
+    /**
+     * @return bool
+     */
     protected function twitterCredentialsAvailable()
     {
         return ($this->consumerKey !== null);

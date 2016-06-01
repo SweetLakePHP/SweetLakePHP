@@ -11,6 +11,10 @@ use Symfony\Component\Validator\Constraints\Email;
 
 class ContactType extends AbstractType
 {
+    /**
+     * @param FormBuilderInterface $builder
+     * @param array                $options
+     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -42,6 +46,9 @@ class ContactType extends AbstractType
             ));
     }
 
+    /**
+     * @return string
+     */
     public function getName()
     {
         return 'contact';

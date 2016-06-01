@@ -17,6 +17,12 @@ class MeetupService
      */
     protected $groupUrlName;
 
+    /**
+     * MeetupService constructor.
+     *
+     * @param ClientFactory $meetupClientFactory
+     * @param               $groupUrlName
+     */
     public function __construct(ClientFactory $meetupClientFactory, $groupUrlName)
     {
         $this->client       = $meetupClientFactory->getKeyAuthClient();
@@ -56,6 +62,8 @@ class MeetupService
 
     /**
      * Get one or more events
+     *
+     * @param string $sortOrder
      *
      * @return array
      */
