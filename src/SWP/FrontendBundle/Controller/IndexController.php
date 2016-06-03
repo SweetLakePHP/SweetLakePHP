@@ -41,6 +41,9 @@ class IndexController extends Controller
      * @Route("/contact", name="contact")
      * @Template()
      * @Method({"GET","POST"})
+     * @param Request $request
+     *
+     * @return array
      */
     public function contactAction(Request $request)
     {
@@ -82,6 +85,9 @@ class IndexController extends Controller
      * @Route("/sponsors", name="sponsors")
      * @Template()
      * @Method({"GET"})
+     * @param Request $request
+     *
+     * @return array
      */
     public function sponsorsAction(Request $request)
     {
@@ -99,6 +105,10 @@ class IndexController extends Controller
 
     /**
      * @Route("/tweets/{user}/{numberOfTweets}", name="tweet.list", options={"expose"=true})
+     * @param $user
+     * @param $numberOfTweets
+     *
+     * @return Response
      */
     public function getTweetsAction($user, $numberOfTweets)
     {
@@ -113,6 +123,10 @@ class IndexController extends Controller
 
     /**
      * @Route("/tweets/{user}/{numberOfTweets}/friends", name="tweet.friends", options={"expose"=true})
+     * @param $user
+     * @param $numberOfTweets
+     *
+     * @return Response
      */
     public function getTweetsFriendsAction($user, $numberOfTweets)
     {

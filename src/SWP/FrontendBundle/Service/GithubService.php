@@ -14,6 +14,14 @@ class GithubService
     protected $username;
     protected $repository;
 
+    /**
+     * GithubService constructor.
+     *
+     * @param $username
+     * @param $repository
+     * @param $rootDir
+     * @param $environment
+     */
     public function __construct($username, $repository, $rootDir, $environment)
     {
         $this->username   = $username;
@@ -33,6 +41,9 @@ class GithubService
         )));
     }
 
+    /**
+     * @return mixed
+     */
     public function getAllContributors()
     {
         return $this->client->get('repos/' . $this->username . '/' . $this->repository . '/contributors')->send()->getBody();

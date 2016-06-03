@@ -8,6 +8,7 @@
 namespace SWP\FrontendBundle\Service;
 
 use BOMO\IcalBundle\Provider\IcsProvider;
+use DateTime;
 
 /**
  * Class CalendarService
@@ -83,6 +84,7 @@ class CalendarService
             ->setDescription('A calendar service containing SweetlakePHP meetups');
 
         foreach ($events as $event) {
+            /** @var DateTime $dateTime */
             $dateTime = $event['datetime'];
 
             $description = $event['yes_rsvp_count'] . " Sweetlakers are attending the talk: " . $event['name'];
@@ -106,6 +108,9 @@ class CalendarService
         return $calendar->returnCalendar();
     }
 
+    /**
+     * @return string
+     */
     public function getOrganiserCalendar()
     {
         $meetupService = $this->getMeetupService();
@@ -119,6 +124,7 @@ class CalendarService
             ->setDescription('A calendar service containing SweetlakePHP organisational reminders');
 
         foreach ($events as $event) {
+            /** @var DateTime $dateTime */
             $dateTime = $event['datetime'];
 
             // Calculate buns and cans

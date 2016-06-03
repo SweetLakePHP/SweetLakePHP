@@ -10,6 +10,11 @@ abstract class EntityBaseService
     protected $repository;
     protected $repo;
 
+    /**
+     * EntityBaseService constructor.
+     *
+     * @param EntityManager $em
+     */
     public function __construct(EntityManager $em)
     {
         $class        = get_class($this);
@@ -24,6 +29,11 @@ abstract class EntityBaseService
         $this->repo       = $repo;
     }
 
+    /**
+     * @param $id
+     *
+     * @return mixed
+     */
     public function find($id)
     {
         $findOne = $this->em
@@ -33,6 +43,11 @@ abstract class EntityBaseService
         return $findOne;
     }
 
+    /**
+     * @param array $criteria
+     *
+     * @return mixed
+     */
     public function findOneBy(array $criteria)
     {
         $findOne = $this->em
@@ -42,6 +57,9 @@ abstract class EntityBaseService
         return $findOne;
     }
 
+    /**
+     * @return mixed
+     */
     public function findAll()
     {
         $findAll = $this->em
@@ -51,6 +69,13 @@ abstract class EntityBaseService
         return $findAll;
     }
 
+    /**
+     * @param array      $criteria
+     * @param array|null $orderBy
+     * @param null       $limit
+     *
+     * @return mixed
+     */
     public function findBy(array $criteria, array $orderBy = null, $limit = null)
     {
         $findBy = $this->em
@@ -60,6 +85,9 @@ abstract class EntityBaseService
         return $findBy;
     }
 
+    /**
+     * @return mixed
+     */
     public function newInstance()
     {
         $entityInfo   = $this->em->getClassMetadata($this->repository);
@@ -68,6 +96,9 @@ abstract class EntityBaseService
         return $entityMember;
     }
 
+    /**
+     * @return mixed
+     */
     public function repo()
     {
         return $this->repo;

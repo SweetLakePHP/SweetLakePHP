@@ -21,6 +21,10 @@ class WriteupController extends Controller
      * @Route("/{eventId}/writeup", name="event.writeup", requirements={"eventId" = "\d+"})
      * @Method({"GET", "POST"})
      * @Template()
+     * @param Request $request
+     * @param         $eventId
+     *
+     * @return array
      */
     public function indexAction(Request $request, $eventId)
     {
@@ -70,6 +74,10 @@ class WriteupController extends Controller
 
     /**
      * @Route("/{eventId}/writeup/autosave", name="event.writeup.autosave", requirements={"eventId" = "\d+"}, options={"expose"=true})
+     * @param Request $request
+     * @param         $eventId
+     *
+     * @return Response
      */
     public function autosaveAction(Request $request, $eventId)
     {
@@ -102,6 +110,9 @@ class WriteupController extends Controller
     /**
      * @Route("/writeup/preview", name="event.writeup.preview", options={"expose"=true})
      * @Method({"POST"})
+     * @param Request $request
+     *
+     * @return Response
      */
     public function previewAction(Request $request)
     {
