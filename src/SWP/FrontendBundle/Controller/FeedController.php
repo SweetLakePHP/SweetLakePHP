@@ -13,7 +13,6 @@ class FeedController extends Controller
 {
     /**
      * @Route("/meetups.ics", name="meetups-ics")
-     * @Template()
      */
     public function indexAction()
     {
@@ -32,7 +31,6 @@ class FeedController extends Controller
     /**
      * @Route("/reminders.ics", name="feed")
      * @Method({"GET", "POST"})
-     * @Template()
      */
     public function reminderAction()
     {
