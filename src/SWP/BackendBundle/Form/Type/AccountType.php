@@ -6,6 +6,10 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class AccountType extends AbstractType
 {
+    /**
+     * @param FormBuilderInterface $builder
+     * @param array                $options
+     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -28,6 +32,9 @@ class AccountType extends AbstractType
             ));
     }
 
+    /**
+     * @return string
+     */
     public function getName()
     {
         return 'account';

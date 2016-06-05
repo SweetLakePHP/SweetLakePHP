@@ -6,6 +6,11 @@ class ContributorsExtension extends \Twig_Extension
 {
     protected $githubService;
 
+    /**
+     * ContributorsExtension constructor.
+     *
+     * @param $githubService
+     */
     public function __construct($githubService)
     {
         $this->githubService = $githubService;
@@ -18,6 +23,9 @@ class ContributorsExtension extends \Twig_Extension
         );
     }
 
+    /**
+     * @return array|mixed
+     */
     public function getContributers()
     {
         $contributors = $this->githubService->getAllContributors();
@@ -31,6 +39,9 @@ class ContributorsExtension extends \Twig_Extension
         return $decodedResult;
     }
 
+    /**
+     * @return string
+     */
     public function getName()
     {
         return 'swp_contributors_extension';

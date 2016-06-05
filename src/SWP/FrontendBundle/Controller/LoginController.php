@@ -14,6 +14,9 @@ class LoginController extends Controller
     /**
      * @Route("/login", name="login")
      * @Template()
+     * @param Request $request
+     *
+     * @return array
      */
     public function indexAction(Request $request)
     {

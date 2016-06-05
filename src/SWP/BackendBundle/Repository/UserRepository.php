@@ -11,6 +11,12 @@ use Doctrine\ORM\NoResultException;
 
 class UserRepository extends EntityRepository implements UserProviderInterface
 {
+    /**
+     * @param $username
+     *
+     * @return mixed
+     * @throws UsernameNotFoundException
+     */
     public function loadUserByUsername($username)
     {
         $q = $this
@@ -34,6 +40,12 @@ class UserRepository extends EntityRepository implements UserProviderInterface
         return $user;
     }
 
+    /**
+     * @param UserInterface $user
+     *
+     * @return mixed
+     * @throws UnsupportedUserException
+     */
     public function refreshUser(UserInterface $user)
     {
         $class = get_class($user);
@@ -49,6 +61,11 @@ class UserRepository extends EntityRepository implements UserProviderInterface
         return $this->find($user->getId());
     }
 
+    /**
+     * @param $class
+     *
+     * @return bool
+     */
     public function supportsClass($class)
     {
         return $this->getEntityName() === $class

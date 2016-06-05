@@ -13,6 +13,9 @@ class EventController extends Controller
     /**
      * @Route("/event/{id}", name="event.show")
      * @Template()
+     * @param $id
+     *
+     * @return array
      */
     public function meetupAction($id)
     {
@@ -43,6 +46,9 @@ class EventController extends Controller
     /**
      * @Route("/event/{id}/writeup", name="event.show-writeup")
      * @Template()
+     * @param $id
+     *
+     * @return array
      */
     public function writeupAction($id)
     {
