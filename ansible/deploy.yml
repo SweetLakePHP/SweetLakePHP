@@ -35,5 +35,8 @@
     - f500.project_deploy
 
   post_tasks:
+    - name: Restart php-fpm
+      shell: sudo /usr/sbin/service php5-fpm restart
+
     - name: Whoohoo!
       slack: domain=future500.slack.com msg="Version {{ project_version }} of SweetlakePHP deployed on Production by {{ lookup('pipe','whoami') }}!" token={{ slack_api_token }}
