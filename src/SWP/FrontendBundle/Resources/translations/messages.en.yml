@@ -7,7 +7,7 @@ contact:
     name:                               Name
     email:                              E-mail
     subject:                            Subject
-    content:                            Content
+    message:                            Message
     us:                                 Contact us
     suggestions:                        If you have some questions/comments or suggestions, you can fill in the form below.
     captcha:
@@ -15,7 +15,7 @@ contact:
         refresh:                        Renew captcha by clicking on the image
     send:                               Send
     sent:
-        success:                        The contact form has been successfully sent
+        success:                        Your contact inquiry has been successfully sent
 
 event:
     singular:                           Event
@@ -41,7 +41,7 @@ footer:
     follow:                             Follow us
     loading:                            Loading
     contributors:                       Contributors
-    no-contributors:                    Oh no, none contributors found!
+    no-contributors:                    Uh oh, no contributors found!
 
 menu:
     singular:                           Menu
@@ -69,7 +69,10 @@ sponsor:
     page:                               Sponsor page
     main:                               Main sponsors
     meetups:                            Meetup sponsors
-    continued:                          To be continued..
+    continued:                          To be continued...
+    join:                               I want to sponsor you too!
+    contact:
+      message:                          Want to sponsor our meetups? Please fill in the form below, of give us a call!
 
 login:
     singular:                           Login

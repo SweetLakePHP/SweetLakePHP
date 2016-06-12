@@ -1,0 +1,32 @@
+{% extends 'SWPFrontendBundle::layout.html.twig' %}
+
+{% block title %}
+    {% trans %}contact.singular{% endtrans %}
+{% endblock %}
+
+{% block content %}
+    <div id="wrapper">
+        <div id="page-title">
+            <div id="page-title-inner">
+                <h2>{% trans %}contact.us{% endtrans %}</h2>
+            </div>
+        </div>
+
+        <div id="contact">
+            <p>{% trans %}sponsor.contact.message{% endtrans %}</p>
+            <br>
+
+            {% form_theme contactForm 'SWPFrontendBundle:Form:bootstrap.html.twig' %}
+            {{ form_start(contactForm, {'method': 'POST', 'action': path('sponsors.contact'), 'attr': { 'class': 'form-horizontal no-bottom'}}) }}
+            {{ form_errors(contactForm) }}
+
+            {{ form_rest(contactForm) }}
+
+            <div class="form-actions">
+                <input class="btn btn-primary" type="submit" value="{% trans %}contact.send{% endtrans %}" />
+            </div>
+
+            {{ form_end(contactForm) }}
+        </div>
+    </div>
+{% endblock %}
