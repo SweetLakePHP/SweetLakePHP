@@ -1,7 +1,7 @@
 ---
 - name: Setup Local Production Server
   hosts: production
-  sudo: yes
+  become: yes
 
   tasks:
     - name: add inital user
