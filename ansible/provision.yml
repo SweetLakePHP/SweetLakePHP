@@ -1,7 +1,7 @@
 ---
 - name: Provision SweetlakePHP
   hosts: all
-  sudo: yes
+  become: yes
 
   roles:
     - apt-update
@@ -33,14 +33,14 @@
 
 - name: Vagrant sudo specific tasks
   hosts: vagrant
-  sudo: yes
+  become: yes
 
   roles:
     - f500.php_xdebug
 
 - name: Vagrant specific tasks
   hosts: vagrant
-  sudo: no
+  become: no
 
   tasks:
     - name: Add the .profile, CD /vagrant directory on SSH
@@ -57,7 +57,7 @@
 
 - name: Production specific tasks
   hosts: production
-  sudo: yes
+  become: yes
 
   roles:
     - f500.ufw
