@@ -14,6 +14,8 @@
     project_shared_children:
       - path: "/app/sessions"
         src: "sessions"
+      - path: "/app/logs"
+        src: "logs"
       - path: "/web/uploads"
         src: "uploads"
 
